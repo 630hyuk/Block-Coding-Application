@@ -64,6 +64,7 @@ public class DatabaseConnector {
                 break;
             case "pw":
                 try {
+                    // Update 대상 패스워드의 암호화 여부를 감지
                     builder.pw(PasswordManager.isEncrypted(updateTo) ? updateTo : PasswordManager.encrypt(updateTo));
                 }
                 catch (PasswordManager.InvalidPasswordException e) {
