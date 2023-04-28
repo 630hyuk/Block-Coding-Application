@@ -50,7 +50,32 @@ class StageOneFragment : Fragment() {
             findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
         }
 
-        binding?.btnReturnToMain?.setOnClickListener {
+        binding?.btnChapter5?.setOnClickListener {
+            bundle.putInt("chapterNumber", 5)  //챕터5임을 알려줍니다
+            findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
+        }
+
+        binding?.btnChapter6?.setOnClickListener {
+            bundle.putInt("chapterNumber", 6)  //챕터6임을 알려줍니다
+            findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
+        }
+
+        binding?.btnChapter7?.setOnClickListener {
+            bundle.putInt("chapterNumber", 7)  //챕터7임을 알려줍니다
+            findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
+        }
+
+        binding?.btnChapter8?.setOnClickListener {
+            bundle.putInt("chapterNumber", 8)  //챕터8임을 알려줍니다
+            findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
+        }
+
+        binding?.btnChapter9?.setOnClickListener {
+            bundle.putInt("chapterNumber", 9)  //챕터9임을 알려줍니다
+            findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
+        }
+
+        binding?.btnReturnToMain?.setOnClickListener {  //혹시 여기를 이렇게 만든 이유가 있나요? intent로 한 Activiy로 하는데 문제가 있었나요?
             findNavController().navigate(R.id.action_stageOneFragment_to_selectQuizFragment2, bundle)
         }
     }
