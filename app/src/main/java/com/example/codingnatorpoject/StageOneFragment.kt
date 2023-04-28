@@ -51,7 +51,7 @@ class StageOneFragment : Fragment() {
         }
 
         binding?.btnReturnToMain?.setOnClickListener {
-            startActivity(mainIntent)
+            findNavController().navigate(R.id.action_stageOneFragment_to_selectQuizFragment2, bundle)
         }
     }
 

@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainFragment">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/btn_play"
-        android:src="@drawable/button1"
-        android:layout_width="300dp"
-        android:layout_height="199dp"
+        android:layout_width="250dp"
+        android:layout_height="180dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="150dp"
         android:layout_marginRight="28dp"
         android:elevation="4dp"
         android:gravity="center"
+        android:src="@drawable/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
