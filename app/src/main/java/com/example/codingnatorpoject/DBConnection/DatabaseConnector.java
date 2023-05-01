@@ -116,7 +116,17 @@ public class DatabaseConnector {
             return null;
         }
 
-        if (!res.getPw().equals(pw)) return null;
+        String encrypted = "";
+
+        try {
+            encrypted = PasswordManager.encrypt(pw);
+        }
+        catch (PasswordManager.InvalidPasswordException e) {
+            Log.e("DatabaseConnector", "Invalid Password", e);
+            return null;
+        }
+
+        if (!res.getPw().equals(encrypted)) return null;
 
         updateUserData(res, "lastLoginStamp", now().toString());
         return res;
