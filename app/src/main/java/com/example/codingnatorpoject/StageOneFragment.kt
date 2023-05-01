@@ -75,6 +75,11 @@ class StageOneFragment : Fragment() {
             findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
         }
 
+        binding?.btnChapter10?.setOnClickListener {
+            bundle.putInt("order", 1)  //챕터10의 1번부터 10번까지를 호출하기 위한 order값입니다
+            findNavController().navigate(R.id.action_stageOneFragment_to_stageOneChapterTenQuizOXFragment, bundle)
+        }
+
         binding?.btnReturnToMain?.setOnClickListener {  //혹시 여기를 이렇게 만든 이유가 있나요? intent로 한 Activiy로 하는데 문제가 있었나요?
             findNavController().navigate(R.id.action_stageOneFragment_to_selectQuizFragment2, bundle)
         }
