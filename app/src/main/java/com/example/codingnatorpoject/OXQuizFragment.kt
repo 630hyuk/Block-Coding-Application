@@ -39,10 +39,40 @@ class OXQuizFragment : Fragment() {
                 "example2" to "X"
             ),
             mapOf(
-                "question" to "x좌표는 좌우를 담당한다고 했어요. x좌표가 +이면 오른쪽, -면 왼쪽으로 가요. 그러면 아래 블록은 캐릭터를 어느 쪽으로 이동시킬까요",
+                "question" to "아래 블록은 캐릭터를 어느 쪽으로 이동시킬까요?",
                 "answer" to "오른쪽",
                 "example1" to "왼쪽",
                 "example2" to "오른쪽"
+            ),
+            mapOf(
+                "question" to "해당 버튼은 캐릭터(스프라이트) 추가 버튼인가요?",
+                "answer" to "X",
+                "example1" to "O",
+                "example2" to "X"
+            ),
+            mapOf(
+                "question" to "해당 블록이 실행되면 캐릭터는 20을 말하나요?",
+                "answer" to "X",
+                "example1" to "O",
+                "example2" to "X"
+            ),
+            mapOf(
+                "question" to "해당 블록을 실행시키면 ‘김밥’ 변수는 10으로 설정되나요?",
+                "answer" to "X",
+                "example1" to "O",
+                "example2" to "X"
+            ),
+            mapOf(
+                "question" to "아래 조건은 맞나요? 맞으면 참, 틀리면 거짓을 눌러주세요",
+                "answer" to "거짓",
+                "example1" to "참",
+                "example2" to "거짓"
+            ),
+            mapOf(
+                "question" to "초록깃발을 누르고 충분히 기다렸을 때, x좌표는 계속 커지나요?",
+                "answer" to "X",
+                "example1" to "O",
+                "example2" to "X"
             )
         )
     override fun onCreateView(
@@ -79,6 +109,31 @@ class OXQuizFragment : Fragment() {
         if(chapterNumber == 4){
             showProblem(chapterNumber!!)
             binding?.imgQuestionOX?.setImageResource(R.drawable.ox4)
+        }
+
+        if(chapterNumber == 5){
+            showProblem(chapterNumber!!)
+            binding?.imgQuestionOX?.setImageResource(R.drawable.ox5)
+        }
+
+        if(chapterNumber == 6){
+            showProblem(chapterNumber!!)
+            binding?.imgQuestionOX?.setImageResource(R.drawable.ox6)
+        }
+
+        if(chapterNumber == 7){
+            showProblem(chapterNumber!!)
+            binding?.imgQuestionOX?.setImageResource(R.drawable.ox7)
+        }
+
+        if(chapterNumber == 8){
+            showProblem(chapterNumber!!)
+            binding?.imgQuestionOX?.setImageResource(R.drawable.ox8)
+        }
+
+        if(chapterNumber == 9){
+            showProblem(chapterNumber!!)
+            binding?.imgQuestionOX?.setImageResource(R.drawable.ox9)
         }
 
         binding?.btnO?.setOnClickListener {

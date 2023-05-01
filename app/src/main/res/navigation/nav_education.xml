@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_stageOneFragment_to_introduceFragment"
             app:destination="@id/introduceFragment" />
+        <action
+            android:id="@+id/action_stageOneFragment_to_selectQuizFragment2"
+            app:destination="@id/selectQuizFragment2" />
+        <action
+            android:id="@+id/action_stageOneFragment_to_stageOneChapterTenQuizOXFragment"
+            app:destination="@id/stageOneChapterTenQuizOXFragment" />
     </fragment>
     <fragment
         android:id="@+id/introduceFragment"
@@ -64,5 +70,43 @@
         <action
             android:id="@+id/action_lastResultFragment_to_stageOneFragment"
             app:destination="@id/stageOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectQuizFragment2"
+        android:name="com.example.codingnatorpoject.SelectQuizFragment"
+        android:label="fragment_select_quiz"
+        tools:layout="@layout/fragment_select_quiz" />
+    <fragment
+        android:id="@+id/stageOneChapterTenQuizOXFragment"
+        android:name="com.example.codingnatorpoject.StageOneChapterTenQuizOXFragment"
+        android:label="fragment_stage_one_chapter_ten_quiz_o_x"
+        tools:layout="@layout/fragment_stage_one_chapter_ten_quiz_o_x" >
+        <action
+            android:id="@+id/action_stageOneChapterTenQuizOXFragment_to_stageOneChapterTenResultFragment"
+            app:destination="@id/stageOneChapterTenResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stageOneChapterTenQuizFourFragment"
+        android:name="com.example.codingnatorpoject.StageOneChapterTenQuizFourFragment"
+        android:label="fragment_stage_one_chapter_ten_quiz_four"
+        tools:layout="@layout/fragment_stage_one_chapter_ten_quiz_four" >
+        <action
+            android:id="@+id/action_stageOneChapterTenQuizFourFragment_to_stageOneChapterTenResultFragment"
+            app:destination="@id/stageOneChapterTenResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stageOneChapterTenResultFragment"
+        android:name="com.example.codingnatorpoject.StageOneChapterTenResultFragment"
+        android:label="fragment_stage_one_chapter_ten_result"
+        tools:layout="@layout/fragment_stage_one_chapter_ten_result" >
+        <action
+            android:id="@+id/action_stageOneChapterTenResultFragment_to_stageOneChapterTenQuizOXFragment"
+            app:destination="@id/stageOneChapterTenQuizOXFragment" />
+        <action
+            android:id="@+id/action_stageOneChapterTenResultFragment_to_stageOneChapterTenQuizFourFragment"
+            app:destination="@id/stageOneChapterTenQuizFourFragment" />
+        <action
+            android:id="@+id/action_stageOneChapterTenResultFragment_to_lastResultFragment"
+            app:destination="@id/lastResultFragment" />
     </fragment>
 </navigation>

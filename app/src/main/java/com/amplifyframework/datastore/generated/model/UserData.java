@@ -19,6 +19,8 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
+import android.util.Log;
+
 /** This is an auto generated class representing the UserData type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "UserData", type = Model.Type.USER, version = 1, authRules = {
@@ -135,6 +137,35 @@ public final class UserData implements Model {
       .toString()
       .hashCode();
   }
+
+  public String getAttribute(String field) {
+    switch (field) {
+        case "id":
+            return id;
+        case "email":
+            return email;
+        case "pw":
+            return pw;
+        case "nickname":
+            return nickname;
+        case "progress":
+            return progress;
+        case "registerStamp":
+            return registerStamp.toString();
+        case "lastLoginStamp":
+            return lastLoginStamp.toString();
+        case "phone":
+            return phone;
+        default:
+            return null;
+    }
+  }
+
+    // ex) this.compare("id", "1234"); this.compare("email", "foobar@qwerty.com");
+  public boolean compare(String field, String target) {
+    return getAttribute(field).equals(target);
+  }
+
   
   @Override
    public String toString() {
@@ -225,6 +256,59 @@ public final class UserData implements Model {
           lastLoginStamp,
           phone);
     }
+
+      public String getAttribute(String field) {
+          switch (field) {
+              case "id":
+                  return id;
+              case "email":
+                  return email;
+              case "pw":
+                  return pw;
+              case "nickname":
+                  return nickname;
+              case "progress":
+                  return progress;
+              case "registerStamp":
+                  return registerStamp.toString();
+              case "lastLoginStamp":
+                  return lastLoginStamp.toString();
+              case "phone":
+                  return phone;
+              default:
+                  return null;
+          }
+      }
+
+      public void setAttribute(String field, String newAttribute) {
+          switch (field) {
+              case "id":
+                  id = newAttribute;
+                  break;
+              case "email":
+                  email = newAttribute;
+                  break;
+              case "pw":
+                  pw = newAttribute;
+                  break;
+              case "nickname":
+                  nickname = newAttribute;
+                  break;
+              case "progress":
+                  progress = newAttribute;
+                  break;
+              case "registerStamp":
+                  registerStamp = new Temporal.DateTime(newAttribute);
+              case "lastLoginStamp":
+                  lastLoginStamp = new Temporal.DateTime(newAttribute);
+              case "phone":
+                  phone = newAttribute;
+                  break;
+              default:
+                  Log.e("DatabaseConnector", "No such field named with " + field);
+
+          }
+      }
     
     @Override
      public BuildStep email(String email) {

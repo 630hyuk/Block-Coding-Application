@@ -22,7 +22,7 @@ class FourChooseQuizFragment : Fragment() {
     var binding: FragmentFourChooseQuizBinding? = null
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
-            mapOf(
+            mapOf( //챕터1
                 "question" to "해당 블록들은 캐릭터가 바라보는 방향으로 총 얼마만큼 움직이게 하나요?",
                 "answer" to "40",
                 "example1" to "10",
@@ -30,15 +30,15 @@ class FourChooseQuizFragment : Fragment() {
                 "example3" to "30",
                 "example4" to "40"
             ),
-            mapOf(
-                "question" to "해당 블록들이 한 번씩 실행되면 처음 위치에서 얼마나 이동하나요? (단, 90도, -90도는 각각 아래 그림의 화살표 방향이다.)",
+            mapOf( //챕터1
+                "question" to "해당 블록들이 한 번씩 실행되면 처음 위치에서 얼마나 이동하나요?",
                 "answer" to "0",
                 "example1" to "0",
                 "example2" to "10",
                 "example3" to "20",
                 "example4" to "30"
             ),
-            mapOf(
+            mapOf( //챕터2
                 "question" to "해당 블록은 캐릭터가 바라보는 방향이 몇 도를 바라보도록 만드나요?",
                 "answer" to "90도",
                 "example1" to "0도",
@@ -46,7 +46,7 @@ class FourChooseQuizFragment : Fragment() {
                 "example3" to "60도",
                 "example4" to "180도"
             ),
-            mapOf(
+            mapOf( //챕터2
                 "question" to "해당 블록은 캐릭터가 바라보는 방향이 몇 도를 바라보도록 만드나요?",
                 "answer" to "150도",
                 "example1" to "90도",
@@ -54,7 +54,7 @@ class FourChooseQuizFragment : Fragment() {
                 "example3" to "150도",
                 "example4" to "0도"
             ),
-            mapOf(
+            mapOf( //챕터3
                 "question" to "해당 블록은 어떤 키를 눌러야 캐릭터가 90도 방향을 보게 만드나요?",
                 "answer" to "a",
                 "example1" to "a",
@@ -62,7 +62,7 @@ class FourChooseQuizFragment : Fragment() {
                 "example3" to "c",
                 "example4" to "d"
             ),
-            mapOf(
+            mapOf( //챕터3
                 "question" to "이 중 어떤 키를 눌러야 30 만큼 움직일까요? 아래 블록들을 보고 판단해보세요.",
                 "answer" to "3",
                 "example1" to "1",
@@ -70,7 +70,7 @@ class FourChooseQuizFragment : Fragment() {
                 "example3" to "3",
                 "example4" to "4"
             ),
-            mapOf(
+            mapOf(//챕터4
                 "question" to "아래 블록을 실행시키면 캐릭터의 x좌표는 얼마가 될까요?",
                 "answer" to "10",
                 "example1" to "0",
@@ -78,13 +78,93 @@ class FourChooseQuizFragment : Fragment() {
                 "example3" to "10",
                 "example4" to "20"
             ),
-            mapOf(
+            mapOf( //챕터4
                 "question" to "아래 블록을 실행시키고 캐릭터의 x좌표와 y좌표의 합은 얼마가 될까요?",
                 "answer" to "0",
                 "example1" to "0",
                 "example2" to "5",
                 "example3" to "10",
                 "example4" to "20"
+            ),
+            mapOf(  //문제의 챕터5
+                "question" to "다음 중 배경 추가 버튼에 해당하는 것을 고르세요",
+                "answer" to "2",
+                "example1" to "1",
+                "example2" to "2",
+                "example3" to "3",
+                "example4" to "4"
+            ),
+            mapOf( //문제의 챕터5
+                "question" to "초록 깃발(시작) 버튼을 누르면 블록 아래의 코드가 실행되는데, 도중에 멈추고 싶으면 어느 버튼을 눌러야 할까요?",
+                "answer" to "3",
+                "example1" to "1",
+                "example2" to "2",
+                "example3" to "3",
+                "example4" to "4"
+            ),
+            mapOf(  //문제의 챕터6
+                "question" to "해당 코드가 전부 실행되고 나서 캐릭터는 어떤 말풍선을 출력하고 있나요?",
+                "answer" to "50 생각하기",
+                "example1" to "10 말하기",
+                "example2" to "50 말하기",
+                "example3" to "10 생각하기",
+                "example4" to "50 생각하기"
+            ),
+            mapOf( //챕터6
+                "question" to "해당 코드가 실행될 때, “점심”은 “맛있는” 이 사라지고 몇 초 뒤에 말하나요?",
+                "answer" to "0",
+                "example1" to "0",
+                "example2" to "1",
+                "example3" to "2",
+                "example4" to "3"
+            ),
+            mapOf(  //챕터7
+                "question" to "해당 블록이 전부 실행된 후 ‘라면’ 변수는 얼마로 설정되나요?",
+                "answer" to "20",
+                "example1" to "0",
+                "example2" to "10",
+                "example3" to "20",
+                "example4" to "30"
+            ),
+            mapOf( //챕터7
+                "question" to "해당 블록이 전부 실행된 후 ‘스마트폰’ 변수는 얼마로 설정되나요?",
+                "answer" to "40",
+                "example1" to "10",
+                "example2" to "20",
+                "example3" to "30",
+                "example4" to "40"
+            ),
+            mapOf(  //챕터8
+                "question" to "아래 블록은 어떤 값을 가지고 있을까요?",
+                "answer" to "4",
+                "example1" to "1",
+                "example2" to "2",
+                "example3" to "3",
+                "example4" to "4"
+            ),
+            mapOf( //챕터8
+                "question" to "초록깃발을 누른 후, 해당 조건을 만족하게 하려면 빈칸에 어떤 값을 써줘야 할까요?",
+                "answer" to "40",
+                "example1" to "10",
+                "example2" to "20",
+                "example3" to "30",
+                "example4" to "40"
+            ),
+            mapOf(  //챕터9
+                "question" to "초록 깃발을 클릭하고 실행이 완료되면, 캐릭터의 x좌표는 어디일까요?",
+                "answer" to "100",
+                "example1" to "10",
+                "example2" to "50",
+                "example3" to "100",
+                "example4" to "200"
+            ),
+            mapOf( //챕터9
+                "question" to "초록깃발을 클릭하면 캐릭터가 출력하는 값은 뭔가요?",
+                "answer" to "30",
+                "example1" to "0",
+                "example2" to "10",
+                "example3" to "20",
+                "example4" to "30"
             )
         )
     override fun onCreateView(
@@ -146,6 +226,61 @@ class FourChooseQuizFragment : Fragment() {
             else{
                 showProblem((chapterNumber!!*2)-1)
                 binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour7)
+            }
+        }
+
+        if(chapterNumber == 5){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour10)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour9)
+            }
+        }
+
+        if(chapterNumber == 6){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour12)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour11)
+            }
+        }
+
+        if(chapterNumber == 7){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour14)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour13)
+            }
+        }
+
+        if(chapterNumber == 8){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour16)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour15)
+            }
+        }
+
+        if(chapterNumber == 9){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour18)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour17)
             }
         }
 
