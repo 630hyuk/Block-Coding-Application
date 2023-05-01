@@ -14,7 +14,7 @@
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/block"
+            android:src="@drawable/map1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -23,29 +23,18 @@
             android:id="@+id/imageView2"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="첫 번째 지도"
-            android:textColor="#010E4E"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="-193dp">
+            android:layout_marginTop="96dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            tools:layout_editor_absoluteX="-42dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,44 +43,219 @@
 
                 <ImageView
                     android:id="@+id/btn_chapter1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="100dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="200dp"
                     android:layout_marginTop="100dp"
                     android:src="@drawable/island1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btn_chapter2"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-2"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter2"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/island1_2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter1" />
 
-                <Button
-                    android:id="@+id/btn_chapter3"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-3"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter3"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/island1_3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter2" />
 
-                <Button
-                    android:id="@+id/btn_chapter4"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-4"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="180dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="175dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter4"
+                    android:layout_width="150dp"
+                    android:layout_height="130dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/island1_4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter3" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="100dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_chapter5"
@@ -101,7 +265,7 @@
                     android:text="1-5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter4"/>
+                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter4" />
 
                 <Button
                     android:id="@+id/btn_chapter6"
@@ -121,7 +285,7 @@
                     android:text="1-7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter6"/>
+                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter6" />
 
                 <Button
                     android:id="@+id/btn_chapter8"
@@ -131,7 +295,7 @@
                     android:text="1-8"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter7"/>
+                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter7" />
 
                 <Button
                     android:id="@+id/btn_chapter9"
@@ -141,7 +305,7 @@
                     android:text="1-9"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter8"/>
+                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter8" />
 
                 <Button
                     android:id="@+id/btn_chapter10"
@@ -151,7 +315,7 @@
                     android:text="1-10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter9"/>
+                    app:layout_constraintTop_toBottomOf="@+id/btn_chapter9" />
 
             </LinearLayout>
         </ScrollView>
