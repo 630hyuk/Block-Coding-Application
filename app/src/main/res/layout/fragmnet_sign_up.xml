@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D6E6FF"
+    tools:context=".LogInFragment" >
+
+    <ImageView
+        android:id="@+id/img_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/rectangle_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/rectangle_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_email" />
+
+    <ImageView
+        android:id="@+id/img_password_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/rectangle_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_password" />
+
+    <ImageView
+        android:id="@+id/img_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/rectangle_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_password_confirm" />
+
+    <TextView
+        android:id="@+id/txt_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="이메일"
+        app:layout_constraintBottom_toBottomOf="@+id/img_email"
+        app:layout_constraintStart_toStartOf="@+id/img_email"
+        app:layout_constraintTop_toTopOf="@+id/img_email" />
+
+    <TextView
+        android:id="@+id/txt_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="비밀번호"
+        app:layout_constraintBottom_toBottomOf="@+id/img_password"
+        app:layout_constraintStart_toStartOf="@+id/img_password"
+        app:layout_constraintTop_toTopOf="@+id/img_password" />
+
+    <TextView
+        android:id="@+id/txt_password_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="비밀번호 확인"
+        app:layout_constraintBottom_toBottomOf="@+id/img_password_confirm"
+        app:layout_constraintStart_toStartOf="@+id/img_password_confirm"
+        app:layout_constraintTop_toTopOf="@+id/img_password_confirm" />
+
+    <TextView
+        android:id="@+id/txt_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="닉네임"
+        app:layout_constraintBottom_toBottomOf="@+id/img_nickname"
+        app:layout_constraintStart_toStartOf="@+id/img_nickname"
+        app:layout_constraintTop_toTopOf="@+id/img_nickname" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/img_email"
+        app:layout_constraintEnd_toEndOf="@+id/img_email"
+        app:layout_constraintTop_toTopOf="@+id/img_email" />
+
+    <EditText
+        android:id="@+id/input_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/img_password"
+        app:layout_constraintEnd_toEndOf="@+id/img_password"
+        app:layout_constraintTop_toTopOf="@+id/img_password" />
+
+    <EditText
+        android:id="@+id/input_password_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/img_password_confirm"
+        app:layout_constraintEnd_toEndOf="@+id/img_password_confirm"
+        app:layout_constraintTop_toTopOf="@+id/img_password_confirm" />
+
+    <EditText
+        android:id="@+id/input_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/img_nickname"
+        app:layout_constraintEnd_toEndOf="@+id/img_nickname"
+        app:layout_constraintTop_toTopOf="@+id/img_nickname" />
+
+    <Button
+        android:id="@+id/btn_verificate"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#49BEFF"
+        android:text="인증메일 전송"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_nickname" />
+
+    <ImageView
+        android:id="@+id/img_verification_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/rectangle_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_verificate" />
+
+    <TextView
+        android:id="@+id/txt_verification_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="인증번호"
+        app:layout_constraintBottom_toBottomOf="@+id/img_verification_code"
+        app:layout_constraintStart_toStartOf="@+id/img_verification_code"
+        app:layout_constraintTop_toTopOf="@+id/img_verification_code" />
+
+    <EditText
+        android:id="@+id/input_verification_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/img_verification_code"
+        app:layout_constraintEnd_toEndOf="@+id/img_verification_code"
+        app:layout_constraintTop_toTopOf="@+id/img_verification_code" />
+
+    <Button
+        android:id="@+id/btn_sign_up"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#49BEFF"
+        android:text="회원가입"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_verification_code" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
