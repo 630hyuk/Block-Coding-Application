@@ -14,10 +14,10 @@ import static  android.content.ContentValues.TAG;
 
 public class Cognito {
     // ############################################################# Information about Cognito Pool
-    private String poolID = "ap-northeast-2_3e5ahfxKe";
-    private String clientID = "70aheeiqdadhoc7onnqqjecejk";
+    private String poolID = "ap-northeast-2_jec1sIwqC";
+    private String clientID = "71r9rffgpecdfvuutoi6fta41j";
     private String clientSecret = "1g953ttk3qa2b5v8e2io3qj8u0j6rl34gtv41gnfm5l0pbut9e3j";
-    private Regions awsRegion = Regions.DEFAULT_REGION;         // Place your Region
+    private Regions awsRegion = Regions.AP_NORTHEAST_2;         // Place your Region
     // ############################################################# End of Information about Cognito Pool
     private CognitoUserPool userPool;
     private CognitoUserAttributes userAttributes;       // Used for adding attributes to the user

@@ -22,7 +22,8 @@ class LogInFragment : Fragment() {
         }
     }
 
-    var binding: FragmentLogInBinding? = null
+    lateinit var binding: FragmentLogInBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +32,7 @@ class LogInFragment : Fragment() {
 
         // input field에 대한 Listener 추가
         with (binding) {
-            this!!.inputEmail.addTextChangedListener(object: TextWatcher {
+            inputEmail.addTextChangedListener(object: TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -41,7 +42,8 @@ class LogInFragment : Fragment() {
                 override fun afterTextChanged(s: Editable?) {}
 
             })
-            this!!.inputPassword.addTextChangedListener(object: TextWatcher {
+
+            inputPassword.addTextChangedListener(object: TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -53,18 +55,18 @@ class LogInFragment : Fragment() {
             })
         }
 
-        return binding?.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.txtSignUp?.setOnClickListener {
+        binding.txtSignUp.setOnClickListener {
             Log.i("LoginFragment", "Let's Sign up...")
-            //findNavController().navigate(R.id.)
+            findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
         }
 
-        binding?.btnLogIn?.setOnClickListener {
+        binding.btnLogIn.setOnClickListener {
             Log.i("Cognito", "Trying login...")
             val authentication = Cognito(activity?.applicationContext)
             authentication.userLogin(email, pw)
