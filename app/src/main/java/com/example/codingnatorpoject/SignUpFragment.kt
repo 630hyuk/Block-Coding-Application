@@ -102,8 +102,8 @@ class SignUpFragment : Fragment() {
                 Log.i("Cognito", "Let's verificate...")
                 if (pw == pw_confirm) {
                     auth.addAttribute("email", email);
-                    auth.addAttribute("nickname", nickname);
-                    auth.signUpInBackground(email, pw);
+                    auth.addAttribute("name", nickname);
+                    auth.signUpInBackground(nickname, pw);
                 } else {
                     Snackbar
                         .make(view, "확인 비밀번호 불일치", Snackbar.LENGTH_SHORT)
@@ -113,8 +113,8 @@ class SignUpFragment : Fragment() {
 
             btnSignUp.setOnClickListener {
                 Log.i("Cognito", "Signing up...")
-                auth.confirmUser(email, verification_code)
-
+                auth.confirmUser(nickname, verification_code)
+                findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
             }
 
         }

@@ -123,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/img_password_confirm"
         app:layout_constraintEnd_toEndOf="@+id/img_password_confirm"
         app:layout_constraintTop_toTopOf="@+id/img_password_confirm" />
@@ -134,7 +134,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/img_nickname"
         app:layout_constraintEnd_toEndOf="@+id/img_nickname"
         app:layout_constraintTop_toTopOf="@+id/img_nickname" />
