@@ -1,7 +1,6 @@
 type UserData @model @auth(rules: [{allow: public}]) {
   id: ID!
   email: AWSEmail!
-  pw: String!
   nickname: String!
   progress: String
   registerStamp: AWSDateTime!
