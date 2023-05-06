@@ -166,6 +166,36 @@ public final class UserData implements Model {
     return getAttribute(field).equals(target);
   }
 
+    public static UserData fromString(String s) {
+        if (s == null) return null;
+
+        int idIdx = s.indexOf("id=") + 3,
+                emailIdx = s.indexOf("email=") + 6,
+                pwIdx = s.indexOf("pw=") + 3,
+                nickIdx = s.indexOf("nickname=") + 9,
+                progIdx = s.indexOf("progress=") + 10,
+                regIdx = s.indexOf("20", s.indexOf("registerStamp=")),
+                llogIdx = s.indexOf("20", s.indexOf("lastLoginStamp=")),
+                phoneIdx = s.indexOf("phone=") + 6;
+
+
+        Log.i("asdf", s.substring(regIdx, s.indexOf("Z", regIdx)+1));
+        Log.i("asdf", s.substring(llogIdx, s.indexOf("Z", llogIdx)+1));
+
+        String
+                id = s.substring(idIdx, s.indexOf(",", idIdx)),
+                email = s.substring(emailIdx, s.indexOf(",", emailIdx)),
+                pw = s.substring(pwIdx, s.indexOf(",", pwIdx)),
+                nickname = s.substring(nickIdx, s.indexOf(",", nickIdx)),
+                progress = s.substring(progIdx, s.indexOf(",", progIdx)),
+                phone = s.substring(phoneIdx, s.indexOf(",", phoneIdx));
+        Temporal.DateTime
+                registerStamp = new Temporal.DateTime(s.substring(regIdx, s.indexOf("Z", regIdx)+1)),
+                lastLoginStamp = new Temporal.DateTime(s.substring(llogIdx, s.indexOf("Z", llogIdx)+1));
+
+        return new UserData(id, email, pw, nickname, progress, registerStamp, lastLoginStamp, phone);
+
+    }
   
   @Override
    public String toString() {
