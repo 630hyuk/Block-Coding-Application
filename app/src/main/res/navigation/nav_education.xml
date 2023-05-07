@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_stageOneFragment_to_stageOneChapterTenQuizOXFragment"
             app:destination="@id/stageOneChapterTenQuizOXFragment" />
+        <action
+            android:id="@+id/action_stageOneFragment_to_stageTwoFragment"
+            app:destination="@id/stageTwoFragment" />
     </fragment>
     <fragment
         android:id="@+id/introduceFragment"
@@ -108,5 +111,31 @@
         <action
             android:id="@+id/action_stageOneChapterTenResultFragment_to_lastResultFragment"
             app:destination="@id/lastResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stageTwoFragment"
+        android:name="com.example.codingnatorpoject.StageTwoFragment"
+        android:label="StageTwoFragment" >
+        <action
+            android:id="@+id/action_stageTwoFragment_to_stageOneFragment"
+            app:destination="@id/stageOneFragment" />
+        <action
+            android:id="@+id/action_stageTwoFragment_to_stageThreeFragment"
+            app:destination="@id/stageThreeFragment" />
+        <action
+            android:id="@+id/action_stageTwoFragment_to_selectQuizFragment2"
+            app:destination="@id/selectQuizFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/stageThreeFragment"
+        android:name="com.example.codingnatorpoject.StageThreeFragment"
+        android:label="fragment_stage_three"
+        tools:layout="@layout/fragment_stage_three" >
+        <action
+            android:id="@+id/action_stageThreeFragment_to_stageTwoFragment"
+            app:destination="@id/stageTwoFragment" />
+        <action
+            android:id="@+id/action_stageThreeFragment_to_selectQuizFragment2"
+            app:destination="@id/selectQuizFragment2" />
     </fragment>
 </navigation>

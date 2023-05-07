@@ -49,4 +49,11 @@
         </LinearLayout>
     </ScrollView>
 
+    <ImageView
+        android:id="@+id/btn_return_main"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="610dp"
+        android:src="@drawable/return_button" />
 </FrameLayout>

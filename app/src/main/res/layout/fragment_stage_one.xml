@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/btn_go_to_2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -257,65 +257,416 @@
                         android:src="@android:drawable/btn_star_big_on" />
                 </LinearLayout>
 
-                <Button
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="180dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
                     android:id="@+id/btn_chapter5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-5"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/island1_5"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="200dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter4" />
 
-                <Button
-                    android:id="@+id/btn_chapter6"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-6"
+                    android:layout_marginStart="200dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter6"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/island1_6"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="70dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter5" />
 
-                <Button
-                    android:id="@+id/btn_chapter7"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-7"
+                    android:layout_marginStart="70dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter7"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/island1_7"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter6" />
 
-                <Button
-                    android:id="@+id/btn_chapter8"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-8"
+                    android:layout_marginStart="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter8"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/island1_8"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="110dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter7" />
 
-                <Button
-                    android:id="@+id/btn_chapter9"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-9"
+                    android:layout_marginStart="110dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="180dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="300dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter9"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/island1_9"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="250dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter8" />
 
-                <Button
-                    android:id="@+id/btn_chapter10"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="1-10"
+                    android:layout_marginStart="250dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="300dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="290dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="280dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="270dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="260dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="250dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="240dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="210dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/point" />
+
+                <ImageView
+                    android:id="@+id/btn_chapter10"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/island1_10"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="80dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter9" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>

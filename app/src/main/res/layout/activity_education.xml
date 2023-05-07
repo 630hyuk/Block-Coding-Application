@@ -4,14 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2C9DE8"
     android:orientation="vertical"
     tools:context=".EducationActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ocean" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
