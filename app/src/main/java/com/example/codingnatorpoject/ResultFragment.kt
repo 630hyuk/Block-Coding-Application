@@ -17,6 +17,7 @@ class ResultFragment : Fragment() {
     private var myAnswer: String? = null
     private var myquestion: String? = null
     private var myExample: String? = null
+    //private var myReason: String? = null
     private var chapterNumber: Int? = null
     private var quizFourComplete: Int? = null   //4지선다 퀴즈의 두 번쨰 문제인지 확인해주는 변수(즉, ox퀴즈에서 막 넘어 왔으면 이 값은 null이다)
 
@@ -26,6 +27,7 @@ class ResultFragment : Fragment() {
             myAnswer = it.getString("answer")
             myquestion = it.getString("question")
             myExample = it.getString("example")
+            //myReason = it.getString("reason")
             chapterNumber = it.getInt("chapterNumber")
             quizFourComplete = it.getInt("quizFourComplete")
         }
@@ -85,7 +87,8 @@ class ResultFragment : Fragment() {
             val str1 = "<$myExample> : 오답입니다.\n\n\"$myquestion\"은(는) "
             val str2 = "<$myAnswer>"
             val str3 = "입니다."
-            val spannable = SpannableString("$str1$str2$str3")
+            //val str4 = "$myReason"
+            val spannable = SpannableString("$str1$str2$str3")//$str4")
             spannable.setSpan(ForegroundColorSpan(color), str1.length, str1.length + str2.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             binding?.correctTxt?.setBackgroundColor(Color.rgb(231, 137,137))  //이렇게 rgb를 이용해 background의 색을 바꿉니다
             binding?.correctTxt?.text = "오답!"

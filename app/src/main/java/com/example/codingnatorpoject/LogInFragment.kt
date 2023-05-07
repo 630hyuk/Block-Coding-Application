@@ -4,14 +4,12 @@ import android.app.Activity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.navigation.fragment.findNavController
-import com.example.codingnatorpoject.DBConnection.Cognito
 import com.example.codingnatorpoject.databinding.FragmentLogInBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -26,8 +24,7 @@ class LogInFragment : Fragment() {
         }
     }
 
-    lateinit var binding: FragmentLogInBinding
-
+    var binding: FragmentLogInBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +33,7 @@ class LogInFragment : Fragment() {
 
         // input field에 대한 Listener 추가
         with (binding) {
-            inputEmail.addTextChangedListener(object: TextWatcher {
+            this!!.inputEmail.addTextChangedListener(object: TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -46,8 +43,7 @@ class LogInFragment : Fragment() {
                 override fun afterTextChanged(s: Editable?) {}
 
             })
-
-            inputPassword.addTextChangedListener(object: TextWatcher {
+            this!!.inputPassword.addTextChangedListener(object: TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -59,22 +55,35 @@ class LogInFragment : Fragment() {
             })
         }
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.txtSignUp.setOnClickListener {
-            Log.i("LoginFragment", "Let's Sign up...")
-            findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
+        binding?.btnLogIn?.setOnClickListener {
+
+            //findNavController().navigate(R.id.action_logInFragment_to_entryFragment)  //로그인 없이 바로 실행하고자 이 코드를 만들었습니다.
+
+
+            if ((activity as LogActivity).dbc.login(email,pw) != null) {
+                findNavController().navigate(R.id.action_logInFragment_to_entryFragment)
+            }
+            else {
+                // 알림이 보여야 하므로 키보드를 숨김
+                (context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
+                    .hideSoftInputFromWindow(view.windowToken, 0)
+                
+                // 이후 알림 출력
+                Snackbar
+                    .make(this.requireView(), "이메일 또는 비밀번호가 올바르지 않습니다.", Snackbar.LENGTH_SHORT)
+                    .show()
+            }
+
         }
 
-        binding.btnLogIn.setOnClickListener {
-            Log.i("Cognito", "Trying login...")
-            val authentication = Cognito(activity?.applicationContext)
-            authentication.userLogin(email, pw)
-            findNavController().navigate(R.id.action_logInFragment_to_entryFragment)
+        binding?.txtSignUp?.setOnClickListener{
+            findNavController().navigate(R.id.action_logInFragment_to_signUpFragment)
         }
     }
 }

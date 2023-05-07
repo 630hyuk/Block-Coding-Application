@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.codingnatorpoject.databinding.FragmentStageOneChapterTenQuizFourBinding
 
 class StageOneChapterTenQuizFourFragment : Fragment() {
@@ -26,7 +27,8 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "오른쪽",
                 "example2" to "왼쪽",
                 "example3" to "위쪽",
-                "example4" to "아래쪽"
+                "example4" to "아래쪽",
+                "reason" to "정답은 \"오른쪽\", x좌표는 스프라이트의 좌우 위치를 결정하기 때문이다."
             ),
             mapOf(  //4번문제
                 "question" to "초록 깃발을 클릭하고 10초 후에 출발을 말하게 하려면, 빈칸에 알맞은 숫자는 무엇인가요?",
@@ -34,7 +36,8 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "5",
                 "example2" to "10",
                 "example3" to "15",
-                "example4" to "20"
+                "example4" to "20",
+                "reason" to "정답은 \"10\", 10초 후에 말하기 블록이 작동하여야하므로, 1초 기다리기 블록이 10번 수행되는 것이 옳다."
             ),
             mapOf(  //5번문제
                 "question" to "민수가 라면을 끓이려고 한다. 다음 코드의 실행 결과는 무엇인가?",
@@ -42,15 +45,17 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "라면",
                 "example2" to "물",
                 "example3" to "20",
-                "example4" to "10"
+                "example4" to "10",
+                "reason" to "정답은 \"물\", 만약(if)에 영향을 주는 값은 x좌표이므로, x좌표만 고려하면 x:20으로 이동되었고, 10만큼 바꾸기를 통해 x:30으로 이동되었다. 그 상태에서 판별하므로 x>50 이 거짓임을 알 수 있다."
             ),
             mapOf(  //6번문제
                 "question" to "다음 코드의 안녕과 음... 의 각각의 출력횟수의 합은?",
-                "answer" to "5",
+                "answer" to "15",
                 "example1" to "5",
                 "example2" to "10",
                 "example3" to "15",
-                "example4" to "20"
+                "example4" to "20",
+                "reason" to "정답은 \"15\", ‘안녕!’은 변수가 4를 초과할 때만 출력되고, 처음 변수가 10으로 초기화 되었으며 ‘-1만큼 바꾸기’가 판별블록 앞에 있으므로 변수가 9,8,7,6,5 일때 출력된다. ‘음...’은 변수에 상관없이 출력되므로 10번 출력되어 총 15번 출력이 이루어진다."
             ),
             mapOf(  //7번문제
                 "question" to "육각형을 그리려면 빈칸에 어떤 값이 들어가야 적절한가?",
@@ -58,7 +63,8 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "30",
                 "example2" to "60",
                 "example3" to "90",
-                "example4" to "120"
+                "example4" to "120",
+                "reason" to "정답은 \"60\", 육각형의 한 각의 크기는 120도 이고 해당 각을 만들어 내기 위해서는 직선인 180도에서 60도 만큼 돌아주면 120도가 되기 때문이다."
             ),
             mapOf(  //8번문제
                 "question" to "해당 코드를 실행했을 때 캐릭터는 어떤 값을 말하나요?",
@@ -66,7 +72,8 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "0",
                 "example2" to "50",
                 "example3" to "100",
-                "example4" to "150"
+                "example4" to "150",
+                "reason" to "정답은 \"50\", x좌표는 10, 마이크는 30+10으로 40을 가지고 있기에 두 변수의 합은 50이다."
             ),
             mapOf(  //9번문제
                 "question" to "초록깃발을 눌러 다음 코드를 실행시키면 캐릭터는 어떤 값을 말하는가?",
@@ -74,7 +81,8 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "가",
                 "example2" to "가위",
                 "example3" to "나",
-                "example4" to "나무"
+                "example4" to "나무",
+                "reason" to "정답은 \"가\", 결합한 ‘가위 나무’의 1번째 글자는 ‘가’이므로 조건문이 참으로 성립하여 ‘가’가 출력된다."
             ),
             mapOf(  //10번문제
                 "question" to "초록깃발을 한번 누르고 ‘1’을 3번 눌렀을 때, ‘안경’은 어떤 값을 가지고 있나요?",
@@ -82,7 +90,8 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
                 "example1" to "10",
                 "example2" to "25",
                 "example3" to "40",
-                "example4" to "55"
+                "example4" to "55",
+                "reason" to "정답은 \"55\", 초기값이 10, ‘1’을 한번 누를 때마다 15씩 증가하므로, 최종적으로 55를 가진다."
             )
         )
     override fun onCreateView(
@@ -99,48 +108,49 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
     var example2 = ""
     var example3 = ""
     var example4 = ""
+    var reason = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         if(order == 3){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten3)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten3))
         }
 
         if(order == 4){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten4)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten4))
         }
 
         if(order == 5){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten5)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten5))
         }
 
         if(order == 6){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten6)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten6))
         }
 
         if(order == 7){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten7)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten7))
         }
 
         if(order == 8){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten8)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten8))
         }
 
         if(order == 9){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten9)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten9))
         }
 
         if(order == 10){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten10)
+            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten10))
         }
 
         binding?.btnChapter10Ex1?.setOnClickListener {
@@ -167,6 +177,7 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
         example2 = problems[pn - 3]["example2"].toString()
         example3 = problems[pn - 3]["example3"].toString()
         example4 = problems[pn - 3]["example4"].toString()
+        reason = problems[pn - 3]["reason"].toString()  //틀린 이유를 알려줘야 하므로
 
         binding?.txtChapter10FourQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10Ex1?.text = example1
@@ -178,14 +189,15 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
-            bundle.putString("answer", answer)
-            bundle.putString("question", question)
+            //bundle.putString("answer", answer)
+            //bundle.putString("question", question)
             bundle.putInt("order", order!!)
             findNavController().navigate(R.id.action_stageOneChapterTenQuizFourFragment_to_stageOneChapterTenResultFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
             bundle.putString("example", example)
-            bundle.putString("answer", answer)
-            bundle.putString("question", question)
+            //bundle.putString("answer", answer)
+            //bundle.putString("question", question)
+            bundle.putString("reason", reason)  //틀린 이유 알리기
             bundle.putInt("order", order!!)
             findNavController().navigate(R.id.action_stageOneChapterTenQuizFourFragment_to_stageOneChapterTenResultFragment, bundle)
         }

@@ -35,17 +35,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
             android:id="@+id/img_chapter10_OX"
             android:layout_width="320dp"
-            android:layout_height="130dp"
+            android:layout_height="250dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/chapterten1"
+            app:src="@drawable/chapterten1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_chapter10_OX_question" />
+
 
         <Button
             android:id="@+id/btn_chapter10_O"
@@ -53,7 +54,7 @@
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="172dp"
+            android:layout_marginBottom="50dp"
             android:backgroundTint="#D9D9D9"
             android:text="O"
             android:textColor="#19039F"
@@ -69,7 +70,7 @@
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="172dp"
+            android:layout_marginBottom="50dp"
             android:backgroundTint="#D9D9D9"
             android:text="X"
             android:textColor="#CD1616"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.codingnatorpoject.databinding.FragmentStageOneChapterTenQuizOXBinding
 
 class StageOneChapterTenQuizOXFragment : Fragment() {
@@ -24,13 +25,15 @@ class StageOneChapterTenQuizOXFragment : Fragment() {
                 "question" to "해당 블록은 반복 블록인가요?",
                 "answer" to "X",
                 "example1" to "O",
-                "example2" to "X"
+                "example2" to "X",
+                "reason" to "정답 X, 해당 블록은 말하기 블록이므로 출력 블록이다"
             ),
             mapOf(
                 "question" to "해당 버튼은 배경 추가 버튼인가요?",
                 "answer" to "X",
                 "example1" to "O",
-                "example2" to "X"
+                "example2" to "X",
+                "reason" to "정답 X, 해당 버튼은 스프라이트 추가 버튼이다."
             )
         )
     override fun onCreateView(
@@ -45,18 +48,19 @@ class StageOneChapterTenQuizOXFragment : Fragment() {
     var answer = ""
     var example1 = ""
     var example2 = ""
+    var reason = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         if(order == 1){
             showProblem(order!!)
-            binding?.imgChapter10OX?.setImageResource(R.drawable.chapterten1)
+            binding?.imgChapter10OX?.setImage(ImageSource.resource(R.drawable.chapterten1))
         }
 
         if(order == 2){
             showProblem(order!!)
-            binding?.imgChapter10OX?.setImageResource(R.drawable.chapterten2)
+            binding?.imgChapter10OX?.setImage(ImageSource.resource(R.drawable.chapterten2))
         }
 
         binding?.btnChapter10O?.setOnClickListener {
@@ -73,6 +77,7 @@ class StageOneChapterTenQuizOXFragment : Fragment() {
         answer = problems[pn - 1]["answer"].toString()
         example1 = problems[pn - 1]["example1"].toString()
         example2 = problems[pn - 1]["example2"].toString()
+        reason = problems[pn - 1]["reason"].toString()  //틀린 이유를 알려줘야 하므로
 
         binding?.txtChapter10OXQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10O?.text = example1
@@ -82,14 +87,15 @@ class StageOneChapterTenQuizOXFragment : Fragment() {
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
-            bundle.putString("answer", answer)
-            bundle.putString("question", question)
+            //bundle.putString("answer", answer)
+            //bundle.putString("question", question)
             bundle.putInt("order", order!!)
             findNavController().navigate(R.id.action_stageOneChapterTenQuizOXFragment_to_stageOneChapterTenResultFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
             bundle.putString("example", example)
-            bundle.putString("answer", answer)
-            bundle.putString("question", question)
+            //bundle.putString("answer", answer)
+            //bundle.putString("question", question)
+            bundle.putString("reason", reason)  //틀린 이유 알리기
             bundle.putInt("order", order!!)
             findNavController().navigate(R.id.action_stageOneChapterTenQuizOXFragment_to_stageOneChapterTenResultFragment, bundle)
         }
