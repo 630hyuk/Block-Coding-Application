@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentSelectQuizBinding
 
 class SelectQuizFragment : Fragment() {
@@ -30,6 +31,10 @@ class SelectQuizFragment : Fragment() {
 
         binding?.btnOneStage?.setOnClickListener {
             startActivity(chapterIntent)
+        }
+
+        binding?.btnReturnMain?.setOnClickListener {
+            findNavController().navigate(R.id.action_selectQuizFragment_to_mainFragment)
         }
     }
 }

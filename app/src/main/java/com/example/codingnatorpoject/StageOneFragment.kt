@@ -30,6 +30,10 @@ class StageOneFragment : Fragment() {
         val bundle = Bundle()  //몇 챕터를 선택할지 이 번들에 넣어서 알려줍니다.
         val mainIntent = Intent(requireActivity(), MainActivity::class.java)  //mainActivity로 넘어가기 위한 Intent입니다.
 
+        binding?.btnGoTo2?.setOnClickListener {
+            findNavController().navigate(R.id.action_stageOneFragment_to_stageTwoFragment)
+        }
+
         binding?.btnChapter1?.setOnClickListener {
             bundle.putInt("chapterNumber", 1)  //챕터 1임을 알려줍니다.
             findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
