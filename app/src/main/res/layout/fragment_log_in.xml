@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_password" />
 
     <TextView
-        android:id="@+id/txt_singIn"
+        android:id="@+id/txt_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
