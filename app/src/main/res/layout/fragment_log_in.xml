@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="아이디"
+        android:text="이메일"
         app:layout_constraintBottom_toBottomOf="@+id/img_email"
         app:layout_constraintStart_toStartOf="@+id/img_email"
         app:layout_constraintTop_toTopOf="@+id/img_email" />

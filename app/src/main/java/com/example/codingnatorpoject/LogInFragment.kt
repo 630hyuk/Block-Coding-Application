@@ -1,5 +1,6 @@
 package com.example.codingnatorpoject
 
+import android.app.Activity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,14 +9,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.Cognito
 import com.example.codingnatorpoject.databinding.FragmentLogInBinding
+import com.google.android.material.snackbar.Snackbar
 
 class LogInFragment : Fragment() {
 
     var email = "";
     var pw = "";
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
