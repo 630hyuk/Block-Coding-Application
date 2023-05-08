@@ -2,6 +2,7 @@ package com.example.codingnatorpoject
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -345,6 +346,7 @@ class FourChooseQuizFragment : Fragment() {
         //reason = problems[pn - 1]["reason"].toString()  //유저가 퀴즈를 틀렸을때, 그 틀린 이유를 알려주는 퀴즈문제들이 몇몇 있었습니다. 그들을 위한 변수입니다.
 
         binding?.fourQuestionTextView?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
+        binding?.fourQuestionTextView?.movementMethod = ScrollingMovementMethod.getInstance() //이렇게 qustion텍스트도 스크롤이 가능해집니다.
         binding?.btnEx1?.text = example1
         binding?.btnEx2?.text = example2
         binding?.btnEx3?.text = example3

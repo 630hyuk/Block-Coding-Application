@@ -27,14 +27,22 @@ class SelectQuizFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val chapterIntent = Intent(requireActivity(), EducationActivity::class.java)  //챕터의 문제를 푸는 Activity로 넘어가기 위한 Intent입니다.
+        val mainIntent = Intent(requireActivity(), MainActivity::class.java)  //챕터의 문제를 푸는 Activity로 넘어가기 위한 Intent입니다.
 
-        binding?.btnOneStage?.setOnClickListener {
-            startActivity(chapterIntent)
+        binding?.btnOneStage?.setOnClickListener {  //1스테이지
+            findNavController().navigate(R.id.action_selectQuizFragment_to_stageOneFragment)
         }
 
-        binding?.btnReturnMain?.setOnClickListener {
-            findNavController().navigate(R.id.action_selectQuizFragment_to_mainFragment)
+        binding?.btnTwoStage?.setOnClickListener{  //2스테이지
+            findNavController().navigate(R.id.action_selectQuizFragment_to_stageTwoFragment)
+        }
+
+        binding?.btnThreeStage?.setOnClickListener {  //3스테이지
+            findNavController().navigate(R.id.action_selectQuizFragment_to_stageThreeFragment)
+        }
+
+        binding?.btnReturnMain?.setOnClickListener {  //다시 메인 엑티비티로 돌아갑니다.
+            startActivity(mainIntent)
         }
     }
 }

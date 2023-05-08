@@ -2,6 +2,7 @@ package com.example.codingnatorpoject
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -168,6 +169,7 @@ class OXQuizFragment : Fragment() {
         example2 = problems[pn - 1]["example2"].toString()
 
         binding?.txtQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
+        binding?.txtQuestion?.movementMethod = ScrollingMovementMethod.getInstance()  //이제 qustion텍스트도 스크롤이 가능합니다.
         binding?.btnO?.text = example1
         binding?.btnX?.text = example2
 

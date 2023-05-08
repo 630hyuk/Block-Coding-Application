@@ -1,5 +1,6 @@
 package com.example.codingnatorpoject
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,9 +27,10 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val selectStageIntent = Intent(requireActivity(), EducationActivity::class.java)  //챕터의 문제를 푸는 Activity로 넘어가기 위한 Intent입니다.
 
         binding?.btnPlay?.setOnClickListener {  //학습하러 가기를 눌렀을때
-            findNavController().navigate(R.id.action_mainFragment_to_selectQuizFragment)
+            startActivity(selectStageIntent)
         }
 
         binding?.btnSetting?.setOnClickListener {  //환경설정을 눌렀을 때

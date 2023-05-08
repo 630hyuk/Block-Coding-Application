@@ -14,9 +14,6 @@
             android:id="@+id/action_mainFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_selectQuizFragment"
-            app:destination="@id/selectQuizFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_rankingFragment"
             app:destination="@id/rankingFragment" />
     </fragment>
@@ -25,15 +22,6 @@
         android:name="com.example.codingnatorpoject.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
-    <fragment
-        android:id="@+id/selectQuizFragment"
-        android:name="com.example.codingnatorpoject.SelectQuizFragment"
-        android:label="fragment_select_quiz"
-        tools:layout="@layout/fragment_select_quiz" >
-        <action
-            android:id="@+id/action_selectQuizFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.example.codingnatorpoject.RankingFragment"
