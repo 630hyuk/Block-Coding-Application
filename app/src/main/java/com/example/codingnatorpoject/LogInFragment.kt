@@ -63,10 +63,10 @@ class LogInFragment : Fragment() {
 
         binding?.btnLogIn?.setOnClickListener {
 
-            findNavController().navigate(R.id.action_logInFragment_to_entryFragment)  //로그인 없이 바로 실행하고자 이 코드를 만들었습니다.
+            //findNavController().navigate(R.id.action_logInFragment_to_entryFragment)  //로그인 없이 바로 실행하고자 이 코드를 만들었습니다.
 
 
-            /*
+
             if ((activity as LogActivity).dbc.login(email,pw) != null) {
                 findNavController().navigate(R.id.action_logInFragment_to_entryFragment)
             }
@@ -80,7 +80,7 @@ class LogInFragment : Fragment() {
                     .make(this.requireView(), "이메일 또는 비밀번호가 올바르지 않습니다.", Snackbar.LENGTH_SHORT)
                     .show()
             }
-             */
+
 
         }
 
