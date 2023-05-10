@@ -38,14 +38,14 @@ class OXQuizFragment : Fragment() {
                 "hint" to "90도 방향보기는 캐릭터가 바라보는 방향이 90도가 된답니다"
             ),
             mapOf(
-                "question" to "해당 블록은 스페이스 키를 눌렀을 때 캐릭터가 10만큼 움직이도록 만드나요?",
+                "question" to "고양이가 움직이고 싶어해요. 아래 블록은 스페이스 키를 눌렀을 때 고양이가 10만큼 움직이도록 만드나요?",
                 "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
                 "hint" to "□ 키를 눌렀을 때는 □ 키를 누르면 그 아래의 블록들이 작동한답니다"
             ),
             mapOf(
-                "question" to "아래 블록은 캐릭터를 어느 쪽으로 이동시킬까요?",
+                "question" to "호랑이가 움직이려고 해요. 아래 블록은 호랑이를 어느 쪽으로 이동시킬까요?",
                 "answer" to "오른쪽",
                 "example1" to "왼쪽",
                 "example2" to "오른쪽",
@@ -59,28 +59,28 @@ class OXQuizFragment : Fragment() {
                 "hint" to "고양이 모양은 스프라이트 추가 버튼이고, 지구본 모양은 언어 설정 버튼이에요"
             ),
             mapOf(
-                "question" to "해당 블록이 실행되면 캐릭터는 20을 말하나요?",
+                "question" to "고양이가 말하고 싶어해요. 아래 블록이 실행되면 고양이는 20을 말하나요?",
                 "answer" to "X",
                 "example1" to "O",
                 "example2" to "X",
                 "hint" to "개념에서 빈칸에 ‘안녕!’이라고 적혀 있을 때 ‘안녕!’을 말한다고 배웠어요. 문제에서 빈칸에 무엇이 적혀있나요?"
             ),
             mapOf(
-                "question" to "해당 블록을 실행시키면 ‘김밥’ 변수는 10으로 설정되나요?",
+                "question" to "남은 김밥의 수를 수첩에 쓰려고 해요. 아래 블록을 실행시키면 ‘김밥’ 개수는 10으로 정해지나요?",
                 "answer" to "X",
                 "example1" to "O",
                 "example2" to "X",
                 "hint" to "개념에서 빈칸에 ‘0’이라고 적혀 있을 때 앞의 변수를 0으로 설정한다고 배웠어요. 문제에서 빈칸에 무엇이 적혀있나요?"
             ),
             mapOf(
-                "question" to "아래 조건은 맞나요? 맞으면 참, 틀리면 거짓을 눌러주세요",
-                "answer" to "거짓",
-                "example1" to "참",
-                "example2" to "거짓",
+                "question" to "아래 조건은 맞나요? 맞으면 O, 틀리면 X를 눌러주세요,",
+                "answer" to "X",
+                "example1" to "O",
+                "example2" to "X",
                 "hint" to "10은 50보다 큰가요?"
             ),
             mapOf(
-                "question" to "초록깃발을 누르고 충분히 기다렸을 때, x좌표는 계속 커지나요?",
+                "question" to "오리가 걸어가는 중이에요. 초록 깃발을 누르고 충분히 기다렸을 때, 오리의 x좌표는 계속 커지나요?",
                 "answer" to "X",
                 "example1" to "O",
                 "example2" to "X",

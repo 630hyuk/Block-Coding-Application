@@ -35,7 +35,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "10만큼 움직이기가 몇 개 있는지 세어보세요"
             ),
             mapOf( //챕터1
-                "question" to "해당 블록들이 한 번씩 실행되면 처음 위치에서 얼마나 이동하나요?",
+                "question" to "고양이가 움직이고 싶어해요. 아래 블록들이 한 번씩 실행되면 처음 위치에서 얼마나 이동하나요?",
                 "answer" to "0",
                 "example1" to "0",
                 "example2" to "10",
@@ -50,19 +50,19 @@ class FourChooseQuizFragment : Fragment() {
                 "example2" to "90도",
                 "example3" to "60도",
                 "example4" to "180도",
-                "hint" to "12시 방향(0도)에서 시계방향으로 90도 만큼 돌아가요. 즉, 3시 방향으로 바뀐답니다"
+                "hint" to "12시 방향(0도)에서 시계방향으로 90도만큼 돌아가요. 즉, 3시 방향으로 바뀐답니다"
             ),
             mapOf( //챕터2
-                "question" to "해당 블록은 캐릭터가 바라보는 방향이 몇 도를 바라보도록 만드나요?",
+                "question" to "고양이가 돌고 있어요. 아래 블록들은 고양이가 바라보는 방향이 몇 도를 바라보도록 만드나요?",
                 "answer" to "150도",
                 "example1" to "90도",
                 "example2" to "120도",
                 "example3" to "150도",
                 "example4" to "0도",
-                "hint" to "15도 만큼 2번 돌았어요. 처음 120도에서 15도 만큼 2번 더해보세요"
+                "hint" to "15도만큼 2번 돌았어요. 처음 120도에서 15도만큼 2번 더해보세요"
             ),
             mapOf( //챕터3
-                "question" to "해당 블록은 어떤 키를 눌러야 캐릭터가 90도 방향을 보게 만드나요?",
+                "question" to "고양이가 돌고 싶어해요. 어떤 키를 눌러야 고양이가 90도 방향을 보게 만드나요?",
                 "answer" to "a",
                 "example1" to "a",
                 "example2" to "b",
@@ -71,7 +71,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "□ 키를 눌렀을 때는 □ 키를 누르면 그 아래의 블록들이 작동한답니다"
             ),
             mapOf( //챕터3
-                "question" to "이 중 어떤 키를 눌러야 30 만큼 움직일까요? 아래 블록들을 보고 판단해보세요.",
+                "question" to "고양이가 움직이고 싶어해요. 어떤 키를 눌러야 고양이가 30 만큼 움직일까요?",
                 "answer" to "3",
                 "example1" to "1",
                 "example2" to "2",
@@ -80,7 +80,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "□ 키를 눌렀을 때는 □ 키를 누르면 그 아래의 블록들이 작동한답니다"
             ),
             mapOf(//챕터4
-                "question" to "아래 블록을 실행시키면 캐릭터의 x좌표는 얼마가 될까요?",
+                "question" to "강아지가 움직이려고 해요. 아래 블록을 실행시키면 강아지의 x좌표는 얼마가 될까요?",
                 "answer" to "10",
                 "example1" to "0",
                 "example2" to "5",
@@ -89,7 +89,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "좌표를 ~ 만큼 바꾸기는 해당하는 빈칸의 값만큼 더해주면 된답니다"
             ),
             mapOf( //챕터4
-                "question" to "아래 블록을 실행시키고 캐릭터의 x좌표와 y좌표의 합은 얼마가 될까요?",
+                "question" to "여우가 움직이려고 해요. 아래 블록을 실행시키고 여우의 x좌표와 y좌표의 합은 얼마가 될까요?",
                 "answer" to "0",
                 "example1" to "0",
                 "example2" to "5",
@@ -116,7 +116,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "초록깃발이 시작, 빨간 팔각형 모양이 정지 버튼이랍니다"
             ),
             mapOf(  //챕터6
-                "question" to "해당 코드가 전부 실행되고 나서 캐릭터는 어떤 말풍선을 출력하고 있나요?",
+                "question" to "고양이가 말하고 생각하는 중이에요. 아래 코드가 전부 실행되고 나서 고양이는 어떤 말풍선을 출력하고 있나요?",
                 "answer" to "4",
                 "example1" to "1",
                 "example2" to "2",
@@ -126,7 +126,7 @@ class FourChooseQuizFragment : Fragment() {
                 //"reason" to "왜냐하면 마지막에 출력된 것이 50 생각하기이므로"
             ),
             mapOf( //챕터6
-                "question" to "해당 코드가 실행될 때, “점심”은 “맛있는” 이 사라지고 몇 초 뒤에 말하나요?",
+                "question" to "점심시간에 “맛있는 점심”을 말하려고 해요. 아래 코드가 실행될 때, “점심”은 “맛있는” 이 사라지고 몇 초 뒤에 말하나요?",
                 "answer" to "0",
                 "example1" to "0",
                 "example2" to "1",
@@ -136,7 +136,7 @@ class FourChooseQuizFragment : Fragment() {
                 //"reason" to "왜냐하면 “맛있는“이 나오기 시작하고 사라질 때 까지의 시간이 2초인 것이고, 사라지고 나서 중간에 ~초 기다리기 같은 블록이 없으므로 점심”은 “맛있는” 이 사라지고 0초 뒤에 말해요"
             ),
             mapOf(  //챕터7
-                "question" to "해당 블록이 전부 실행된 후 ‘라면’ 변수는 얼마로 설정되나요?",
+                "question" to "라면을 먹고 싶어서 장을 보러 나왔어요. 블록이 전부 실행된 후 ‘라면’ 개수는 얼마로 정해지나요?",
                 "answer" to "20",
                 "example1" to "0",
                 "example2" to "10",
@@ -145,7 +145,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "변수를 ~ 만큼 바꾸기는 해당하는 빈칸의 값만큼 더해주면 된답니다"
             ),
             mapOf( //챕터7
-                "question" to "해당 블록이 전부 실행된 후 ‘스마트폰’ 변수는 얼마로 설정되나요?",
+                "question" to "스마트폰이 몇 대가 있는지 세어보는 중이에요. 블록이 전부 실행된 후 ‘스마트폰’ 개수는 얼마나 있나요?",
                 "answer" to "40",
                 "example1" to "10",
                 "example2" to "20",
@@ -155,7 +155,7 @@ class FourChooseQuizFragment : Fragment() {
                 //"reason" to "왜냐하면 첫 ‘스마트폰’ 만큼 바꾸기 블록은 +10만큼 바꿔주고, 두 번째 ‘스마트폰’ 만큼 바꾸기 블록은 +20만큼 바꿔주기 때문"
             ),
             mapOf(  //챕터8
-                "question" to "아래 블록은 어떤 값을 가지고 있을까요?",
+                "question" to "글자들의 길이를 알아보아요. 아래 블록은 어떤 값을 가지고 있을까요?",
                 "answer" to "4",
                 "example1" to "1",
                 "example2" to "2",
@@ -164,7 +164,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "가위는 길이가 2이에요"   //이거 본래는 사진이었음
             ),
             mapOf( //챕터8
-                "question" to "초록깃발을 누른 후, 해당 조건을 만족하게 하려면 빈칸에 어떤 값을 써줘야 할까요?",
+                "question" to "철수가 음료수를 사려고 해요. 초록 깃발을 누른 후, 조건을 만족하게 하려면 빈칸에 어떤 숫자를 써줘야 할까요?",
                 "answer" to "40",
                 "example1" to "10",
                 "example2" to "20",
@@ -173,7 +173,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "해당 조건은 음료수 변수가 50이면 만족해요. 처음에 변수를 10으로 정했고 ~ 만큼 바꾸기는 빈칸의 숫자만큼 변수에 더해준다고 알려줬어요"
             ),
             mapOf(  //챕터9
-                "question" to "초록 깃발을 클릭하고 실행이 완료되면, 캐릭터의 x좌표는 어디일까요?",
+                "question" to "고양이가 뛰어가고 있어요. 초록 깃발을 클릭하고 실행이 완료되면, 고양이의 x좌표는 어디일까요? ",
                 "answer" to "100",
                 "example1" to "10",
                 "example2" to "50",
@@ -182,7 +182,7 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "해당 블록은 x좌표가 처음에 0이고 10만큼 10번 더해줬어요"
             ),
             mapOf( //챕터9
-                "question" to "초록깃발을 클릭하면 캐릭터가 출력하는 값은 뭔가요?",
+                "question" to "물을 마시고 싶어요. 초록 깃발을 클릭하면 고양이가 출력하는 숫자는 뭔가요?",
                 "answer" to "30",
                 "example1" to "0",
                 "example2" to "10",
