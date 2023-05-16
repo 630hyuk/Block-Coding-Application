@@ -1,3 +1,17 @@
+type Question @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  content: String
+  hint: String
+  isOX: Boolean
+  cand1: String
+  cand2: String
+  cand3: String
+  cand4: String
+  answer: Int
+  explanation: String
+  image: AWSURL
+}
+
 type UserData @model @auth(rules: [{allow: public}]) {
   id: ID!
   email: AWSEmail!

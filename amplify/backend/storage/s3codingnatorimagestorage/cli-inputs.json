@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3codingnatorimagestorage",
+  "bucketName": "codingnator-image-storage",
+  "policyUUID": "23b8fa15",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

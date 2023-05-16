@@ -21,8 +21,11 @@
       "function": {
         "createUserData": {
           "deploymentBucketName": "amplify-codingnator-staging-05625-deployment",
-          "s3Key": "amplify-builds/createUserData-574a3277675a3639632b-build.zip"
+          "s3Key": "amplify-builds/createUserData-6d6a5232764758546f2f-build.zip"
         }
+      },
+      "storage": {
+        "s3codingnatorimagestorage": {}
       }
     }
   }

@@ -26,5 +26,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "s3codingnatorimagestorage": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }
