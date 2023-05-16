@@ -31,42 +31,6 @@ public class DatabaseConnector {
         }
     }
 
-    // Called when a user just registered.
-    // don't have to fill timestamps
-    public void createUserData(String email, String pw, String nickname, String progress, String phone) {
-        UserData item;
-        try {
-            item = UserData.builder()
-                    .email(email)
-                    .pw(PasswordManager.encrypt(pw))
-                    .nickname(nickname)
-                    .progress(progress)
-                    .registerStamp(now())
-                    .phone(phone)
-                    .build();
-        }
-        catch (PasswordManager.InvalidPasswordException e) {
-            Log.e("DatabaseConnector", "Invalid Password: " + pw);
-            return;
-        }
-
-        Amplify.DataStore.save(
-                item,
-                success -> Log.i("Amplify", "Saved item: " + success.item().getId()),
-                error -> Log.e("Amplify", "Could not save item to DataStore", error)
-        );
-
-        // A new method for same? work
-        /*
-        Amplify.API.mutate(
-                ModelMutation.create(item),
-                response -> Log.i("Amplify", "Added item with id: " + response.getData().getId()),
-                error -> Log.e("Amplify", "Create failed", error)
-        );
-        */
-
-    }
-
     // Update the item with same id (calls overloaded method with item's id)
     public void updateUserData(UserData itemToUpdate, String field, String updateTo) {
         UserData.Builder builder = itemToUpdate.copyOfBuilder();
@@ -100,36 +64,6 @@ public class DatabaseConnector {
         for (UserData item : list) {
             deleteUserData(item);
         }
-    }
-
-    // returns UserData if email & pw matches.
-    // else, return null
-    public UserData login(String email, String pw) {
-        UserData res;
-        Log.i("DatabaseConnector", "Trying login...");
-
-        try {
-            res = getUserList("email", email).get(0);
-        }
-        catch (IndexOutOfBoundsException e) {
-            Log.e("DatabaseConnector", "UserData not found.");
-            return null;
-        }
-
-        String encrypted = "";
-
-        try {
-            encrypted = PasswordManager.encrypt(pw);
-        }
-        catch (PasswordManager.InvalidPasswordException e) {
-            Log.e("DatabaseConnector", "Invalid Password", e);
-            return null;
-        }
-
-        if (!res.getPw().equals(encrypted)) return null;
-
-        updateUserData(res, "lastLoginStamp", now().toString());
-        return res;
     }
 
     public ArrayList<UserData> getUserList() {
