@@ -37,7 +37,8 @@ class StageTwoFragment : Fragment() {
             findNavController().navigate(R.id.action_stageTwoFragment_to_stageThreeFragment)
         }
         binding?.btnReturnToSelect?.setOnClickListener {
-            findNavController().navigate(R.id.action_stageTwoFragment_to_selectQuizFragment)
+            //findNavController().navigate(R.id.action_stageTwoFragment_to_selectQuizFragment)
+            findNavController().popBackStack()  //해당 프래그먼트를 뒤로 보내는 역할을 해준다.
         }
     }
 

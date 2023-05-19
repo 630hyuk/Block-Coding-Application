@@ -85,14 +85,9 @@ class StageOneFragment : Fragment() {
         }
 
         binding?.btnReturnToSelect?.setOnClickListener {  //혹시 여기를 이렇게 만든 이유가 있나요? intent로 한 Activiy로 하는데 문제가 있었나요?
-            findNavController().navigate(R.id.action_stageOneFragment_to_selectQuizFragment, bundle)
+            //findNavController().navigate(R.id.action_stageOneFragment_to_selectQuizFragment, bundle)
+            findNavController().popBackStack()  //해당 프래그먼트를 뒤로 보내는 역할을 해준다.
         }
-
-        /*
-        binding?.btnNextStage?.setOnClickListener{
-            findNavController().navigate(R.id.action_stageOneFragment_to_stageTwoFragment)
-        }
-         */
     }
 
     override fun onDestroyView() {
