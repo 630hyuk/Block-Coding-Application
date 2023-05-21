@@ -42,7 +42,15 @@ class SelectQuizFragment : Fragment() {
         }
 
         binding?.btnReturnMain?.setOnClickListener {  //다시 메인 엑티비티로 돌아갑니다.
-            startActivity(mainIntent)
+            //startActivity(mainIntent)
+            activity?.finish()  //이 문법이 해당 엑티비티를 취소하고 뒤로 가는 것입니다
+            /*
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.remove(this)
+                ?.commit()
+            //이 문법도 해당 엑티비티를 취소하고 뒤로 가는 것입니다. 다만, 아직 애매한게 있어서 이를 주석처리 했으니, 지우지는 말아주세요
+             */
         }
     }
 }

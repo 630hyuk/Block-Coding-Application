@@ -18,10 +18,8 @@
             app:destination="@id/stageOneChapterTenQuizOXFragment" />
         <action
             android:id="@+id/action_stageOneFragment_to_stageTwoFragment"
-            app:destination="@id/stageTwoFragment" />
-        <action
-            android:id="@+id/action_stageOneFragment_to_selectQuizFragment"
-            app:destination="@id/selectQuizFragment" />
+            app:destination="@id/stageTwoFragment"
+            app:popUpTo="@id/selectQuizFragment" />
     </fragment>
     <fragment
         android:id="@+id/introduceFragment"
@@ -72,7 +70,8 @@
         tools:layout="@layout/fragment_last_result" >
         <action
             android:id="@+id/action_lastResultFragment_to_stageOneFragment"
-            app:destination="@id/stageOneFragment" />
+            app:destination="@id/stageOneFragment"
+            app:popUpTo="@id/selectQuizFragment"/>
     </fragment>
     <fragment
         android:id="@+id/stageOneChapterTenQuizOXFragment"
@@ -113,13 +112,12 @@
         android:label="StageTwoFragment" >
         <action
             android:id="@+id/action_stageTwoFragment_to_stageOneFragment"
-            app:destination="@id/stageOneFragment" />
+            app:destination="@id/stageOneFragment"
+            app:popUpTo="@id/selectQuizFragment" />
         <action
             android:id="@+id/action_stageTwoFragment_to_stageThreeFragment"
-            app:destination="@id/stageThreeFragment" />
-        <action
-            android:id="@+id/action_stageTwoFragment_to_selectQuizFragment"
-            app:destination="@id/selectQuizFragment" />
+            app:destination="@id/stageThreeFragment"
+            app:popUpTo="@id/selectQuizFragment" />
     </fragment>
     <fragment
         android:id="@+id/stageThreeFragment"
@@ -128,10 +126,8 @@
         tools:layout="@layout/fragment_stage_three" >
         <action
             android:id="@+id/action_stageThreeFragment_to_stageTwoFragment"
-            app:destination="@id/stageTwoFragment" />
-        <action
-            android:id="@+id/action_stageThreeFragment_to_selectQuizFragment"
-            app:destination="@id/selectQuizFragment" />
+            app:destination="@id/stageTwoFragment"
+            app:popUpTo="@id/selectQuizFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectQuizFragment"
