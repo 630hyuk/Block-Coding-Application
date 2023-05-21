@@ -7,8 +7,6 @@ import android.util.Log;
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.datastore.AWSDataStorePlugin;
-import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 
 import java.io.File;
 import java.net.HttpURLConnection;
@@ -20,9 +18,7 @@ public class ImageAccessor {
     // in fragment? activity.applicationContext or getActivity().getApplicationContext()
     public ImageAccessor(Context context) {
         try {
-            Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
-            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(context);
             Log.i("DatabaseConnector", "Initialized Amplify");
         }
