@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.davemorrissey.labs.subscaleview.ImageSource
+import com.example.codingnatorpoject.DBConnection.DatabaseConnector
+import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.databinding.FragmentFourChooseQuizBinding
 
 class FourChooseQuizFragment : Fragment() {
@@ -351,6 +353,16 @@ class FourChooseQuizFragment : Fragment() {
         binding?.btnEx2?.text = example2
         binding?.btnEx3?.text = example3
         binding?.btnEx4?.text = example4
+
+        // set doUpload to true, for upload local question data
+        val doUpload = true
+        if (doUpload) {
+            val num = if (quizFourComplete == 100) 3 else 2
+            DatabaseConnector(context).uploadQuestion(
+                "1-$chapterNumber-$num", question,
+                problems[pn - 1]["hint"].toString(), false,
+                arrayOf(example1, example2, example3, example4), answer, /*reason*/"Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, num))
+        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

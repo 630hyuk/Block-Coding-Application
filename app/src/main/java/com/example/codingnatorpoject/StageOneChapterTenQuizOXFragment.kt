@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.davemorrissey.labs.subscaleview.ImageSource
+import com.example.codingnatorpoject.DBConnection.DatabaseConnector
+import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.databinding.FragmentStageOneChapterTenQuizOXBinding
 
 class StageOneChapterTenQuizOXFragment : Fragment() {
@@ -82,6 +84,15 @@ class StageOneChapterTenQuizOXFragment : Fragment() {
         binding?.txtChapter10OXQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10O?.text = example1
         binding?.btnChapter10X?.text = example2
+
+        // set doUpload to true, for upload local question data
+        val doUpload = true
+        if (doUpload) {
+            DatabaseConnector(context).uploadQuestion(
+                "1-10-$order", question,
+                problems[pn - 1]["hint"].toString(), true,
+                arrayOf(example1, example2), answer, reason, ImageAccessor(context).getFileUrl(1, 10, order!!))
+        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

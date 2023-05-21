@@ -1,173 +1,99 @@
 package com.example.codingnatorpoject.DBConnection;
 
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 
-import com.amplifyframework.AmplifyException;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
+import com.amplifyframework.AmplifyException;
 import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
-import com.amplifyframework.datastore.generated.model.UserData;
 
 /* Connector for Database
  * 2023.04.23 : Currently can be only connected to UserData
+ * 2023.05.16 : removed methods : createUserData, login
+ * 2023.05.20 : using AsyncTask, which is Deprecated, but doesn't matter
  */
 public class DatabaseConnector {
-
+    Context context;
 
     // parameter should be applicationContext or getApplicationContext()
     // in fragment? activity.applicationContext or getActivity().getApplicationContext()
     public DatabaseConnector(Context context) {
+        this.context = context;
         try {
             Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(context);
             Log.i("DatabaseConnector", "Initialized Amplify");
+        }
+        catch (Amplify.AlreadyConfiguredException e) {
+            // haha, ignore that
         }
         catch (AmplifyException e) {
             Log.e("DatabaseConnector", "Amplify Initialize failure", e);
         }
     }
 
-    // Called when a user just registered.
-    // don't have to fill timestamps
-    public void createUserData(String email, String pw, String nickname, String progress, String phone) {
-        UserData item;
-        try {
-            item = UserData.builder()
-                    .email(email)
-                    .pw(PasswordManager.encrypt(pw))
-                    .nickname(nickname)
-                    .progress(progress)
-                    .registerStamp(now())
-                    .phone(phone)
-                    .build();
-        }
-        catch (PasswordManager.InvalidPasswordException e) {
-            Log.e("DatabaseConnector", "Invalid Password: " + pw);
-            return;
-        }
 
-        Amplify.DataStore.save(
-                item,
-                success -> Log.i("Amplify", "Saved item: " + success.item().getId()),
-                error -> Log.e("Amplify", "Could not save item to DataStore", error)
-        );
+    /* example of post req */
+    public void uploadQuestion(String id, String content, String hint, boolean isOX, String[] cands, String answer, String explanation, String image) {
 
-        // A new method for same? work
-        /*
-        Amplify.API.mutate(
-                ModelMutation.create(item),
-                response -> Log.i("Amplify", "Added item with id: " + response.getData().getId()),
-                error -> Log.e("Amplify", "Create failed", error)
-        );
-        */
+        // AsyncTask??
+        class Uploader extends AsyncTask<String, Void, String> {
+            String msg = "";
+            @Override
+            protected String doInBackground(String... strings) {
 
-    }
+                try {
+                    URL reqUrl = new URL("https://1pwn3dii83.execute-api.ap-northeast-2.amazonaws.com/default/uploadquestion");
+                    HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
 
-    // Update the item with same id (calls overloaded method with item's id)
-    public void updateUserData(UserData itemToUpdate, String field, String updateTo) {
-        UserData.Builder builder = itemToUpdate.copyOfBuilder();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json; utf-8");
+                    conn.setRequestProperty("Accept", "*/*");
 
-        builder.setAttribute(field, updateTo);
+                    conn.setDoOutput(true);
+                    conn.getOutputStream().write(strings[0].getBytes());
 
-        Amplify.DataStore.save(
-                builder.build(),
-                success -> Log.i("Amplify", "Item updated: " + success.item().getAttribute(field)),
-                error -> Log.e("Amplify", "Could not save item to DataStore", error)
-        );
-    }
+                    conn.connect();
 
+                    String msg = conn.getResponseMessage();
+                    Log.e("qUpload_Response", msg);
+                }
+                catch (Exception e) { Log.e(e.toString(), "in uploadQuestion"); }
 
-    // we can update with primary key, not knowing whole item's information
-    public void updateUserData(String id, String field, String updateTo) {
-        updateUserData(getUserList("id", id).get(0), field, updateTo);
-    }
-
-    public void deleteUserData(UserData itemToDelete) {
-        Amplify.DataStore.delete(
-                itemToDelete,
-                success -> Log.i("Amplify", "Item deleted: " + success.item().getId()),
-                error -> Log.e("Amplify", "Could not delete item ", error)
-        );
-    }
-
-    public void deleteUserData(String field, String target) {
-        ArrayList<UserData> list = getUserList(field, target);
-
-        for (UserData item : list) {
-            deleteUserData(item);
-        }
-    }
-
-    // returns UserData if email & pw matches.
-    // else, return null
-    public UserData login(String email, String pw) {
-        UserData res;
-        Log.i("DatabaseConnector", "Trying login...");
-
-        try {
-            res = getUserList("email", email).get(0);
-        }
-        catch (IndexOutOfBoundsException e) {
-            Log.e("DatabaseConnector", "UserData not found.");
-            return null;
+                return msg;
+            }
         }
 
-        String encrypted = "";
+        String jsonFormat = "{ \"id\": \"%s\", " +
+                "\"content\": \"%s\", \"hint\": \"%s\", \"isOX\": \"%s\", " +
+                "\"cand1\": \"%s\", \"cand2\": \"%s\", \"cand3\": \"%s\", \"cand4\": \"%s\", " +
+                "\"answer\": \"%s\", \"explanation\": \"%s\", \"image\": \"%s\" }";
 
-        try {
-            encrypted = PasswordManager.encrypt(pw);
+        if (isOX) {
+            new Uploader().execute(String.format(jsonFormat, id, content, hint, isOX ? "true" : "false",
+                    cands[0], cands[1], "null", "null",
+                    answer, explanation, image));
         }
-        catch (PasswordManager.InvalidPasswordException e) {
-            Log.e("DatabaseConnector", "Invalid Password", e);
-            return null;
+        else {
+            new Uploader().execute(String.format(jsonFormat, id, content, hint, isOX ? "true" : "false",
+                    cands[0], cands[1], cands[2], cands[3],
+                    answer, explanation, image));
         }
 
-        if (!res.getPw().equals(encrypted)) return null;
 
-        updateUserData(res, "lastLoginStamp", now().toString());
-        return res;
-    }
-
-    public ArrayList<UserData> getUserList() {
-        ArrayList<UserData> dataList = new ArrayList<>();
-
-        Amplify.DataStore.query(
-                UserData.class,
-                items -> {
-                    while (items.hasNext()) {
-                        UserData item = items.next();
-                        dataList.add(item);
-                        Log.i("Amplify", "Id " + item.getId());
-                    }
-                },
-                failure -> Log.e("Amplify", "Could not query DataStore", failure)
-        );
-
-        return dataList;
-    }
-
-    public ArrayList<UserData> getUserList(String field, String toFind) {
-        ArrayList<UserData> dataList = new ArrayList<>();
-
-        Amplify.DataStore.query(
-                UserData.class,
-                items -> {
-                    while (items.hasNext()) {
-                        UserData item = items.next();
-                        if (item.compare(field, toFind)) {
-                            dataList.add(item);
-                            Log.i("Amplify", "Id " + item.getId());
-                        }
-                    }
-                },
-                failure -> Log.e("Amplify", "Could not query DataStore", failure)
-        );
-
-        return dataList;
     }
 
 
