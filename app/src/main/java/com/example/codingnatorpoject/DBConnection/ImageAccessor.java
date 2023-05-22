@@ -1,15 +1,17 @@
 package com.example.codingnatorpoject.DBConnection;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 
-import java.io.File;
-import java.net.HttpURLConnection;
+import java.io.InputStream;
 import java.net.URL;
 
 public class ImageAccessor {
@@ -66,5 +68,26 @@ public class ImageAccessor {
                 "/chapter" + chapter +
                 "/" + pn + ".png";
     }
+
+    public static Bitmap getBitmap(String url) {
+        class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
+            @Override
+            protected Bitmap doInBackground(String... strings) {
+                try {
+                    InputStream is = new URL(strings[0]).openStream();
+                    return BitmapFactory.decodeStream(is);
+                }
+                catch (Exception e) {
+                    Log.e("ImageAccessor", e.getMessage());
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+
+        }
+
+        return new ImageDownloader().doInBackground(url);
+    }
+
 
 }

@@ -15,42 +15,46 @@ import java.util.Map;
 public class QuestionRepository {
 
     static final String[] fields = {"content", "hint", "isOX", "cand1", "cand2", "cand3", "cand4", "answer", "explanation", "image"};
-    static final String id_format = "%d-%d-%d";
+    public static final String id_format = "%d-%d-%d";
 
-    DatabaseConnector dbc;
-    HashMap<String, HashMap<String, String>> questions;
+    static DatabaseConnector dbc;
+    static HashMap<String, HashMap<String, String>> questions;
+    static boolean isDownloaded = false;
 
-    QuestionRepository(Context context) throws JSONException {
-        dbc = new DatabaseConnector(context);
-        questions = new HashMap<>();
+    public QuestionRepository(Context context) throws JSONException {
+        if (!isDownloaded) {
+            dbc = new DatabaseConnector(context);
+            questions = new HashMap<>();
 
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j <= 10; j++) {
+            for (int i = 1; i <= 3; i++) {
+                for (int j = 1; j <= 10; j++) {
 
-                for (int k = 1, z = (j==10 ? 10 : 3); k <= z; k++) {
-                    String key = String.format(id_format, i, j, k);
-                    JSONObject obj = new JSONObject(dbc.getQuestion(i,j,k));
-                    int statusCode = obj.getInt("statusCode");
+                    for (int k = 1, z = (j == 10 ? 10 : 3); k <= z; k++) {
+                        String key = String.format(id_format, i, j, k);
+                        JSONObject obj = new JSONObject(dbc.getQuestion(i, j, k));
+                        int statusCode = obj.getInt("statusCode");
 
-                    if (statusCode != 200) {
-                        questions.put(key, null);
-                        continue;
+                        if (statusCode != 200) {
+                            questions.put(key, null);
+                            continue;
+                        }
+
+                        questions.put(key, new HashMap<>());
+                        obj = obj.getJSONObject("body");
+
+                        HashMap<String, String> tmp = (HashMap) questions.get(key);
+                        for (String field : fields) {
+                            tmp.put(field, obj.getString(field));
+                        }
+
                     }
 
-                    questions.put(key, new HashMap<>());
-                    obj = obj.getJSONObject("body");
+                } // end of for(j) - chapter
 
-                    HashMap<String, String> tmp = (HashMap) questions.get(key);
-                    for (String field: fields) {
-                        tmp.put(field, obj.getString(field));
-                    }
+            } // end of for(i) - stage
 
-                }
-
-            } // end of for(j) - chapter
-
-        } // end of for(i) - stage
-
+            isDownloaded = true;
+        }
     }
 
     // stage, chapter, pn을 전달하면 문제 데이터를 HashMap 타입으로 반환
