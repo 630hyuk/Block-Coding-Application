@@ -70,23 +70,27 @@ public class ImageAccessor {
     }
 
     public static Bitmap getBitmap(String url) {
+        final Bitmap[] res = {null};
         class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
             @Override
             protected Bitmap doInBackground(String... strings) {
                 try {
                     InputStream is = new URL(strings[0]).openStream();
-                    return BitmapFactory.decodeStream(is);
+                    res[0] = BitmapFactory.decodeStream(is);
                 }
                 catch (Exception e) {
-                    Log.e("ImageAccessor", e.getMessage());
+                    Log.e("ImageAccessor", "OMG");
                     e.printStackTrace();
-                    return null;
+                    Log.e("ImageAccessor", e.getMessage());
                 }
+                return null;
             }
 
         }
 
-        return new ImageDownloader().doInBackground(url);
+        new ImageDownloader().execute(url);
+
+        return res[0];
     }
 
 

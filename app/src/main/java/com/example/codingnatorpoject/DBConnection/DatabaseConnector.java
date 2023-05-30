@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -93,13 +94,16 @@ public class DatabaseConnector {
 
     public String getQuestion(int stage, int chapter, int pn) {
 
+        final String[] res = new String[1];
+
         class QGetter extends AsyncTask<Integer, Void, String> {
             String msg = "";
             @Override
             protected String doInBackground(Integer... params) {
 
                 try {
-                    URL reqUrl = new URL("https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/getQuestionData?" +
+                    URL reqUrl = new URL(
+                            "https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/getQuestionData?" +
                             "stage=" + params[0] +
                             "&chapter=" + params[1] +
                             "&pn=" + params[2]);
@@ -125,13 +129,20 @@ public class DatabaseConnector {
                     br.close();
                     msg = sb.toString();
                 }
-                catch (Exception e) { Log.e(e.toString(), "in uploadQuestion"); }
+                catch (Exception e) { Log.e("in getQuestion",e.toString()); e.printStackTrace();}
 
                 return msg;
             }
+
+            @Override
+            protected void onPostExecute(String response) {
+                res[0] = msg;
+            }
         }
 
-        return new QGetter().doInBackground(stage, chapter, pn);
+        new QGetter().execute(stage, chapter, pn);
+        for (long k = 0; k < 8e+9; k++);
+        return res[0];
 
     }
 

@@ -1,15 +1,16 @@
 package com.example.codingnatorpoject
 
 import android.app.AlertDialog
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.davemorrissey.labs.subscaleview.ImageSource
-import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentFourChooseQuizBinding
@@ -26,7 +27,8 @@ class FourChooseQuizFragment : Fragment() {
     }
 
     var binding: FragmentFourChooseQuizBinding? = null
-    private val repo = QuestionRepository(activity?.applicationContext)
+    private val repo =
+        QuestionRepository(activity?.applicationContext)
     /*
     var problems =
 
@@ -221,7 +223,7 @@ class FourChooseQuizFragment : Fragment() {
         //val id = String.format(QuestionRepository.id_format, 1, chapterNumber, if(quizFourComplete == 100) 2 else 3)
 
         // now, showProblem also set the imageview
-        showProblem(repo.get(1/*TODO: get stage too*/, chapterNumber!!, if(quizFourComplete == 100) 3 else 2))
+        showProblem(1/*TODO: get stage too*/, chapterNumber!!, if(quizFourComplete == 100) 3 else 2)
 
         binding?.btnEx1?.setOnClickListener {
             selectExample(example1, question)
@@ -245,7 +247,8 @@ class FourChooseQuizFragment : Fragment() {
 
     }
 
-    fun showProblem(problem: HashMap<String, String>) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+    fun showProblem(stage: Int, chapter: Int, pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+        val problem = repo.get(stage, chapter!!, pn)
         question = problem["content"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
         answer = problem["answer"].toString()
         example1 = problem["cand1"].toString()
@@ -261,7 +264,12 @@ class FourChooseQuizFragment : Fragment() {
         binding?.btnEx2?.text = example2
         binding?.btnEx3?.text = example3
         binding?.btnEx4?.text = example4
-        binding?.imgQuestionFour?.setImage(ImageSource.bitmap(ImageAccessor.getBitmap(problem["image"])))
+
+        /*
+        val src = ImageSource.bitmap(repo.getImage(stage, chapter, pn))
+        Log.i("here",src.toString())
+        binding?.imgQuestionFour?.setImage(src)*/
+        binding?.imgQuestionFour?.setImageBitmap(repo.getImage(stage, chapter, pn))
 
         /*
         val num = if (quizFourComplete == 100) 3 else 2
