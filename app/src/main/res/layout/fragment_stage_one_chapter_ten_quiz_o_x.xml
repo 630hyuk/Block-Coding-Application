@@ -40,7 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+        <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/img_chapter10_OX"
             android:layout_width="320dp"
             android:layout_height="250dp"
@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_chapter10_OX_question"
-            app:src="@drawable/chapterten1" />
+            app:srcCompat="@drawable/chapterten1" />
 
 
         <Button

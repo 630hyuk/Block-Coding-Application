@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.davemorrissey.labs.subscaleview.ImageSource
+//import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.databinding.FragmentStageOneChapterTenQuizFourBinding
@@ -117,42 +117,42 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
 
         if(order == 3){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten3))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten3)
         }
 
         if(order == 4){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten4))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten4)
         }
 
         if(order == 5){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten5))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten5)
         }
 
         if(order == 6){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten6))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten6)
         }
 
         if(order == 7){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten7))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten7)
         }
 
         if(order == 8){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten8))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten8)
         }
 
         if(order == 9){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten9))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten9)
         }
 
         if(order == 10){
             showProblem(order!!)
-            binding?.imgChapter10Four?.setImage(ImageSource.resource(R.drawable.chapterten10))
+            binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten10)
         }
 
         binding?.btnChapter10Ex1?.setOnClickListener {

@@ -4,17 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OXQuizFragment">
+    tools:context=".OXQuizTwoFragment">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/main"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:src="@drawable/back" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,13 +18,13 @@
         <TextView
             android:id="@+id/txt_question"
             android:layout_width="320dp"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="20dp"
-            android:background="#FFFFFF"
+            android:background="#D9D9D9"
             android:elevation="4dp"
             android:gravity="center"
             android:text="문제 내용"
@@ -44,22 +39,21 @@
             android:layout_width="320dp"
             android:layout_height="250dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="23dp"
             android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/ox1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_question"
-            app:srcCompat="@drawable/ox1" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_question" />
 
         <Button
             android:id="@+id/btn_O"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="50dp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#D9D9D9"
             android:text="O"
             android:textColor="#19039F"
             android:textSize="60sp"
@@ -73,10 +67,9 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="50dp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#D9D9D9"
             android:text="X"
             android:textColor="#CD1616"
             android:textSize="64sp"
@@ -85,14 +78,16 @@
             app:layout_constraintStart_toEndOf="@+id/btn_O"
             app:layout_constraintTop_toBottomOf="@+id/img_question_OX" />
 
-        <ImageView
+        <Button
             android:id="@+id/btn_hint_OX"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="200dp"
-            android:src="@drawable/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="힌트"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

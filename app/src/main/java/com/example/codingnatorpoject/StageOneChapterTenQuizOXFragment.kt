@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.davemorrissey.labs.subscaleview.ImageSource
+//import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.databinding.FragmentStageOneChapterTenQuizOXBinding
@@ -57,12 +57,12 @@ class StageOneChapterTenQuizOXFragment : Fragment() {
 
         if(order == 1){
             showProblem(order!!)
-            binding?.imgChapter10OX?.setImage(ImageSource.resource(R.drawable.chapterten1))
+            binding?.imgChapter10OX?.setImageResource(R.drawable.chapterten1)
         }
 
         if(order == 2){
             showProblem(order!!)
-            binding?.imgChapter10OX?.setImage(ImageSource.resource(R.drawable.chapterten2))
+            binding?.imgChapter10OX?.setImageResource(R.drawable.chapterten2)
         }
 
         binding?.btnChapter10O?.setOnClickListener {

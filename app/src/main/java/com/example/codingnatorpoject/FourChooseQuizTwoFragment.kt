@@ -10,20 +10,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
-import com.example.codingnatorpoject.databinding.FragmentFourChooseQuizBinding
+import com.example.codingnatorpoject.databinding.FragmentFourChooseQuizTwoBinding
 
-class FourChooseQuizFragment : Fragment() {
+class FourChooseQuizTwoFragment : Fragment() {
     private var chapterNumber: Int? = null
     private var quizFourComplete: Int? = null   //4지선다 퀴즈의 두 번쨰 문제인지 확인해주는 변수
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            chapterNumber = it.getInt("chapterNumber")
-            quizFourComplete = it.getInt("quizFourComplete")
-        }
-    }
 
-    var binding: FragmentFourChooseQuizBinding? = null
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf( //챕터1
@@ -192,11 +184,21 @@ class FourChooseQuizFragment : Fragment() {
                 "hint" to "물 변수가 처음에 0이고, 만약 ~라면 중 해당하는 조건은 물 < 50 일 때 밖에 없어요"
             )
         )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            chapterNumber = it.getInt("chapterNumber")
+            quizFourComplete = it.getInt("quizFourComplete")
+        }
+    }
+
+    var binding: FragmentFourChooseQuizTwoBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFourChooseQuizBinding.inflate(inflater)
+        binding = FragmentFourChooseQuizTwoBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -206,7 +208,6 @@ class FourChooseQuizFragment : Fragment() {
     var example2 = ""
     var example3 = ""
     var example4 = ""
-    //var reason = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -214,99 +215,99 @@ class FourChooseQuizFragment : Fragment() {
         if(chapterNumber == 1){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour2)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour1)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour1)
             }
         }
 
         if(chapterNumber == 2){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour4)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour3)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 3){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour6)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour5)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 4){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour8)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour7)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 5){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour10)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour9)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 6){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour12)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour11)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 7){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour14)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour13)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 8){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour16)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour15)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
         if(chapterNumber == 9){
             if(quizFourComplete == 100){
                 showProblem(chapterNumber!!*2)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour18)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
             else{
                 showProblem((chapterNumber!!*2)-1)
-                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour17)
+                //binding?.imgQuestionOX?.setImageResource(R.drawable.choosefour2)
             }
         }
 
@@ -334,7 +335,6 @@ class FourChooseQuizFragment : Fragment() {
                 showHintBox((chapterNumber!!*2)-1)
             }
         }
-
     }
 
     fun showProblem(pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
