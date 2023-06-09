@@ -8,13 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-//import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
-import com.example.codingnatorpoject.DBConnection.QuestionRepository
-import com.example.codingnatorpoject.databinding.FragmentOXQuizBinding
+import com.example.codingnatorpoject.databinding.FragmentOXQuizTwoBinding
 
-class OXQuizFragment : Fragment() {
+class OXQuizTwoFragment : Fragment() {
     private var chapterNumber: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +20,8 @@ class OXQuizFragment : Fragment() {
             chapterNumber = it.getInt("chapterNumber")
         }
     }
+    var binding: FragmentOXQuizTwoBinding? = null
 
-    var binding: FragmentOXQuizBinding? = null
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf(
@@ -90,11 +88,12 @@ class OXQuizFragment : Fragment() {
                 "hint" to "스크래치에서 x좌표의 최대값은 캐릭터의 종류 및 크기에 따라 다르지만, 무한히 커지지는 않도록 되어 있어요"
             )
         )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentOXQuizBinding.inflate(inflater)
+        binding = FragmentOXQuizTwoBinding.inflate(inflater)
         return binding?.root
     }
 
@@ -108,47 +107,47 @@ class OXQuizFragment : Fragment() {
 
         if(chapterNumber == 1){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 2){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox2)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 3){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox3)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 4){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox4)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 5){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox5)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 6){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox6)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 7){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox7)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 8){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox8)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         if(chapterNumber == 9){
             showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox9)
+            //binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
         }
 
         binding?.btnO?.setOnClickListener {
@@ -162,7 +161,6 @@ class OXQuizFragment : Fragment() {
         binding?.btnHintOX?.setOnClickListener {
             showHintBox(chapterNumber!!)
         }
-
     }
 
     fun showProblem(pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
@@ -180,7 +178,7 @@ class OXQuizFragment : Fragment() {
             binding?.btnO?.textSize = 40F
             binding?.btnX?.textSize = 40F
         }
-/*
+
         // set doUpload to true, for upload local question data
         val doUpload = true
         if (doUpload) {
@@ -189,7 +187,6 @@ class OXQuizFragment : Fragment() {
                 problems[pn - 1]["hint"].toString(), true,
                 arrayOf(example1, example2, "null", "null"), answer, "Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, 1))
         }
-        */
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

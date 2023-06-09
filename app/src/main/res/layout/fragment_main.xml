@@ -6,70 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MainFragment">
 
-    <ImageView
+    <Button
         android:id="@+id/btn_play"
-        android:layout_width="250dp"
-        android:layout_height="180dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginRight="28dp"
-        android:elevation="4dp"
-        android:gravity="center"
-        android:src="@drawable/button1"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#6F9FFF"
+        android:text="모험하기"
+        android:textColor="#000000"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_minigame"
-        android:layout_width="173dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:backgroundTint="#D9D9D9"
-        android:text="미니게임"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_play" />
-
-    <Button
         android:id="@+id/btn_setting"
-        android:layout_width="173dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#D9D9D9"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#59DD4B"
         android:text="환경설정"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_play" />
 
     <Button
         android:id="@+id/btn_ranking"
-        android:layout_width="173dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#D9D9D9"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#CD7D49"
         android:text="랭킹"
         android:textColor="#000000"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_minigame" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_achievements" />
 
     <Button
         android:id="@+id/btn_achievements"
-        android:layout_width="173dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#D9D9D9"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#E3CE68"
         android:text="업적"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
 
 
