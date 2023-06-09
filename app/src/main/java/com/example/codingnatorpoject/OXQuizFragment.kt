@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 //import com.davemorrissey.labs.subscaleview.ImageSource
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
+import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentOXQuizBinding
 
 class OXQuizFragment : Fragment() {
@@ -179,7 +180,7 @@ class OXQuizFragment : Fragment() {
             binding?.btnO?.textSize = 40F
             binding?.btnX?.textSize = 40F
         }
-
+/*
         // set doUpload to true, for upload local question data
         val doUpload = true
         if (doUpload) {
@@ -188,6 +189,7 @@ class OXQuizFragment : Fragment() {
                 problems[pn - 1]["hint"].toString(), true,
                 arrayOf(example1, example2, "null", "null"), answer, "Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, 1))
         }
+        */
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

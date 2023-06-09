@@ -19,17 +19,20 @@ public class Cognito {
     private String clientSecret = "1g953ttk3qa2b5v8e2io3qj8u0j6rl34gtv41gnfm5l0pbut9e3j";
     private Regions awsRegion = Regions.AP_NORTHEAST_2;         // Place your Region
     // ############################################################# End of Information about Cognito Pool
+
     private CognitoUserPool userPool;
     private CognitoUserAttributes userAttributes;       // Used for adding attributes to the user
     private Context appContext;
+    public static String userId;
     private String userPassword;                        // Used for Login
     public Cognito(Context context){
         appContext = context;
         userPool = new CognitoUserPool(context, this.poolID, this.clientID, this.clientSecret, this.awsRegion);
         userAttributes = new CognitoUserAttributes();
     }
-    public void signUpInBackground(String userId, String password){
-        userPool.signUpInBackground(userId, password, this.userAttributes, null, signUpCallback);
+    public void signUpInBackground(String id, String password){
+        userPool.signUpInBackground(id, password, this.userAttributes, null, signUpCallback);
+        userId = id;
         //userPool.signUp(userId, password, this.userAttributes, null, signUpCallback);
     }
     SignUpHandler signUpCallback = new SignUpHandler() {
@@ -45,7 +48,7 @@ public class Cognito {
                 // Get the confirmation code from user
             }
             else {
-                Toast.makeText(appContext,"Error: User Confirmed before", Toast.LENGTH_LONG).show();
+                //Toast.makeText(appContext,"Error: User Confirmed before", Toast.LENGTH_LONG).show();
                 // The user has already been confirmed
             }
         }
@@ -114,7 +117,7 @@ public class Cognito {
         @Override
         public void onFailure(Exception exception) {
             // Sign-in failed, check exception for the cause
-            Toast.makeText(appContext,"Sign in Failure", Toast.LENGTH_LONG).show();
+            //Toast.makeText(appContext,"Sign in Failure", Toast.LENGTH_LONG).show();
         }
     };
 
