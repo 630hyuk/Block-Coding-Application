@@ -92,60 +92,43 @@ public class DatabaseConnector {
 
     }
 
-    public String getQuestion(int stage, int chapter, int pn) {
 
-        final String[] res = new String[1];
-
-        class QGetter extends AsyncTask<Integer, Void, String> {
+    public void updateProgress(String userId, String progress) {
+        class Updater extends AsyncTask<String, Void, String> {
             String msg = "";
             @Override
-            protected String doInBackground(Integer... params) {
+            protected String doInBackground(String... strings) {
 
                 try {
-                    URL reqUrl = new URL(
-                            "https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/getQuestionData?" +
-                            "stage=" + params[0] +
-                            "&chapter=" + params[1] +
-                            "&pn=" + params[2]);
-
+                    URL reqUrl = new URL("https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/updateData");
                     HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
 
-                    conn.setRequestMethod("GET");
+                    conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json; utf-8");
                     conn.setRequestProperty("Accept", "*/*");
 
                     conn.setDoOutput(true);
+                    conn.getOutputStream().write(strings[0].getBytes());
 
                     conn.connect();
 
-                    Log.i("getQuestion", conn.getResponseMessage());
-
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
-
-                    StringBuffer sb = new StringBuffer();   // Why not Stringbuilder? because it's asynctask.
-                    String tmp;
-                    while ((tmp = br.readLine()) != null) sb.append(tmp);
-
-                    br.close();
-                    msg = sb.toString();
+                    String msg = conn.getResponseMessage();
+                    Log.e("updateProg_Response", msg);
                 }
-                catch (Exception e) { Log.e("in getQuestion",e.toString()); e.printStackTrace();}
+                catch (Exception e) { Log.e(e.toString(), "in uploadQuestion"); }
 
                 return msg;
             }
-
-            @Override
-            protected void onPostExecute(String response) {
-                res[0] = msg;
-            }
         }
 
-        new QGetter().execute(stage, chapter, pn);
-        for (long k = 0; k < 8e+9; k++);
-        return res[0];
+        Log.i("DBC", "Saving user progress");
+        String jsonFormat = "{ \"table_name\": \"UserData-764tmacrt5dobnsevpovqnmw4u-staging\", " +
+                "\"id\": \"%s\", " +
+                "\"field\": \"progress\", " +
+                "\"expected\": \"%s\"}";
 
+        new Updater().execute(String.format(jsonFormat, userId, progress));
     }
-
 
     /* << easily use current timestamp in type: Temporal.Datetime >>
      * Calls Local*DateTime.now().toString()

@@ -4,14 +4,11 @@ import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.davemorrissey.labs.subscaleview.ImageSource
-import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentFourChooseQuizBinding
 

@@ -137,7 +137,8 @@ public class QuestionRepository {
 
             } // end of for(i) - stage
 
-            try {Thread.sleep(7000);}
+            try {Thread.sleep(7000);
+            }
             catch (Exception e) { e.printStackTrace();}
 
             for (int i = 1; i <= 3; i++)
