@@ -6,30 +6,6 @@
     app:startDestination="@id/selectQuizFragment">
 
     <fragment
-        android:id="@+id/resultFragment2"
-        android:name="com.example.codingnatorpoject.ResultFragment"
-        android:label="fragment_result"
-        tools:layout="@layout/fragment_result">
-        <action
-            android:id="@+id/action_resultFragment2_to_fourChooseQuizTwoFragment"
-            app:destination="@id/fourChooseQuizTwoFragment" />
-        <action
-            android:id="@+id/action_resultFragment2_to_lastResultTwoFragment"
-            app:destination="@id/lastResultTwoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/resultFragment3"
-        android:name="com.example.codingnatorpoject.ResultFragment"
-        android:label="fragment_result"
-        tools:layout="@layout/fragment_result">
-        <action
-            android:id="@+id/action_resultFragment3_to_fourChooseQuizThreeFragment"
-            app:destination="@id/fourChooseQuizThreeFragment" />
-        <action
-            android:id="@+id/action_resultFragment3_to_lastResultThreeFragment"
-            app:destination="@id/lastResultThreeFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/stageOneFragment"
         android:name="com.example.codingnatorpoject.StageOneFragment"
         android:label="fragment_stage_one"
@@ -192,8 +168,8 @@
         android:label="fragment_o_x_quiz_two"
         tools:layout="@layout/fragment_o_x_quiz_two" >
         <action
-            android:id="@+id/action_OXQuizTwoFragment_to_resultFragment2"
-            app:destination="@id/resultFragment2" />
+            android:id="@+id/action_OXQuizTwoFragment_to_resultTwoFragment"
+            app:destination="@id/resultTwoFragment" />
     </fragment>
     <fragment
         android:id="@+id/fourChooseQuizTwoFragment"
@@ -201,8 +177,8 @@
         android:label="fragment_four_choose_quiz_two"
         tools:layout="@layout/fragment_four_choose_quiz_two" >
         <action
-            android:id="@+id/action_fourChooseQuizTwoFragment_to_resultFragment2"
-            app:destination="@id/resultFragment2" />
+            android:id="@+id/action_fourChooseQuizTwoFragment_to_resultTwoFragment"
+            app:destination="@id/resultTwoFragment" />
     </fragment>
     <fragment
         android:id="@+id/lastResultTwoFragment"
@@ -261,8 +237,8 @@
         android:label="fragment_o_x_quiz_three"
         tools:layout="@layout/fragment_o_x_quiz_three" >
         <action
-            android:id="@+id/action_OXQuizThreeFragment_to_resultFragment3"
-            app:destination="@id/resultFragment3" />
+            android:id="@+id/action_OXQuizThreeFragment_to_resultThreeFragment"
+            app:destination="@id/resultThreeFragment" />
     </fragment>
     <fragment
         android:id="@+id/fourChooseQuizThreeFragment"
@@ -270,14 +246,18 @@
         android:label="fragment_four_choose_quiz_three"
         tools:layout="@layout/fragment_four_choose_quiz_three" >
         <action
-            android:id="@+id/action_fourChooseQuizThreeFragment_to_resultFragment3"
-            app:destination="@id/resultFragment3" />
+            android:id="@+id/action_fourChooseQuizThreeFragment_to_resultThreeFragment"
+            app:destination="@id/resultThreeFragment" />
     </fragment>
     <fragment
         android:id="@+id/lastResultThreeFragment"
         android:name="com.example.codingnatorpoject.LastResultThreeFragment"
         android:label="fragment_last_result_three"
-        tools:layout="@layout/fragment_last_result_three" />
+        tools:layout="@layout/fragment_last_result_three" >
+        <action
+            android:id="@+id/action_lastResultThreeFragment_to_stageThreeFragment"
+            app:destination="@id/stageThreeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/stageThreeChapterTenQuizFourFragment"
         android:name="com.example.codingnatorpoject.StageThreeChapterTenQuizFourFragment"
@@ -309,6 +289,30 @@
             app:destination="@id/stageThreeChapterTenQuizFourFragment" />
         <action
             android:id="@+id/action_stageThreeChapterTenResultFragment_to_lastResultThreeFragment"
+            app:destination="@id/lastResultThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultTwoFragment"
+        android:name="com.example.codingnatorpoject.ResultTwoFragment"
+        android:label="fragment_result_two"
+        tools:layout="@layout/fragment_result_two" >
+        <action
+            android:id="@+id/action_resultTwoFragment_to_fourChooseQuizTwoFragment"
+            app:destination="@id/fourChooseQuizTwoFragment" />
+        <action
+            android:id="@+id/action_resultTwoFragment_to_lastResultTwoFragment"
+            app:destination="@id/lastResultTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultThreeFragment"
+        android:name="com.example.codingnatorpoject.ResultThreeFragment"
+        android:label="fragment_result_three"
+        tools:layout="@layout/fragment_result_three" >
+        <action
+            android:id="@+id/action_resultThreeFragment_to_fourChooseQuizThreeFragment"
+            app:destination="@id/fourChooseQuizThreeFragment" />
+        <action
+            android:id="@+id/action_resultThreeFragment_to_lastResultThreeFragment"
             app:destination="@id/lastResultThreeFragment" />
     </fragment>
 </navigation>

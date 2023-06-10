@@ -5,55 +5,75 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.codingnatorpoject.databinding.FragmentIntroduceThreeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [IntroduceThreeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class IntroduceThreeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+    private var chapterNumber: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            chapterNumber = it.getInt("chapterNumber")
         }
     }
 
+    var binding: FragmentIntroduceThreeBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_introduce_three, container, false)
+        binding = FragmentIntroduceThreeBinding.inflate(inflater)
+        return binding?.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment IntroduceThreeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            IntroduceThreeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if(chapterNumber == 1){
+            binding?.imgIntro?.setImageResource(R.drawable.stagethreeintroduce1)  //UI가 잘 작동하는지 확인차 stagethreeintroduce1만 넣어봄
+        }
+
+        if(chapterNumber == 2){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce2)
+        }
+
+        if(chapterNumber == 3){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce3)
+        }
+
+        if(chapterNumber == 4){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce4)
+        }
+
+        if(chapterNumber == 5){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce5)
+        }
+
+        if(chapterNumber == 6){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce6)
+        }
+
+        if(chapterNumber == 7){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce7)
+        }
+
+        if(chapterNumber == 8){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce8)
+        }
+
+        if(chapterNumber == 9){
+            //binding?.imgIntro?.setImageResource(R.drawable.introduce9)
+        }
+
+        binding?.btnBack?.setOnClickListener {  //다시 메인화면으로 보내줍니다
+            findNavController().popBackStack()  //해당 프래그먼트를 뒤로 보내는 역할을 해준다.
+        }
+
+        binding?.btnQuiz?.setOnClickListener {
+            val bundle = Bundle().apply {
+                putInt("chapterNumber", chapterNumber!!)
             }
+            findNavController().navigate(R.id.action_introduceThreeFragment_to_OXQuizThreeFragment, bundle)
+        }
     }
 }

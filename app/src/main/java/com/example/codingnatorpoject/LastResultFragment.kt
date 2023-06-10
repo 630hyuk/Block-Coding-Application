@@ -9,9 +9,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentLastResultBinding
 
 class LastResultFragment : Fragment() {
+    private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            totalCorrect = it.getInt("totalCorrect")
         }
     }
 
@@ -28,7 +31,20 @@ class LastResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnToStage?.setOnClickListener {
-            findNavController().navigate(R.id.action_lastResultFragment_to_stageOneFragment)
+            val restart = "restart"
+            val bundle = Bundle().apply {
+                putString("restart", restart)
+            }  //이 변수는 챕터10을 다시 실행했을 경우를 대비한 예비책입니다. 이 변수를 이용해 챕터10을 다시 클릭했을때, totalCorrect를 0으로 초기화 할 수 있습니다.
+            findNavController().navigate(R.id.action_lastResultFragment_to_stageOneFragment, bundle)
+            //findNavController().popBackStack()
+            //이 기능을 넣어줬으니, 이제 클라우드에서 보관되는 점수는 이 LastResultFragment에서 수정되애 함
         }
+
+        binding?.txtNumCorrect?.text = "${totalCorrect}개 맞음"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

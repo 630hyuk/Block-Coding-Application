@@ -11,9 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import com.example.codingnatorpoject.databinding.FragmentResultBinding
+import com.example.codingnatorpoject.databinding.FragmentResultTwoBinding
 
-class ResultFragment : Fragment() {
+class ResultTwoFragment : Fragment() {
     private var myAnswer: String? = null
     private var myquestion: String? = null
     private var myExample: String? = null
@@ -36,17 +36,18 @@ class ResultFragment : Fragment() {
         }
     }
 
-    var binding: FragmentResultBinding? = null
+    var binding: FragmentResultTwoBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentResultBinding.inflate(inflater)
+        binding = FragmentResultTwoBinding.inflate(inflater)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val color = Color.rgb(231, 137, 137)
         val bundle = Bundle()  //몇 챕터를 선택할지 이 번들에 넣어서 알려줍니다.
 
@@ -66,14 +67,14 @@ class ResultFragment : Fragment() {
                 bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
 
                 if(quizFourComplete == 200){
-                    findNavController().navigate(R.id.action_resultFragment_to_lastResultFragment, bundle)
+                    findNavController().navigate(R.id.action_resultTwoFragment_to_lastResultTwoFragment, bundle)
                 }
                 else if(quizFourComplete == 100){
                     bundle.putInt("quizFourComplete", 100)  //2번째 4지선다인지 확인용
-                    findNavController().navigate(R.id.action_resultFragment_to_fourChooseQuizFragment, bundle)
+                    findNavController().navigate(R.id.action_resultTwoFragment_to_fourChooseQuizTwoFragment, bundle)
                 }
                 else{
-                    findNavController().navigate(R.id.action_resultFragment_to_fourChooseQuizFragment, bundle)
+                    findNavController().navigate(R.id.action_resultTwoFragment_to_fourChooseQuizTwoFragment, bundle)
                 }
 
                 /*
@@ -107,14 +108,14 @@ class ResultFragment : Fragment() {
                 bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
 
                 if(quizFourComplete == 200){  //문제가 다 끝났을 경우
-                    findNavController().navigate(R.id.action_resultFragment_to_lastResultFragment, bundle)
+                    findNavController().navigate(R.id.action_resultTwoFragment_to_lastResultTwoFragment, bundle)
                 }
                 else if(quizFourComplete == 100){
                     bundle.putInt("quizFourComplete", 100)  //2번째 4지선다인지 확인용
-                    findNavController().navigate(R.id.action_resultFragment_to_fourChooseQuizFragment, bundle)
+                    findNavController().navigate(R.id.action_resultTwoFragment_to_fourChooseQuizTwoFragment, bundle)
                 }
                 else{
-                    findNavController().navigate(R.id.action_resultFragment_to_fourChooseQuizFragment, bundle)
+                    findNavController().navigate(R.id.action_resultTwoFragment_to_fourChooseQuizTwoFragment, bundle)
                 }
                 /* 정상작동버젼
                 bundle.putInt("chapterNumber", chapterNumber!!)  //현재 챕터를 알기위해 계속 chapterNumber를 넣어줍니다
@@ -130,4 +131,5 @@ class ResultFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
 }

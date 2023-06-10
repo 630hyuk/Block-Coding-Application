@@ -25,67 +25,67 @@ class OXQuizTwoFragment : Fragment() {
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf(
-                "question" to "해당 블록은 캐릭터가 바라보는 방향으로 30만큼 움직이나요?",
-                "answer" to "O",
-                "example1" to "O",
-                "example2" to "X",
-                "hint" to "개념에서 빈칸에 ‘10’이라고 적혀 있을 때 10만큼 움직인다고 배웠어요. 문제에서 빈칸에 얼마가 적혀있나요?"
+                "question" to "캐릭터를 움직이려고 하는데 이 블록이 어디로 움직여 주는지 알고 싶어. 어디로 움직일까?",
+                "answer" to "마우스 포인터",
+                "example1" to "무작위 위치",
+                "example2" to "마우스 포인터",
+                "hint" to "개념에서 칸에 ‘무작위 위치’라고 적혀 있을 때 무작위 위치로 움직인다고 배웠어요. 문제에서 칸에 무엇이 적혀있나요?"
             ),
             mapOf(
-                "question" to "해당 블록은 캐릭터가 바라보는 방향이 90도가 되게 만드나요?",
-                "answer" to "X",
+                "question" to "해당 블록은 캐릭터가 바라보는 방향이 마우스 포인터가 되게 만드나요?",
+                "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
                 "hint" to "90도 방향보기는 캐릭터가 바라보는 방향이 90도가 된답니다"
             ),
             mapOf(
-                "question" to "고양이가 움직이고 싶어해요. 아래 블록은 스페이스 키를 눌렀을 때 고양이가 10만큼 움직이도록 만드나요?",
+                "question" to "고양이에게 소리를 추가하고 싶어요. 이 블록이 ‘야옹’이 재생되는 게 맞나요?",
+                "answer" to "X",
+                "example1" to "O",
+                "example2" to "X",
+                "hint" to "재생 블록은 칸 안에 있는 소리를 재생해요."
+            ),
+            mapOf(
+                "question" to "현재 과일의 모양이 ‘사과’일 때, 아래 블록을 실행시키면 과일의 모양이 바뀌나요?",
                 "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
-                "hint" to "□ 키를 눌렀을 때는 □ 키를 누르면 그 아래의 블록들이 작동한답니다"
+                "hint" to "현재 모양하고 바뀌는 모양하고 다르면 대상의 모양이 바뀌어요"
             ),
             mapOf(
-                "question" to "호랑이가 움직이려고 해요. 아래 블록은 호랑이를 어느 쪽으로 이동시킬까요?",
-                "answer" to "오른쪽",
-                "example1" to "왼쪽",
-                "example2" to "오른쪽",
-                "hint" to "x좌표는 좌우를 담당한다고 했어요. x좌표가 +이면 오른쪽, -면 왼쪽으로 가요"
-            ),
-            mapOf(
-                "question" to "해당 버튼은 캐릭터(스프라이트) 추가 버튼인가요?",
-                "answer" to "X",
+                "question" to "기차가 열차 승강장에 들어오고 있어요, 이게 ‘기차’ 신호를 보내는 블록이 맞나요?",
+                "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
-                "hint" to "고양이 모양은 스프라이트 추가 버튼이고, 지구본 모양은 언어 설정 버튼이에요"
+                "hint" to "□ 신호 보내기는 작동하면 □ 신호를 보내줘요!"
             ),
             mapOf(
-                "question" to "고양이가 말하고 싶어해요. 아래 블록이 실행되면 고양이는 20을 말하나요?",
-                "answer" to "X",
+                "question" to "민수가 문제를 고민하고 있어요. 여러분이 도와주세요. 아래 조건은 맞나요?",
+                "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
-                "hint" to "개념에서 빈칸에 ‘안녕!’이라고 적혀 있을 때 ‘안녕!’을 말한다고 배웠어요. 문제에서 빈칸에 무엇이 적혀있나요?"
+                "hint" to "~가 아니다 블록은 안쪽 조건의 만족 / 불만족을 반대로 바꿔줘요!"
             ),
             mapOf(
-                "question" to "남은 김밥의 수를 수첩에 쓰려고 해요. 아래 블록을 실행시키면 ‘김밥’ 개수는 10으로 정해지나요?",
-                "answer" to "X",
+                "question" to "초록 깃발을 클릭하고 말하기 블록이 작동했을 때, 캐릭터는 마우스 포인터와 충돌했나요?",
+                "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
-                "hint" to "개념에서 빈칸에 ‘0’이라고 적혀 있을 때 앞의 변수를 0으로 설정한다고 배웠어요. 문제에서 빈칸에 무엇이 적혀있나요?"
+                "hint" to "~ 까지 기다리기 블록은 조건을 만족할 때까지 기다려요."
             ),
             mapOf(
-                "question" to "아래 조건은 맞나요? 맞으면 O, 틀리면 X를 눌러주세요,",
-                "answer" to "X",
+                "question" to "다음 블록은 캐릭터의 크기를 원래대로 돌려주나요?",
+                "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
-                "hint" to "10은 50보다 큰가요?"
+                "hint" to "캐릭터의 원래 크기는 100%에요."
             ),
             mapOf(
-                "question" to "오리가 걸어가는 중이에요. 초록 깃발을 누르고 충분히 기다렸을 때, 오리의 x좌표는 계속 커지나요?",
-                "answer" to "X",
+                "question" to "다음 블록은 캐릭터를 안 보이게 해주나요?",
+                "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
-                "hint" to "스크래치에서 x좌표의 최대값은 캐릭터의 종류 및 크기에 따라 다르지만, 무한히 커지지는 않도록 되어 있어요"
+                "hint" to "캐릭터를 보이게 해주는 블록은 ‘보이기’ 이랍니다."
             )
         )
 
@@ -191,17 +191,21 @@ class OXQuizTwoFragment : Fragment() {
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
+        var totalCorrect = 0  //전체 맞은 개수를 세기위한 변수입니다. 10챕터를 제외한 OX퀴즈는 모든 챕터에 한번 뿐이기에 여기서 초기화 해줍니다.
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
+            totalCorrect += 1
             bundle.putString("answer", answer)
             bundle.putString("question", question)
             bundle.putInt("chapterNumber", chapterNumber!!)
-            findNavController().navigate(R.id.action_OXQuizFragment_to_resultFragment, bundle)
+            bundle.putInt("totalCorrect", totalCorrect)  //맞은 개수를 번들에 넣어서 보내준다.
+            findNavController().navigate(R.id.action_OXQuizTwoFragment_to_resultTwoFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
             bundle.putString("example", example)
             bundle.putString("answer", answer)
             bundle.putString("question", question)
             bundle.putInt("chapterNumber", chapterNumber!!)
-            findNavController().navigate(R.id.action_OXQuizFragment_to_resultFragment, bundle)
+            bundle.putInt("totalCorrect", totalCorrect)  //맞은 개수를 번들에 넣어서 보내준다.
+            findNavController().navigate(R.id.action_OXQuizTwoFragment_to_resultTwoFragment, bundle)
         }
     }
 

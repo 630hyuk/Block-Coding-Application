@@ -20,12 +20,15 @@ class StageOneChapterTenResultFragment : Fragment() {
     private var myExample: String? = null
     private var reason: String? = null
     private var order: Int? = null
+    private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             //myAnswer = it.getString("answer")
             //myquestion = it.getString("question")
+            totalCorrect = it.getInt("totalCorrect")
+
             myExample = it.getString("example")
             reason = it.getString("reason")
             order = it.getInt("order")
@@ -61,12 +64,15 @@ class StageOneChapterTenResultFragment : Fragment() {
                 order = order!! + 1  //즉, 여기서 order를 하나씩 올려준다.
                 bundle.putInt("order", order!!)
                 if(order == 2){  //챕터10의 ox가 두 문제 뿐이니, 이렇게 만들어줬습니다.
+                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
                     findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_stageOneChapterTenQuizOXFragment, bundle)
                 }
                 else if (order == 11){  //챕터10이 다 끝났다면...
-                    findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_lastResultFragment)
+                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
+                    findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_lastResultFragment, bundle)
                 }
                 else{
+                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
                     findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_stageOneChapterTenQuizFourFragment, bundle)
                 }
             }
@@ -78,12 +84,15 @@ class StageOneChapterTenResultFragment : Fragment() {
                 order = order!! + 1  //즉, 여기서 order를 하나씩 올려준다.
                 bundle.putInt("order", order!!)
                 if(order == 2){  //챕터10의 ox가 두 문제 뿐이니, 이렇게 만들어줬습니다.
+                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
                     findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_stageOneChapterTenQuizOXFragment, bundle)
                 }
                 else if (order == 11){  //챕터10이 다끝났다면
-                    findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_lastResultFragment)
+                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
+                    findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_lastResultFragment, bundle)
                 }
                 else{
+                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
                     findNavController().navigate(R.id.action_stageOneChapterTenResultFragment_to_stageOneChapterTenQuizFourFragment, bundle)
                 }
             }

@@ -10,9 +10,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentStageOneBinding
 
 class StageOneFragment : Fragment() {
+    private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            restart = it.getString("restart")
         }
     }
 
@@ -35,6 +38,7 @@ class StageOneFragment : Fragment() {
         }
 
         binding?.btnChapter1?.setOnClickListener {
+            //binding?.imgStarOne11?.setImageResource(android.R.drawable.btn_star_big_off)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
             bundle.putInt("chapterNumber", 1)  //챕터 1임을 알려줍니다.
             findNavController().navigate(R.id.action_stageOneFragment_to_introduceFragment, bundle)
         }
@@ -81,6 +85,7 @@ class StageOneFragment : Fragment() {
 
         binding?.btnChapter10?.setOnClickListener {
             bundle.putInt("order", 1)  //챕터10의 1번부터 10번까지를 호출하기 위한 order값입니다
+            bundle.putString("restart", restart)  // 만약 챕터10 재시작이 아닐 경우, 이 안에는 null값이 들어가지만, 재시작을 할 경우 "restart"가 들어간다.
             findNavController().navigate(R.id.action_stageOneFragment_to_stageOneChapterTenQuizOXFragment, bundle)
         }
 

@@ -1,7 +1,6 @@
 package com.example.codingnatorpoject
 
 import android.app.AlertDialog
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
@@ -9,26 +8,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.codingnatorpoject.DBConnection.QuestionRepository
+import com.example.codingnatorpoject.DBConnection.DatabaseConnector
+import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.databinding.FragmentFourChooseQuizBinding
 
 class FourChooseQuizFragment : Fragment() {
     private var chapterNumber: Int? = null
     private var quizFourComplete: Int? = null   //4지선다 퀴즈의 두 번쨰 문제인지 확인해주는 변수
+    private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             chapterNumber = it.getInt("chapterNumber")
             quizFourComplete = it.getInt("quizFourComplete")
+            totalCorrect = it.getInt("totalCorrect")
         }
     }
 
     var binding: FragmentFourChooseQuizBinding? = null
-    private val repo =
-        QuestionRepository(activity?.applicationContext)
-    /*
     var problems =
-
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf( //챕터1
                 "question" to "해당 블록들은 캐릭터가 바라보는 방향으로 총 얼마만큼 움직이게 하나요?",
@@ -195,8 +194,7 @@ class FourChooseQuizFragment : Fragment() {
                 "example4" to "30",
                 "hint" to "물 변수가 처음에 0이고, 만약 ~라면 중 해당하는 조건은 물 < 50 일 때 밖에 없어요"
             )
-        )*/
-
+        )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -211,16 +209,109 @@ class FourChooseQuizFragment : Fragment() {
     var example2 = ""
     var example3 = ""
     var example4 = ""
-    var hint = ""
     //var reason = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val id = String.format(QuestionRepository.id_format, 1, chapterNumber, if(quizFourComplete == 100) 2 else 3)
+        if(chapterNumber == 1){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour2)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour1)
+            }
+        }
 
-        // now, showProblem also set the imageview
-        showProblem(1/*TODO: get stage too*/, chapterNumber!!, if(quizFourComplete == 100) 3 else 2)
+        if(chapterNumber == 2){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour4)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour3)
+            }
+        }
+
+        if(chapterNumber == 3){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour6)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour5)
+            }
+        }
+
+        if(chapterNumber == 4){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour8)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour7)
+            }
+        }
+
+        if(chapterNumber == 5){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour10)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour9)
+            }
+        }
+
+        if(chapterNumber == 6){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour12)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour11)
+            }
+        }
+
+        if(chapterNumber == 7){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour14)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour13)
+            }
+        }
+
+        if(chapterNumber == 8){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour16)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour15)
+            }
+        }
+
+        if(chapterNumber == 9){
+            if(quizFourComplete == 100){
+                showProblem(chapterNumber!!*2)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour18)
+            }
+            else{
+                showProblem((chapterNumber!!*2)-1)
+                binding?.imgQuestionFour?.setImageResource(R.drawable.choosefour17)
+            }
+        }
 
         binding?.btnEx1?.setOnClickListener {
             selectExample(example1, question)
@@ -239,21 +330,24 @@ class FourChooseQuizFragment : Fragment() {
         }
 
         binding?.btnHintFour?.setOnClickListener {
-           showHintBox(hint)
+            if(quizFourComplete == 100){
+                showHintBox(chapterNumber!!*2)
+            }
+            else{
+                showHintBox((chapterNumber!!*2)-1)
+            }
         }
 
     }
 
-    fun showProblem(stage: Int, chapter: Int, pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
-        val problem = repo.get(stage, chapter!!, pn)
-        question = problem["content"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
-        answer = problem["answer"].toString()
-        example1 = problem["cand1"].toString()
-        example2 = problem["cand2"].toString()
-        example3 = problem["cand3"].toString()
-        example4 = problem["cand4"].toString()
+    fun showProblem(pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+        question = problems[pn - 1]["question"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
+        answer = problems[pn - 1]["answer"].toString()
+        example1 = problems[pn - 1]["example1"].toString()
+        example2 = problems[pn - 1]["example2"].toString()
+        example3 = problems[pn - 1]["example3"].toString()
+        example4 = problems[pn - 1]["example4"].toString()
         //reason = problems[pn - 1]["reason"].toString()  //유저가 퀴즈를 틀렸을때, 그 틀린 이유를 알려주는 퀴즈문제들이 몇몇 있었습니다. 그들을 위한 변수입니다.
-        //explanation = problem["explanation"].toString() //
 
         binding?.fourQuestionTextView?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.fourQuestionTextView?.movementMethod = ScrollingMovementMethod.getInstance() //이렇게 qustion텍스트도 스크롤이 가능해집니다.
@@ -262,27 +356,28 @@ class FourChooseQuizFragment : Fragment() {
         binding?.btnEx3?.text = example3
         binding?.btnEx4?.text = example4
 
-        /*
-        val src = ImageSource.bitmap(repo.getImage(stage, chapter, pn))
-        Log.i("here",src.toString())
-        binding?.imgQuestionFour?.setImage(src)*/
-        binding?.imgQuestionFour?.setImageBitmap(repo.getImage(stage, chapter, pn))
-
-        /*
-        val num = if (quizFourComplete == 100) 3 else 2
-        DatabaseConnector(context).uploadQuestion(
-            "1-$chapterNumber-$num", question,
-            problems[pn - 1]["hint"].toString(), false,
-            arrayOf(example1, example2, example3, example4), answer, /*reason*/"Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, num))
-        */
+        // set doUpload to true, for upload local question data
+        val doUpload = true
+        if (doUpload) {
+            val num = if (quizFourComplete == 100) 3 else 2
+            DatabaseConnector(context).uploadQuestion(
+                "1-$chapterNumber-$num", question,
+                problems[pn - 1]["hint"].toString(), false,
+                arrayOf(example1, example2, example3, example4), answer, /*reason*/"Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, num))
+        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
+            totalCorrect = totalCorrect!! + 1  //맞은 개수를 올려준다.
+
             bundle.putString("answer", answer)
             bundle.putString("question", question)
             bundle.putInt("chapterNumber", chapterNumber!!)
+
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
+
             if(quizFourComplete == 100){
                 bundle.putInt("quizFourComplete", 200) //한 챕터가 다 끝남을 의미
             }
@@ -297,6 +392,9 @@ class FourChooseQuizFragment : Fragment() {
             bundle.putString("question", question)
             //bundle.putString("reason", reason)  //틀린 이유가 따로 나와있는경우
             bundle.putInt("chapterNumber", chapterNumber!!)
+
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
+
             if(quizFourComplete == 100){
                 bundle.putInt("quizFourComplete", 200) //한 챕터가 다 끝남을 의미
             }
@@ -308,10 +406,10 @@ class FourChooseQuizFragment : Fragment() {
         }
     }
 
-    fun showHintBox(hint: String){  //힌트박스를 보여주기 위한 함수입니다.
+    fun showHintBox(pn: Int){  //힌트박스를 보여주기 위한 함수입니다.
         val alertDialog = AlertDialog.Builder(this.context)
             .setTitle("힌트")
-            .setMessage(hint)
+            .setMessage(problems[pn - 1]["hint"].toString())
             .setNeutralButton("닫기", null)
             .create()
         alertDialog.show()

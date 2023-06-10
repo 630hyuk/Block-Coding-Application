@@ -13,10 +13,12 @@ import com.example.codingnatorpoject.databinding.FragmentStageOneChapterTenQuizF
 
 class StageOneChapterTenQuizFourFragment : Fragment() {
     private var order: Int? = null
+    private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             order = it.getInt("order")
+            totalCorrect = it.getInt("totalCorrect")
         }
     }
 
@@ -200,9 +202,11 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
+            totalCorrect = totalCorrect!! + 1  //맞은 개수를 올려준다.
             //bundle.putString("answer", answer)
             //bundle.putString("question", question)
             bundle.putInt("order", order!!)
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
             findNavController().navigate(R.id.action_stageOneChapterTenQuizFourFragment_to_stageOneChapterTenResultFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
             bundle.putString("example", example)
@@ -210,6 +214,7 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
             //bundle.putString("question", question)
             bundle.putString("reason", reason)  //틀린 이유 알리기
             bundle.putInt("order", order!!)
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
             findNavController().navigate(R.id.action_stageOneChapterTenQuizFourFragment_to_stageOneChapterTenResultFragment, bundle)
         }
     }
