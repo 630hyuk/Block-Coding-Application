@@ -64,7 +64,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_1_2"
@@ -72,14 +72,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_1_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                 </LinearLayout>
 
@@ -127,7 +127,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_2_2"
@@ -135,14 +135,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_2_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -189,7 +189,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_3_2"
@@ -197,14 +197,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_3_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -251,7 +251,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_4_2"
@@ -259,14 +259,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_4_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -319,7 +319,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_5_2"
@@ -327,14 +327,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_5_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -380,7 +380,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_6_2"
@@ -388,14 +388,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_6_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -434,7 +434,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_7_2"
@@ -442,14 +442,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_7_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -509,7 +509,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_8_2"
@@ -517,14 +517,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_8_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -570,7 +570,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_9_2"
@@ -578,14 +578,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_one_9_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView

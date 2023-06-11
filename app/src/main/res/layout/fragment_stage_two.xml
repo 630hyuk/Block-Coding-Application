@@ -70,23 +70,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_1_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_1_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_1_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                 </LinearLayout>
 
@@ -130,23 +133,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_2_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_2_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_2_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -189,23 +195,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_3_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_3_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_3_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -248,23 +257,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_4_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_4_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_4_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -306,23 +318,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_5_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_5_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_5_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -364,23 +379,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_6_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_6_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_6_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -415,23 +433,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_7_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_7_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_7_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -487,23 +508,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_8_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_8_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_8_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView
@@ -545,23 +569,26 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_two_9_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_9_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
+                        android:id="@+id/img_star_two_9_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
                 <ImageView

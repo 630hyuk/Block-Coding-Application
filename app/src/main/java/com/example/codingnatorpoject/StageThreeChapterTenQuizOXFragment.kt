@@ -10,15 +10,17 @@ import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
 import com.example.codingnatorpoject.databinding.FragmentStageThreeChapterTenQuizOXBinding
 
-var totalCorrect_three = 0  //전체 맞은 개수를 세기위한 전역변수입니다. 일단 OX가 다 끝나고 four로 이동시에 bundle에 넣어줍니다
+//var totalCorrect_three = 0  //전체 맞은 개수를 세기위한 전역변수입니다. 일단 OX가 다 끝나고 four로 이동시에 bundle에 넣어줍니다
 
 class StageThreeChapterTenQuizOXFragment : Fragment() {
+    private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
     private var order: Int? = null
     private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            totalCorrect = it.getInt("totalCorrect")
             order = it.getInt("order")
             restart = it.getString("restart")
         }
@@ -61,7 +63,7 @@ class StageThreeChapterTenQuizOXFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if(restart == "restart"){
-            totalCorrect_three = 0 //LastResultFragment에서 재시작으로 넘어왔을 경우, totalCorrect 다시 0로 초기화 합니다.
+            totalCorrect = 0 //LastResultFragment에서 재시작으로 넘어왔을 경우, totalCorrect 다시 0로 초기화 합니다.
         }
 
         if(order == 1){
@@ -107,14 +109,14 @@ class StageThreeChapterTenQuizOXFragment : Fragment() {
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
-            totalCorrect_three += 1
-            bundle.putInt("totalCorrect", totalCorrect_three)  //맞은 개수를 번들에 넣어서 보내준다.
+            totalCorrect  = totalCorrect!! + 1
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
             //bundle.putString("answer", answer)
             //bundle.putString("question", question)
             bundle.putInt("order", order!!)
             findNavController().navigate(R.id.action_stageThreeChapterTenQuizOXFragment_to_stageThreeChapterTenResultFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
-            bundle.putInt("totalCorrect", totalCorrect_three)  //맞은 개수를 번들에 넣어서 보내준다.
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
             bundle.putString("example", example)
             //bundle.putString("answer", answer)
             //bundle.putString("question", question)

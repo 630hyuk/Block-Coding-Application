@@ -14,10 +14,13 @@ import com.example.codingnatorpoject.databinding.FragmentOXQuizTwoBinding
 
 class OXQuizTwoFragment : Fragment() {
     private var chapterNumber: Int? = null
+    private var totalCorrect: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             chapterNumber = it.getInt("chapterNumber")
+            totalCorrect = it.getInt("totalCorrect")
         }
     }
     var binding: FragmentOXQuizTwoBinding? = null
@@ -191,20 +194,19 @@ class OXQuizTwoFragment : Fragment() {
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
         val bundle = Bundle()
-        var totalCorrect = 0  //전체 맞은 개수를 세기위한 변수입니다. 10챕터를 제외한 OX퀴즈는 모든 챕터에 한번 뿐이기에 여기서 초기화 해줍니다.
         if (answer == example) {  //즉, 사용자가 입력한 값이 정답일때
-            totalCorrect += 1
+            totalCorrect = totalCorrect!! + 1
             bundle.putString("answer", answer)
             bundle.putString("question", question)
             bundle.putInt("chapterNumber", chapterNumber!!)
-            bundle.putInt("totalCorrect", totalCorrect)  //맞은 개수를 번들에 넣어서 보내준다.
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
             findNavController().navigate(R.id.action_OXQuizTwoFragment_to_resultTwoFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
             bundle.putString("example", example)
             bundle.putString("answer", answer)
             bundle.putString("question", question)
             bundle.putInt("chapterNumber", chapterNumber!!)
-            bundle.putInt("totalCorrect", totalCorrect)  //맞은 개수를 번들에 넣어서 보내준다.
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
             findNavController().navigate(R.id.action_OXQuizTwoFragment_to_resultTwoFragment, bundle)
         }
     }

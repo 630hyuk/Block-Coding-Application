@@ -12,10 +12,13 @@ import com.example.codingnatorpoject.databinding.FragmentIntroduceBinding
 
 class IntroduceFragment : Fragment() {
     private var chapterNumber: Int? = null
+    private var totalCorrect: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             chapterNumber = it.getInt("chapterNumber")
+            totalCorrect = it.getInt("totalCorrect")
         }
     }
 
@@ -96,6 +99,7 @@ class IntroduceFragment : Fragment() {
         binding?.btnQuiz?.setOnClickListener {
             val bundle = Bundle().apply {
                 putInt("chapterNumber", chapterNumber!!)
+                putInt("totalCorrect", totalCorrect!!)  //전체 개수를 세기위한
             }
             findNavController().navigate(R.id.action_introduceFragment_to_OXQuizFragment, bundle)
         }

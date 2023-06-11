@@ -13,11 +13,15 @@ import com.example.codingnatorpoject.databinding.FragmentStageTwoBinding
 
 class StageThreeFragment : Fragment() {
     private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때
+    private var chapterNumber: Int? = null  //어떤 챕터가 lastResult에서 넘어왔는지 확인해야 함
+    private var fromLastReslutTotalCorrect: Int? = null  //해당 챕터에서 얼마나 맞았는지 확인해야 함
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             restart = it.getString("restart")
+            chapterNumber = it.getInt("chapterNumber")
+            fromLastReslutTotalCorrect = it.getInt("totalCorrect")
         }
     }
 
@@ -32,7 +36,162 @@ class StageThreeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if(chapterNumber == 1){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree11?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree11?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree12?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree11?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree12?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree13?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 2){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree21?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree21?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree22?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree21?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree22?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree23?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 3){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree31?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree31?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree32?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree31?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree32?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree33?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 4){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree41?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree41?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree42?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree41?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree42?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree43?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 5){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree51?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree51?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree52?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree51?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree52?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree53?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 6){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree61?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree61?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree62?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree61?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree62?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree63?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 7){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree71?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree71?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree72?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree71?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree72?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree73?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 8){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree81?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree81?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree82?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree81?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree82?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree83?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
+        if(chapterNumber == 9){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
+            if(fromLastReslutTotalCorrect == 1){
+                binding?.imgStarThree91?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 2){
+                binding?.imgStarThree91?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree92?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+
+            if(fromLastReslutTotalCorrect == 3) {
+                binding?.imgStarThree91?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree92?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                binding?.imgStarThree93?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+            }
+        }
+
         val bundle = Bundle()  //몇 챕터를 선택할지 이 번들에 넣어서 알려줍니다.
+        val totalCorrect = 0  //모든 시작을 여기서 한다고 치자.
 
         binding?.btnGoTo2?.setOnClickListener {
             findNavController().navigate(R.id.action_stageThreeFragment_to_stageTwoFragment)
@@ -46,52 +205,62 @@ class StageThreeFragment : Fragment() {
         binding?.btnChapter31?.setOnClickListener {
             //binding?.imgStarOne11?.setImageResource(android.R.drawable.btn_star_big_off)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
             bundle.putInt("chapterNumber", 1)  //챕터 1임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter32?.setOnClickListener {
             bundle.putInt("chapterNumber", 2)  //챕터 2임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter33?.setOnClickListener {
             bundle.putInt("chapterNumber", 3)  //챕터 3임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter34?.setOnClickListener {
             bundle.putInt("chapterNumber", 4)  //챕터 4임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter35?.setOnClickListener {
             bundle.putInt("chapterNumber", 5)  //챕터 5임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter36?.setOnClickListener {
             bundle.putInt("chapterNumber", 6)  //챕터 6임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter37?.setOnClickListener {
             bundle.putInt("chapterNumber", 7)  //챕터 7임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter38?.setOnClickListener {
             bundle.putInt("chapterNumber", 8)  //챕터 8임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter39?.setOnClickListener {
             bundle.putInt("chapterNumber", 9)  //챕터 9임을 알려줍니다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_introduceThreeFragment, bundle)
         }
 
         binding?.btnChapter310?.setOnClickListener {
             bundle.putInt("order", 1)  //챕터10의 1번부터 10번까지를 호출하기 위한 order값입니다
             bundle.putString("restart", restart)  // 만약 챕터10 재시작이 아닐 경우, 이 안에는 null값이 들어가지만, 재시작을 할 경우 "restart"가 들어간다.
+            bundle.putInt("totalCorrect", totalCorrect)  //초기의 시작은 0이니까
             findNavController().navigate(R.id.action_stageThreeFragment_to_stageThreeChapterTenQuizOXFragment, bundle)
         }
     }

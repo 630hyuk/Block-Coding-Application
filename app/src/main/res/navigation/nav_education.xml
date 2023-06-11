@@ -187,7 +187,8 @@
         tools:layout="@layout/fragment_last_result_two" >
         <action
             android:id="@+id/action_lastResultTwoFragment_to_stageTwoFragment2"
-            app:destination="@id/stageTwoFragment" />
+            app:destination="@id/stageTwoFragment"
+            app:popUpTo="@id/selectQuizFragment" />
     </fragment>
     <fragment
         android:id="@+id/stageTwoChapterTenQuizOXFragment"
@@ -256,7 +257,8 @@
         tools:layout="@layout/fragment_last_result_three" >
         <action
             android:id="@+id/action_lastResultThreeFragment_to_stageThreeFragment"
-            app:destination="@id/stageThreeFragment" />
+            app:destination="@id/stageThreeFragment"
+            app:popUpTo="@id/selectQuizFragment" />
     </fragment>
     <fragment
         android:id="@+id/stageThreeChapterTenQuizFourFragment"

@@ -10,11 +10,13 @@ import com.example.codingnatorpoject.databinding.FragmentLastResultThreeBinding
 
 class LastResultThreeFragment : Fragment() {
     private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
+    private var chapterNumber: Int? = null  //번들에서 받아온 해당 챕터
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             totalCorrect = it.getInt("totalCorrect")
+            chapterNumber = it.getInt("chapterNumber")
         }
     }
 
@@ -34,6 +36,8 @@ class LastResultThreeFragment : Fragment() {
             val restart = "restart"
             val bundle = Bundle().apply {
                 putString("restart", restart)
+                putInt("totalCorrect", totalCorrect!!)
+                putInt("chapterNumber", chapterNumber!!)
             }  //이 변수는 챕터10을 다시 실행했을 경우를 대비한 예비책입니다. 이 변수를 이용해 챕터10을 다시 클릭했을때, totalCorrect를 0으로 초기화 할 수 있습니다.
             findNavController().navigate(R.id.action_lastResultThreeFragment_to_stageThreeFragment, bundle)
             //findNavController().popBackStack()
