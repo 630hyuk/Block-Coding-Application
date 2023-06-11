@@ -189,14 +189,6 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
         binding?.btnChapter10Ex3?.text = example3
         binding?.btnChapter10Ex4?.text = example4
 
-        // set doUpload to true, for upload local question data
-        val doUpload = true
-        if (doUpload) {
-            DatabaseConnector(context).uploadQuestion(
-                "1-10-$order", question,
-                problems[pn - 3]["hint"].toString(), false,
-                arrayOf(example1, example2, example3, example4), answer, /*reason*/"Something to explain?", ImageAccessor(context).getFileUrl(1, 10, order!!))
-        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

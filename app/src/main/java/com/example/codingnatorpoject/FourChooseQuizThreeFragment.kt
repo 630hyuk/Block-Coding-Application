@@ -192,7 +192,7 @@ class FourChooseQuizThreeFragment : Fragment() {
                 "example2" to "40",
                 "example3" to "80",
                 "example4" to "160",
-                "hint" to "변수를 ~ 만큼 바꾸기는 해당하는 빈칸의 값만큼 더해주면 된답니다. 단, 변수를 변수만큼 바꾸기가 끝난 상태로 마지막 블록이 실행되므로 주의!\n"
+                "hint" to "변수를 ~ 만큼 바꾸기는 해당하는 빈칸의 값만큼 더해주면 된답니다. 단, 변수를 변수만큼 바꾸기가 끝난 상태로 마지막 블록이 실행되므로 주의!\\n"
             )
         )
 
@@ -355,15 +355,6 @@ class FourChooseQuizThreeFragment : Fragment() {
         binding?.btnEx3?.text = example3
         binding?.btnEx4?.text = example4
 
-        // set doUpload to true, for upload local question data
-        val doUpload = true
-        if (doUpload) {
-            val num = if (quizFourComplete == 100) 3 else 2
-            DatabaseConnector(context).uploadQuestion(
-                "1-$chapterNumber-$num", question,
-                problems[pn - 1]["hint"].toString(), false,
-                arrayOf(example1, example2, example3, example4), answer, /*reason*/"Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, num))
-        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

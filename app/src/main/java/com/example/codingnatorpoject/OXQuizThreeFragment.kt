@@ -57,7 +57,7 @@ class OXQuizThreeFragment : Fragment() {
                 "hint" to "재생 블록은 칸 안에 있는 소리를 재생해요."
             ),
             mapOf(
-                "question" to "철수가 간단한 문제를 고민하고 있어요. 여러분이 도와주세요. \n아래 조건은 만족하나요?",
+                "question" to "철수가 간단한 문제를 고민하고 있어요. 여러분이 도와주세요. \\n아래 조건은 만족하나요?",
                 "answer" to "X",
                 "example1" to "O",
                 "example2" to "X",
@@ -183,14 +183,6 @@ class OXQuizThreeFragment : Fragment() {
             binding?.btnX?.textSize = 40F
         }
 
-        // set doUpload to true, for upload local question data
-        val doUpload = true
-        if (doUpload) {
-            DatabaseConnector(context).uploadQuestion(
-                "1-$chapterNumber-1", question,
-                problems[pn - 1]["hint"].toString(), true,
-                arrayOf(example1, example2, "null", "null"), answer, "Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, 1))
-        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

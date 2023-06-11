@@ -183,14 +183,6 @@ class OXQuizFragment : Fragment() {
             binding?.btnO?.textSize = 40F
             binding?.btnX?.textSize = 40F
         }
-        // set doUpload to true, for upload local question data
-        val doUpload = true
-        if (doUpload) {
-            DatabaseConnector(context).uploadQuestion(
-                "1-$chapterNumber-1", question,
-                problems[pn - 1]["hint"].toString(), true,
-                arrayOf(example1, example2, "null", "null"), answer, "Something to explain?", ImageAccessor(context).getFileUrl(1, chapterNumber!!, 1))
-        }
 
     }
 

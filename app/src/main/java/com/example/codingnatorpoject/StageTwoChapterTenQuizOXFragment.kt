@@ -44,7 +44,7 @@ class StageTwoChapterTenQuizOXFragment : Fragment() {
                 "reason" to "정답 : X, 캐릭터를 안 보이게 해주는 블록은 ‘숨기기’ 블록이에요."
             ),
             mapOf(
-                "question" to "이 블록은 묻고 기다리기 블록하고 같이 쓰이나요? \n참고 블록이 묻고 기다리기 블록이에요.",
+                "question" to "이 블록은 묻고 기다리기 블록하고 같이 쓰이나요? \\n참고 블록이 묻고 기다리기 블록이에요.",
                 "answer" to "O",
                 "example1" to "O",
                 "example2" to "X",
@@ -119,14 +119,6 @@ class StageTwoChapterTenQuizOXFragment : Fragment() {
         binding?.btnChapter10O?.text = example1
         binding?.btnChapter10X?.text = example2
 
-        // set doUpload to true, for upload local question data
-        val doUpload = true
-        if (doUpload) {
-            DatabaseConnector(context).uploadQuestion(
-                "1-10-$order", question,
-                problems[pn - 1]["hint"].toString(), true,
-                arrayOf(example1, example2), answer, reason, ImageAccessor(context).getFileUrl(1, 10, order!!))
-        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.
