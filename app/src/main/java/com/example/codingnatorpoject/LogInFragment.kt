@@ -1,6 +1,7 @@
 package com.example.codingnatorpoject
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -64,6 +65,7 @@ class LogInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val mainIntent = Intent(requireActivity(), MainActivity::class.java) //메인 엑티비티로 화면 전환
 
         binding.txtSignUp.setOnClickListener {
             Log.i("LoginFragment", "Let's Sign up...")
@@ -75,7 +77,7 @@ class LogInFragment : Fragment() {
             val authentication = Cognito(activity?.applicationContext)
             authentication.userLogin(email, pw)
 
-            findNavController().navigate(R.id.action_logInFragment_to_entryFragment)
+            startActivity(mainIntent)
         }
     }
 }

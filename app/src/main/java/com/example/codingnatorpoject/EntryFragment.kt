@@ -32,9 +32,5 @@ class EntryFragment : Fragment() {
         binding?.btnGoToMain?.setOnClickListener {
             startActivity(mainIntent)
         }
-
-        binding?.btnLogOut?.setOnClickListener {
-            findNavController().navigate(R.id.action_entryFragment_to_logInFragment)
-        }
     }
 }

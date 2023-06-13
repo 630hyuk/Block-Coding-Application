@@ -34,22 +34,39 @@ class StageOneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        /*
+        //우선 1, 10챕터를 제외해서 9챕터까지 클릭못하게 막기
+        binding?.btnChapter2?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter3?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter4?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter5?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter6?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter7?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter8?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter9?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+         */
 
         //밑의 과정들은 현재 딱 한번씩만 실행들이 됩니다. 예를 들어 챕터1을 끝마치고 챕터2를 푼 뒤에 지도를 보면, 챕터2에 대한 별의 정보만 남아있을뿐 챕터1에 대한 별의 정보는 초기화됩니다. 따라서 이를 클라우드 쪽에서 해결해야 할 거 같습니다.
         if(chapterNumber == 1){  //이들을 이용해 각 챕터별로 별의 개수를 바꿔줍니다.
             if(fromLastReslutTotalCorrect == 1){
                 binding?.imgStarOne11?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                //binding?.btnChapter2?.setImageResource(R.drawable.island1_2)  //다음 챕터섬을 보이도록 만들어줍니다.
+                //binding?.btnChapter2?.isEnabled = true  //다음 챕터를 선택할 수 있게 만들어줍니다.
             }
 
             if(fromLastReslutTotalCorrect == 2){
                 binding?.imgStarOne11?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
                 binding?.imgStarOne12?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                //binding?.btnChapter2?.setImageResource(R.drawable.island1_2)  //다음 챕터섬을 보이도록 만들어줍니다.
+                //binding?.btnChapter2?.isEnabled = true  //다음 챕터를 선택할 수 있게 만들어줍니다.
             }
 
             if(fromLastReslutTotalCorrect == 3) {
                 binding?.imgStarOne11?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
                 binding?.imgStarOne12?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
                 binding?.imgStarOne13?.setImageResource(android.R.drawable.btn_star_big_on)  //이 기능을 이용해서 별 색깔을 바꿔주면 됨
+                //binding?.btnChapter2?.setImageResource(R.drawable.island1_2) //다음 챕터섬을 보이도록 만들어줍니다.
+                //binding?.btnChapter2?.isEnabled = true  //다음 챕터를 선택할 수 있게 만들어줍니다.
             }
         }
 

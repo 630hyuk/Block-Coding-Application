@@ -114,6 +114,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter1" />
+                    <!--android:src="@drawable/island1_2_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -176,6 +177,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter2" />
+                <!--android:src="@drawable/island1_3_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -238,6 +240,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter3" />
+                <!--android:src="@drawable/island1_4_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -307,6 +310,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter4" />
+                <!--android:src="@drawable/island1_5_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -368,6 +372,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter5" />
+                <!--android:src="@drawable/island1_6_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -422,6 +427,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter6" />
+                <!--android:src="@drawable/island1_7_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -497,6 +503,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter7" />
+                <!--android:src="@drawable/island1_8_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -558,6 +565,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_chapter8" />
+                <!--android:src="@drawable/island1_9_block"-->
 
                 <LinearLayout
                     android:layout_width="wrap_content"
