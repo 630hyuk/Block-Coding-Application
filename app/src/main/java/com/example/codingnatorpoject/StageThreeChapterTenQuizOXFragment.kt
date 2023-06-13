@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
+import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentStageThreeChapterTenQuizOXBinding
 
 //var totalCorrect_three = 0  //전체 맞은 개수를 세기위한 전역변수입니다. 일단 OX가 다 끝나고 four로 이동시에 bundle에 넣어줍니다
@@ -27,6 +28,9 @@ class StageThreeChapterTenQuizOXFragment : Fragment() {
     }
 
     var binding: FragmentStageThreeChapterTenQuizOXBinding? = null
+    private val repo = QuestionRepository(activity?.applicationContext)
+
+    /*
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf(
@@ -44,6 +48,7 @@ class StageThreeChapterTenQuizOXFragment : Fragment() {
                 "reason" to "정답 : O, 해당 버튼은 배경 추가 버튼이 맞아요."
             )
         )
+     */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,19 +67,10 @@ class StageThreeChapterTenQuizOXFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(restart == "restart"){
-            totalCorrect = 0 //LastResultFragment에서 재시작으로 넘어왔을 경우, totalCorrect 다시 0로 초기화 합니다.
-        }
+        //LastResultFragment에서 재시작으로 넘어왔을 경우, totalCorrect 다시 0로 초기화 합니다.
+        if (restart == "restart") totalCorrect = 0
 
-        if(order == 1){
-            showProblem(order!!)
-            //binding?.imgChapter10OX?.setImageResource(R.drawable.chapterten1)
-        }
-
-        if(order == 2){
-            showProblem(order!!)
-            //binding?.imgChapter10OX?.setImageResource(R.drawable.chapterten2)
-        }
+        showProblem(3, 10, order!!)
 
         binding?.btnChapter10O?.setOnClickListener {
             selectExample(example1, question)
@@ -85,17 +81,20 @@ class StageThreeChapterTenQuizOXFragment : Fragment() {
         }
     }
 
-    fun showProblem(pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
-        question = problems[pn - 1]["question"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
-        answer = problems[pn - 1]["answer"].toString()
-        example1 = problems[pn - 1]["example1"].toString()
-        example2 = problems[pn - 1]["example2"].toString()
-        reason = problems[pn - 1]["reason"].toString()  //틀린 이유를 알려줘야 하므로
+    fun showProblem(stage: Int, chapter: Int, pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+        val problem = repo.get(stage, chapter, pn)
+
+        question = problem["content"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
+        answer = problem["answer"].toString()
+        example1 = problem["cand1"].toString()
+        example2 = problem["cand2"].toString()
+        reason = problem["explanation"].toString()  //틀린 이유를 알려줘야 하므로
 
         binding?.txtChapter10OXQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10O?.text = example1
         binding?.btnChapter10X?.text = example2
 
+        binding?.imgChapter10OX?.setImageBitmap(repo.getImage(stage, chapter, pn))
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

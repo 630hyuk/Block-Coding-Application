@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.DatabaseConnector
 import com.example.codingnatorpoject.DBConnection.ImageAccessor
+import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentStageThreeChapterTenQuizFourBinding
 
 class StageThreeChapterTenQuizFourFragment : Fragment() {
@@ -23,6 +24,9 @@ class StageThreeChapterTenQuizFourFragment : Fragment() {
     }
 
     var binding: FragmentStageThreeChapterTenQuizFourBinding? = null
+    private val repo = QuestionRepository(activity?.applicationContext)
+
+    /*
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf( //3번문제
@@ -98,6 +102,7 @@ class StageThreeChapterTenQuizFourFragment : Fragment() {
                 "reason" to "정답 : ④ 47, 사과+감+딸기의 개수는 총 47개이기 때문이에요."
             )
         )
+    */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -118,45 +123,7 @@ class StageThreeChapterTenQuizFourFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(order == 3){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten5)
-        }
-
-        if(order == 4){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten5)
-        }
-
-        if(order == 5){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten5)
-        }
-
-        if(order == 6){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten6)
-        }
-
-        if(order == 7){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten7)
-        }
-
-        if(order == 8){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten8)
-        }
-
-        if(order == 9){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten9)
-        }
-
-        if(order == 10){
-            showProblem(order!!)
-            //binding?.imgChapter10Four?.setImageResource(R.drawable.chapterten10)
-        }
+        showProblem(3, 10, order!!)
 
         binding?.btnChapter10Ex1?.setOnClickListener {
             selectExample(example1, question)
@@ -175,14 +142,16 @@ class StageThreeChapterTenQuizFourFragment : Fragment() {
         }
     }
 
-    fun showProblem(pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
-        question = problems[pn - 3]["question"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
-        answer = problems[pn - 3]["answer"].toString()
-        example1 = problems[pn - 3]["example1"].toString()
-        example2 = problems[pn - 3]["example2"].toString()
-        example3 = problems[pn - 3]["example3"].toString()
-        example4 = problems[pn - 3]["example4"].toString()
-        reason = problems[pn - 3]["reason"].toString()  //틀린 이유를 알려줘야 하므로
+    fun showProblem(stage: Int, chapter: Int, pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+        val problem = repo.get(stage, chapter, pn)
+
+        question = problem["content"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
+        answer = problem["answer"].toString()
+        example1 = problem["example1"].toString()
+        example2 = problem["example2"].toString()
+        example3 = problem["example3"].toString()
+        example4 = problem["example4"].toString()
+        reason = problem["reason"].toString()  //틀린 이유를 알려줘야 하므로
 
         binding?.txtChapter10FourQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10Ex1?.text = example1
@@ -190,6 +159,7 @@ class StageThreeChapterTenQuizFourFragment : Fragment() {
         binding?.btnChapter10Ex3?.text = example3
         binding?.btnChapter10Ex4?.text = example4
 
+        binding?.imgChapter10Four?.setImageBitmap(repo.getImage(stage, chapter, pn))
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

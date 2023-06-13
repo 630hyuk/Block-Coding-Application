@@ -152,7 +152,6 @@ public class QuestionRepository {
 
 
         isDownloaded = true;
-        //Log.i("AAAAAAAAAA", questions.toString());
     }
 
     // stage, chapter, pn을 전달하면 문제 데이터를 HashMap 타입으로 반환

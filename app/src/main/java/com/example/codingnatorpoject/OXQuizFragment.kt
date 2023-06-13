@@ -27,6 +27,9 @@ class OXQuizFragment : Fragment() {
     }
 
     var binding: FragmentOXQuizBinding? = null
+    private val repo = QuestionRepository(activity?.applicationContext)
+
+    /*
     var problems =
         arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
             mapOf(
@@ -93,6 +96,8 @@ class OXQuizFragment : Fragment() {
                 "hint" to "스크래치에서 x좌표의 최대값은 캐릭터의 종류 및 크기에 따라 다르지만, 무한히 커지지는 않도록 되어 있어요"
             )
         )
+    */
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -105,54 +110,12 @@ class OXQuizFragment : Fragment() {
     var answer = ""
     var example1 = ""
     var example2 = ""
+    var hint = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(chapterNumber == 1){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox1)
-        }
-
-        if(chapterNumber == 2){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox2)
-        }
-
-        if(chapterNumber == 3){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox3)
-        }
-
-        if(chapterNumber == 4){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox4)
-        }
-
-        if(chapterNumber == 5){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox5)
-        }
-
-        if(chapterNumber == 6){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox6)
-        }
-
-        if(chapterNumber == 7){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox7)
-        }
-
-        if(chapterNumber == 8){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox8)
-        }
-
-        if(chapterNumber == 9){
-            showProblem(chapterNumber!!)
-            binding?.imgQuestionOX?.setImageResource(R.drawable.ox9)
-        }
+        showProblem(1, chapterNumber!!, 1)
 
         binding?.btnO?.setOnClickListener {
             selectExample(example1, question)
@@ -163,21 +126,26 @@ class OXQuizFragment : Fragment() {
         }
 
         binding?.btnHintOX?.setOnClickListener {
-            showHintBox(chapterNumber!!)
+            showHintBox(hint)
         }
 
     }
 
-    fun showProblem(pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
-        question = problems[pn - 1]["question"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
-        answer = problems[pn - 1]["answer"].toString()
-        example1 = problems[pn - 1]["example1"].toString()
-        example2 = problems[pn - 1]["example2"].toString()
+    fun showProblem(stage: Int, chapter: Int, pn: Int) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+        val problem = repo.get(stage, chapter, pn)
+
+        question = problem["content"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
+        answer = problem["answer"].toString()
+        example1 = problem["cand1"].toString()
+        example2 = problem["cand2"].toString()
+        hint = problem["hint"]?: "No hint."
 
         binding?.txtQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.txtQuestion?.movementMethod = ScrollingMovementMethod.getInstance()  //이제 qustion텍스트도 스크롤이 가능합니다.
         binding?.btnO?.text = example1
         binding?.btnX?.text = example2
+
+        binding?.imgQuestionOX?.setImageBitmap(repo.getImage(stage, chapter, pn))
 
         if(pn == 4 || pn ==8){
             binding?.btnO?.textSize = 40F
@@ -205,10 +173,10 @@ class OXQuizFragment : Fragment() {
         }
     }
 
-    fun showHintBox(pn: Int){  //힌트박스를 보여주기 위한 함수입니다.
+    fun showHintBox(hint: String){  //힌트박스를 보여주기 위한 함수입니다.
         val alertDialog = AlertDialog.Builder(this.context)
             .setTitle("힌트")
-            .setMessage(problems[pn - 1]["hint"].toString())
+            .setMessage(hint)
             .setNeutralButton("닫기", null)
             .create()
         alertDialog.show()
