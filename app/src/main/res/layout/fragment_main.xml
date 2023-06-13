@@ -8,55 +8,47 @@
 
     <Button
         android:id="@+id/btn_play"
-        android:layout_width="180dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="200dp"
-        android:backgroundTint="#6F9FFF"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#2178FB"
         android:text="모험하기"
-        android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_setting"
-        android:layout_width="180dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#59DD4B"
-        android:text="환경설정"
-        android:textColor="#000000"
-        android:textSize="30sp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#2178FB"
+        android:text="로그아웃"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ranking" />
+
+    <Button
+        android:id="@+id/btn_ranking"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#2178FB"
+        android:text="랭킹"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_play" />
 
-    <Button
-        android:id="@+id/btn_ranking"
-        android:layout_width="180dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#CD7D49"
-        android:text="랭킹"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_achievements" />
 
-    <Button
-        android:id="@+id/btn_achievements"
-        android:layout_width="180dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#E3CE68"
-        android:text="업적"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
