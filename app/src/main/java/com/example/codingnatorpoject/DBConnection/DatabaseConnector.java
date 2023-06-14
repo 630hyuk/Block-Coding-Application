@@ -1,7 +1,9 @@
 package com.example.codingnatorpoject.DBConnection;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -24,6 +26,11 @@ import com.amplifyframework.core.model.temporal.Temporal;
  */
 public class DatabaseConnector {
     Context context;
+    private String defaultUrl = "https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/";
+
+    public DatabaseConnector() {
+        this.context = null;
+    }
 
     // parameter should be applicationContext or getApplicationContext()
     // in fragment? activity.applicationContext or getActivity().getApplicationContext()
@@ -53,7 +60,7 @@ public class DatabaseConnector {
             protected String doInBackground(String... strings) {
 
                 try {
-                    URL reqUrl = new URL("https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/uploadquestion");
+                    URL reqUrl = new URL(defaultUrl + "uploadquestion");
                     HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
 
                     conn.setRequestMethod("POST");
@@ -100,22 +107,27 @@ public class DatabaseConnector {
             protected String doInBackground(String... strings) {
 
                 try {
-                    URL reqUrl = new URL("https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/updateData");
+                    URL reqUrl = new URL( defaultUrl + "updatedata");
                     HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
 
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json; utf-8");
-                    conn.setRequestProperty("Accept", "*/*");
+                    //conn.setRequestProperty("Accept", "*/*");
 
                     conn.setDoOutput(true);
-                    conn.getOutputStream().write(strings[0].getBytes());
 
-                    conn.connect();
+                    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+                    bw.write(strings[0]);
+                    bw.flush();
+                    bw.close();
+
+                    //conn.connect();
 
                     String msg = conn.getResponseMessage();
+
                     Log.e("updateProg_Response", msg);
                 }
-                catch (Exception e) { Log.e(e.toString(), "in uploadQuestion"); }
+                catch (Exception e) { Log.e(e.toString(), "in updateProg"); }
 
                 return msg;
             }

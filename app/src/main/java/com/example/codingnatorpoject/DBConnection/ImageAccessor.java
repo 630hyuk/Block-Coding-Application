@@ -33,37 +33,6 @@ public class ImageAccessor {
     }
 
     public String getFileUrl(int stage, int chapter, int pn) {
-
-/*      Nah, we don't need this actually
-        class urlGetter extends AsyncTask<Integer, Void, String> {
-
-            @Override
-            protected String doInBackground(Integer... params) {
-                try {
-                    URL reqUrl = new URL("https://b59648vra0.execute-api.ap-northeast-2.amazonaws.com/default/getFileUrl?" +
-                            "stage=" + params[0] +
-                            "&chapter=" + params[1] +
-                            "&pn=" + params[2]);
-                    HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
-
-                    conn.setRequestMethod("GET");
-                    conn.setRequestProperty("Content-Type", "application/json; utf-8");
-                    conn.setRequestProperty("Accept", "");
-
-                    conn.connect();
-                    Log.e("asdf", "here");
-                    Log.e("asdf", conn.getResponseMessage());
-                    return conn.getResponseMessage();
-                } catch (Exception e) {
-                    Log.e(e.toString(), "in getFileUrl");
-                    return null;
-                }
-            }
-
-        }
-
-        return new urlGetter().doInBackground(stage, chapter, pn);
-*/
         return "https://codingnator-image-storage05625-staging.s3.ap-northeast-2.amazonaws.com/public/stage" + stage +
                 "/chapter" + chapter +
                 "/" + pn + ".png";

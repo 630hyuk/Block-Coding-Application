@@ -26,7 +26,7 @@ public class QuestionRepository {
 
     static HashMap<String, HashMap<String, String>> questions;
     static HashMap<String, Bitmap> images;
-    static boolean isDownloaded = false;
+    private static boolean isDownloaded = false;
 
     public QuestionRepository(Context context) throws JSONException {
         class QGetter extends AsyncTask<Integer, Void, String> {
@@ -67,7 +67,7 @@ public class QuestionRepository {
 
                     String key = String.format(id_format, stage, chapter, pn);
 
-                    Log.i("asdf", json);
+                    //Log.i("asdf", json);
                     JSONObject obj = new JSONObject(json);
                     int statusCode = obj.getInt("statusCode");
 
@@ -81,7 +81,6 @@ public class QuestionRepository {
 
                     HashMap<String, String> qObj = (HashMap) questions.get(key);
                     for (String field : fields) {
-                        //Log.i("asdf", field + ": " + obj.getString(field));
                         qObj.put(field, obj.getString(field));
                     }
 
@@ -108,7 +107,7 @@ public class QuestionRepository {
                     conn.connect();
                     InputStream is = conn.getInputStream();
                     images.put(key, BitmapFactory.decodeStream(is));
-                    if (images.get(key) != null) Log.i("nullCheck", images.get(key).toString());
+                    //if (images.get(key) != null) Log.i("nullCheck", images.get(key).toString());
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -130,14 +129,13 @@ public class QuestionRepository {
 
                     for (int k = 1, z = (j == 10 ? 10 : 3); k <= z; k++) {
                         new QGetter().execute(i,j,k);
-                        //Log.i("QuestionRepository", key+" completed");
                     }
 
                 } // end of for(j) - chapter
 
             } // end of for(i) - stage
 
-            try {Thread.sleep(7000);
+            try {Thread.sleep(1000);
             }
             catch (Exception e) { e.printStackTrace();}
 
