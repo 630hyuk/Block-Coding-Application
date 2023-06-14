@@ -25,10 +25,6 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
-        binding?.btnLogout?.setOnClickListener {
-            activity?.finish()  //아마 이 곳에서 aws와의 연동이 또 필요할 것으로 보임
-        }
     }
     
 }

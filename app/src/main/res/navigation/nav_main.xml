@@ -11,17 +11,9 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_rankingFragment"
             app:destination="@id/rankingFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.example.codingnatorpoject.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.example.codingnatorpoject.RankingFragment"

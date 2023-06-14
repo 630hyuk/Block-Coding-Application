@@ -33,8 +33,8 @@ class MainFragment : Fragment() {
             startActivity(selectStageIntent)
         }
 
-        binding?.btnSetting?.setOnClickListener {  //환경설정을 눌렀을 때
-            findNavController().navigate(R.id.action_mainFragment_to_settingFragment)
+        binding?.btnSetting?.setOnClickListener {  //로그아웃 버튼을 눌렀을 때
+            activity?.finish()  //아마 이 곳에서 aws와의 연동이 또 필요할 것으로 보임
         }
 
         binding?.btnRanking?.setOnClickListener {  //랭킹을 눌렀을 때
