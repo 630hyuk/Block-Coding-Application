@@ -84,11 +84,11 @@ public class Cognito {
     }
 
     // this method also will take 0.5 seconds.
-    public void userLogin(String userId, String password){
+    public boolean userLogin(String userId, String password){
         CognitoUser cognitoUser =  userPool.getUser(userId);
         this.userPassword = password;
-        User.setUser(userId);
         cognitoUser.getSessionInBackground(authenticationHandler);
+        return User.setUser(userId);
     }
     // Callback handler for the sign-in process
     AuthenticationHandler authenticationHandler = new AuthenticationHandler() {

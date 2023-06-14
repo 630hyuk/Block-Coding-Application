@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.Cognito
 import com.example.codingnatorpoject.databinding.FragmentLogInBinding
@@ -75,9 +76,8 @@ class LogInFragment : Fragment() {
         binding.btnLogIn.setOnClickListener {
             Log.i("Cognito", "Trying login...")
             val authentication = Cognito(activity?.applicationContext)
-            authentication.userLogin(email, pw)
-
-            startActivity(mainIntent)
+            if (authentication.userLogin(email, pw)) startActivity(mainIntent)
+            else (Toast.makeText(activity?.applicationContext, "이메일 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT))
         }
     }
 }

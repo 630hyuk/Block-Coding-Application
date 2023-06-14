@@ -22,8 +22,9 @@ public class User {
     private static String json;
     private static DatabaseConnector db = new DatabaseConnector();
 
-    // this method may take about 0.5 seconds
+    // this method may take about a second
     public static boolean setUser(String id) {
+        Log.i("setUser", "Trying with" + id);
         stars = new byte[3][10];
 
         email = id;
@@ -58,7 +59,8 @@ public class User {
                     json = sb.toString();
                     JSONObject obj = new JSONObject(json);
                     if (obj.getInt("statusCode") != 200) {
-                        logout(); return null;
+                        Log.e("setUser", "User not found");
+                        logout(false); return null;
                     }
 
                     obj = obj.getJSONObject("body");
@@ -85,8 +87,8 @@ public class User {
         return true;
     }
 
-    public static void logout() {
-        db.updateProgress(email, progress);
+    public static void logout(boolean update) {
+        if (update) db.updateProgress(email, progress);
         nickname = null;
         email = null;
         progress = null;

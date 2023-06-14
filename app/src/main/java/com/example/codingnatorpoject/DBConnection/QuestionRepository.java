@@ -107,7 +107,8 @@ public class QuestionRepository {
                     conn.connect();
                     InputStream is = conn.getInputStream();
                     images.put(key, BitmapFactory.decodeStream(is));
-                    //if (images.get(key) != null) Log.i("nullCheck", images.get(key).toString());
+                    if (images.get(key) == null)
+                        Log.i("nullCheck", key + ": null");
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -135,7 +136,7 @@ public class QuestionRepository {
 
             } // end of for(i) - stage
 
-            try {Thread.sleep(1000);
+            try {Thread.sleep(6000);
             }
             catch (Exception e) { e.printStackTrace();}
 
@@ -146,7 +147,6 @@ public class QuestionRepository {
                     }
 
         }
-
 
 
         isDownloaded = true;
