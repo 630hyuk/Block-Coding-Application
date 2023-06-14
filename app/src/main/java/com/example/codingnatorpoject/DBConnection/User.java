@@ -122,7 +122,7 @@ public class User {
             String tmp = progress.substring(i*4, i*4+4);
 
             for (int j = 0; j < 3; j++) {
-                byte toDecode = (byte)tmp.charAt(j);
+                byte toDecode = (byte)(tmp.charAt(j) % 64);
                 stars[i][j*3 + 2] = (byte)(toDecode & 0b00000011);
                 toDecode >>= 2;
                 stars[i][j*3 + 1] = (byte)(toDecode & 0b00000011);
@@ -144,6 +144,7 @@ public class User {
                 toEncode |= stars[i][j*3+1];
                 toEncode <<= 2;
                 toEncode |= stars[i][j*3+2];
+                if (toEncode < 32) toEncode += 64;
                 newProgress.append((char)toEncode);
             }
             newProgress.append((char)stars[i][9]);
