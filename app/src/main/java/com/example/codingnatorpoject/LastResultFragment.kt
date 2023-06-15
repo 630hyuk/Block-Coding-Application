@@ -12,11 +12,14 @@ class LastResultFragment : Fragment() {
     private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
     private var chapterNumber: Int? = null  //번들에서 받아온 해당 챕터
 
+    private var order: Int? = null  //번들에서 받아온 10챕터의 order수로 chapterNumber를 파악한다 .. 11이 넘어온다
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             totalCorrect = it.getInt("totalCorrect")
             chapterNumber = it.getInt("chapterNumber")
+            order = it.getInt("order")
         }
     }
 
@@ -32,7 +35,7 @@ class LastResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.btnToStage?.setOnClickListener {
+        binding?.btnRestart?.setOnClickListener {
             val restart = "restart"
             val bundle = Bundle().apply {
                 putString("restart", restart)
@@ -44,7 +47,13 @@ class LastResultFragment : Fragment() {
             //이 기능을 넣어줬으니, 이제 클라우드에서 보관되는 점수는 이 LastResultFragment에서 수정되애 함
         }
 
-        binding?.txtNumCorrect?.text = "${totalCorrect}개 맞음"
+        binding?.txtNumCorrect?.text = "${totalCorrect}개"
+        if(order == 11){
+            binding?.txtNumIncorrect?.text = "${10 - (totalCorrect?.toInt() ?: 0)}개"
+        }
+        else{
+            binding?.txtNumIncorrect?.text = "${3 - (totalCorrect?.toInt() ?: 0)}개"
+        }
     }
 
     override fun onDestroyView() {

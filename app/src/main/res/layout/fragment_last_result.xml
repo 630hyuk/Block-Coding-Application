@@ -1,48 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LastResultFragment" >
+    tools:context=".LastResultFragment"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#50bcdf"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/main"/>
+        android:id="@+id/img_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/img_incorrect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="@drawable/rectangle_blue" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txt_lastResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최종 결과"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_result"
+        app:layout_constraintEnd_toEndOf="@+id/img_result"
+        app:layout_constraintStart_toStartOf="@+id/img_result"
+        app:layout_constraintTop_toTopOf="@+id/img_result" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="챕터가 끝났습니다"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <android.widget.Button
+        android:id="@+id/btn_restart"
+        android:layout_width="320dp"
+        android:layout_height="75dp"
+        android:background="@drawable/rectangle_back_corner"
+        android:gravity="center"
+        android:text="시작 페이지로"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_rank" />
 
-        <TextView
-            android:id="@+id/txt_numCorrect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="몇문제 맞췄나"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_toStage" />
+    <ImageView
+        android:id="@+id/img_correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/img_incorrect"
+        app:layout_constraintEnd_toStartOf="@+id/img_incorrect"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/res_green" />
 
-        <Button
-            android:id="@+id/btn_toStage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="지도로 돌아가기"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/img_incorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/img_rank"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/img_correct"
+        app:layout_constraintTop_toBottomOf="@+id/img_result"
+        app:srcCompat="@drawable/res_red" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/img_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btn_restart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_incorrect"
+        app:srcCompat="@drawable/res_point" />
+
+    <TextView
+        android:id="@+id/txt_correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:shadowColor="#83986E"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="O"
+        android:textColor="#FFFFFF"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_correct"
+        app:layout_constraintStart_toStartOf="@+id/img_correct"
+        app:layout_constraintTop_toTopOf="@+id/img_correct" />
+
+    <TextView
+        android:id="@+id/txt_incorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:shadowColor="#5C3838"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="X"
+        android:textColor="#FFFFFF"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_incorrect"
+        app:layout_constraintStart_toStartOf="@+id/img_incorrect"
+        app:layout_constraintTop_toTopOf="@+id/img_incorrect" />
+
+    <TextView
+        android:id="@+id/txt_numCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:shadowColor="#83986E"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="7개"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_correct"
+        app:layout_constraintEnd_toEndOf="@+id/img_correct"
+        app:layout_constraintStart_toStartOf="@+id/img_correct" />
+
+    <TextView
+        android:id="@+id/txt_numIncorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:shadowColor="#5C3838"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="3개"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_incorrect"
+        app:layout_constraintEnd_toEndOf="@+id/img_incorrect"
+        app:layout_constraintStart_toStartOf="@+id/img_incorrect" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수고하셨습니다!"
+        android:textColor="#FFB300"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_rank"
+        app:layout_constraintEnd_toEndOf="@+id/img_rank"
+        app:layout_constraintStart_toStartOf="@+id/img_rank"
+        app:layout_constraintTop_toTopOf="@+id/img_rank" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
