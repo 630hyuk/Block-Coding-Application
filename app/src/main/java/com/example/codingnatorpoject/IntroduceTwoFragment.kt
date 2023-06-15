@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentIntroduceTwoBinding
 
 class IntroduceTwoFragment : Fragment() {
@@ -21,6 +22,7 @@ class IntroduceTwoFragment : Fragment() {
         }
     }
     var binding: FragmentIntroduceTwoBinding? = null
+    val repo = QuestionRepository(activity?.applicationContext)
 
     //잘 동작하는 지 알아보기 위해서 스테이지1과 동일한 방식으로 넣었습니다. aws가 잘 작동하면, 이곳을 주석처리해주세요!
     var explanation = arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
@@ -47,51 +49,7 @@ class IntroduceTwoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(chapterNumber == 1){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce1)  //아직, 이미지 파일은 넣지 않았음
-        }
-
-        if(chapterNumber == 2){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce2)
-        }
-
-        if(chapterNumber == 3){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce3)
-        }
-
-        if(chapterNumber == 4){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce4)
-        }
-
-        if(chapterNumber == 5){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce5)
-        }
-
-        if(chapterNumber == 6){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce6)
-        }
-
-        if(chapterNumber == 7){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce7)
-        }
-
-        if(chapterNumber == 8){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce8)
-        }
-
-        if(chapterNumber == 9){
-            showEducation(chapterNumber!!)
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce9)
-        }
-
+        showEducation(chapterNumber!!)
 
         binding?.btnBack?.setOnClickListener {  //다시 메인화면으로 보내줍니다
             findNavController().popBackStack()  //해당 프래그먼트를 뒤로 보내는 역할을 해준다.
@@ -106,8 +64,9 @@ class IntroduceTwoFragment : Fragment() {
         }
     }
 
-    fun showEducation(pn: Int) {
-        binding?.txtQuestion?.text = explanation[pn - 1]["question"].toString()
+    fun showEducation(cn: Int) {
+        binding?.txtQuestion?.text = explanation[cn - 1]["question"].toString()
         binding?.txtQuestion?.movementMethod = ScrollingMovementMethod.getInstance()
+        binding?.imgIntro?.setImageBitmap(repo.getIntroduceImage(2,cn))
     }
 }

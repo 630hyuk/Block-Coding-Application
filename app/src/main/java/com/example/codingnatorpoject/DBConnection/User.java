@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 public class User {
     static String nickname;
@@ -66,6 +67,7 @@ public class User {
 
                     obj = obj.getJSONObject("body");
                     progress = obj.getString("progress");
+                    Log.e("asdf", progress);
                     nickname = obj.getString("nickname");
                     try {
                         totalStars = obj.getInt("stars");
@@ -73,6 +75,9 @@ public class User {
                     catch(JSONException e) {
                         totalStars = 0;
                     }
+
+                    // set Array: stars
+                    decodeProgress();
                 }
                 catch (Exception e) { Log.e("in getuserdata", e.toString()); }
 
@@ -81,14 +86,12 @@ public class User {
         }
 
         new UserGetter().execute(email);
-        try { Thread.sleep(500); }
+        try { Thread.sleep(10000); }
         catch (Exception e) { e.printStackTrace();}
 
         // if failed to find user
         if (email == null) return false;
 
-        // set Array: stars
-        decodeProgress();
         return true;
     }
 
@@ -124,17 +127,10 @@ public class User {
         }
 
         for (int i = 0; i < 3; i++) {
-            String tmp = progress.substring(i*4, i*4+4);
-
-            for (int j = 0; j < 3; j++) {
-                byte toDecode = (byte)(tmp.charAt(j) % 64);
-                stars[i][j*3 + 2] = (byte)(toDecode & 0b00000011);
-                toDecode >>= 2;
-                stars[i][j*3 + 1] = (byte)(toDecode & 0b00000011);
-                toDecode >>= 2;
-                stars[i][j*3] = (byte)(toDecode & 0b00000011);
+            for (int j = 0; j < 10; j++) {
+                char tmp = progress.charAt(10*i + j);
+                stars[i][j] = (byte)(tmp - '0');
             }
-            stars[i][9] = (byte)(tmp.charAt(3) - '0');
         }
     }
 
@@ -142,17 +138,10 @@ public class User {
         StringBuilder newProgress = new StringBuilder();
 
         for (int i = 0; i < 3; i++) {
-
-            for (int j = 0; j < 3; j++) {
-                byte toEncode = stars[i][j*3];
-                toEncode <<= 2;
-                toEncode |= stars[i][j*3+1];
-                toEncode <<= 2;
-                toEncode |= stars[i][j*3+2];
-                if (toEncode < 32) toEncode += 64;
-                newProgress.append((char)toEncode);
+            for (int j = 0; j < 10; j++) {
+                char tmp = (char)(stars[i][j] + '0');
+                newProgress.append(tmp);
             }
-            newProgress.append((char)stars[i][9]);
         }
 
         progress = newProgress.toString();

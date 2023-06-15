@@ -151,7 +151,7 @@ class StageOneChapterTenQuizFourFragment : Fragment() {
         example2 = problem["cand2"].toString()
         example3 = problem["cand3"].toString()
         example4 = problem["cand4"].toString()
-        reason = problem["reason"].toString()  //틀린 이유를 알려줘야 하므로
+        reason = problem["explanation"].toString()  //틀린 이유를 알려줘야 하므로
 
         binding?.txtChapter10FourQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10Ex1?.text = example1

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentLastResultBinding
+import com.example.codingnatorpoject.DBConnection.User
 
 class LastResultFragment : Fragment() {
     private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
@@ -31,6 +32,8 @@ class LastResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        User.updateStarAt(1, chapterNumber!!, totalCorrect!!.toByte())
 
         binding?.btnToStage?.setOnClickListener {
             val restart = "restart"

@@ -16,6 +16,10 @@ import java.net.URL;
 
 public class ImageAccessor {
 
+    public ImageAccessor() {
+
+    }
+
     // parameter should be applicationContext or getApplicationContext()
     // in fragment? activity.applicationContext or getActivity().getApplicationContext()
     public ImageAccessor(Context context) {

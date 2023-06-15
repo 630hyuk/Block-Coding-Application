@@ -26,6 +26,7 @@ public class QuestionRepository {
 
     static HashMap<String, HashMap<String, String>> questions;
     static HashMap<String, Bitmap> images;
+    static HashMap<String, Bitmap> introduceImages;
     private static boolean isDownloaded = false;
 
     public QuestionRepository(Context context) throws JSONException {
@@ -119,11 +120,40 @@ public class QuestionRepository {
 
         }
 
+        class IntroduceImageDownloader extends AsyncTask<Integer, Void, Bitmap> {
+            // strings[0] : key "1-1"
+            @Override
+            protected Bitmap doInBackground(Integer... integers) {
+                try {
+                    int stage = integers[0]; int chapter = integers[1];
+                    String key = stage + "-" + chapter;
+                    //Log.i("asdf", questions.get(key).toString());
+                    HttpsURLConnection conn
+                            = (HttpsURLConnection)new URL(
+                                    new ImageAccessor().getIntroduceUrl(stage, chapter)
+                                ).openConnection();
+
+                    conn.setDoInput(true);
+                    conn.connect();
+                    InputStream is = conn.getInputStream();
+                    introduceImages.put(key, BitmapFactory.decodeStream(is));
+                    if (introduceImages.get(key) == null)
+                        Log.i("nullCheck", key + ": null");
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e("ImageAccessor", e.getMessage());
+                }
+                return null;
+            }
+
+        }
 
         if (!isDownloaded) {
 
             questions = new HashMap<>();
             images = new HashMap<>();
+            introduceImages = new HashMap<>();
 
             for (int i = 1; i <= 3; i++) {
                 for (int j = 1; j <= 10; j++) {
@@ -140,11 +170,20 @@ public class QuestionRepository {
             }
             catch (Exception e) { e.printStackTrace();}
 
-            for (int i = 1; i <= 3; i++)
-                for (int j = 1; j <= 10; j++)
-                    for (int k = 1, z = (j == 10 ? 10 : 3); k <= z; k++) {
-                        new ImageDownloader().execute(String.format(id_format,i,j,k));
+            for (int i = 1; i <= 3; i++) {
+                // chapter 1~9
+                for (int j = 1; j <= 9; j++) {
+                    for (int k = 1; k <= 3; k++) {
+                        new ImageDownloader().execute(String.format(id_format, i, j, k));
                     }
+                    new IntroduceImageDownloader().execute(i, j);
+                }
+
+                // chapter 10
+                for (int k =1; k <= 10; k++) {
+                    new ImageDownloader().execute(String.format(id_format, i, 10, k));
+                }
+            }
 
         }
 
@@ -160,6 +199,10 @@ public class QuestionRepository {
 
     public Bitmap getImage(int stage, int chapter, int pn) {
         return images.get(String.format(id_format, stage, chapter, pn));
+    }
+
+    public Bitmap getIntroduceImage(int stage, int chapter) {
+        return introduceImages.get(stage + "-" + chapter);
     }
 
     public boolean getIsDownloaded() { return isDownloaded; }

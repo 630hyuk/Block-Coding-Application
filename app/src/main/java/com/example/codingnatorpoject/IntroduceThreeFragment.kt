@@ -1,11 +1,13 @@
 package com.example.codingnatorpoject
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.codingnatorpoject.DBConnection.QuestionRepository
 import com.example.codingnatorpoject.databinding.FragmentIntroduceThreeBinding
 
 class IntroduceThreeFragment : Fragment() {
@@ -21,6 +23,8 @@ class IntroduceThreeFragment : Fragment() {
     }
 
     var binding: FragmentIntroduceThreeBinding? = null
+    private val repo = QuestionRepository(activity?.applicationContext)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,41 +36,7 @@ class IntroduceThreeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(chapterNumber == 1){
-            binding?.imgIntro?.setImageResource(R.drawable.stagethreeintroduce1)  //UI가 잘 작동하는지 확인차 stagethreeintroduce1만 넣어봄
-        }
-
-        if(chapterNumber == 2){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce2)
-        }
-
-        if(chapterNumber == 3){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce3)
-        }
-
-        if(chapterNumber == 4){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce4)
-        }
-
-        if(chapterNumber == 5){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce5)
-        }
-
-        if(chapterNumber == 6){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce6)
-        }
-
-        if(chapterNumber == 7){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce7)
-        }
-
-        if(chapterNumber == 8){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce8)
-        }
-
-        if(chapterNumber == 9){
-            //binding?.imgIntro?.setImageResource(R.drawable.introduce9)
-        }
+        showEducation(chapterNumber!!)
 
         binding?.btnBack?.setOnClickListener {  //다시 메인화면으로 보내줍니다
             findNavController().popBackStack()  //해당 프래그먼트를 뒤로 보내는 역할을 해준다.
@@ -79,5 +49,9 @@ class IntroduceThreeFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_introduceThreeFragment_to_OXQuizThreeFragment, bundle)
         }
+    }
+
+    fun showEducation(cn: Int) {
+        binding?.imgIntro?.setImageBitmap(repo.getIntroduceImage(3,cn))
     }
 }
