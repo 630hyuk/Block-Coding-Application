@@ -32,7 +32,7 @@ class StageOneFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //우선 1, 10챕터를 제외해서 9챕터까지 클릭못하게 막기
+        //우선 1챕터를 제외해서 9챕터까지 클릭못하게 막기
         binding?.btnChapter2?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
         binding?.btnChapter3?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
         binding?.btnChapter4?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
@@ -42,7 +42,6 @@ class StageOneFragment : Fragment() {
         binding?.btnChapter8?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
         binding?.btnChapter9?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
         binding?.btnChapter10?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
-
 
 
         if (User.getStarAt(1,1) > 0) {
