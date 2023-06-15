@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#FFCD83"
+    android:background="#50bcdf"
     tools:context=".RankingFragment">
 
 
@@ -33,7 +33,7 @@
         android:layout_height="30dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="#ADC793"
+        android:backgroundTint="#ffcd83"
         android:text="돌아가기"
         android:textColor="#FFFFFF"
         android:textSize="15sp"

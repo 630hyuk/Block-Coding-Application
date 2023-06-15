@@ -65,6 +65,7 @@ class StageThreeChapterTenResultFragment : Fragment() {
                     findNavController().navigate(R.id.action_stageThreeChapterTenResultFragment_to_stageThreeChapterTenQuizOXFragment, bundle)
                 }
                 else if (order == 11){  //챕터10이 다 끝났다면...
+                    bundle.putInt("order", order!!)  //이 order를 통해 lastResult에서 판단한다.
                     bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
                     findNavController().navigate(R.id.action_stageThreeChapterTenResultFragment_to_lastResultThreeFragment, bundle)
                 }
@@ -86,6 +87,7 @@ class StageThreeChapterTenResultFragment : Fragment() {
                     findNavController().navigate(R.id.action_stageThreeChapterTenResultFragment_to_stageThreeChapterTenQuizOXFragment, bundle)
                 }
                 else if (order == 11){  //챕터10이 다 끝났다면...
+                    bundle.putInt("order", order!!)  //이 order를 통해 lastResult에서 판단한다.
                     bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
                     findNavController().navigate(R.id.action_stageThreeChapterTenResultFragment_to_lastResultThreeFragment, bundle)
                 }
