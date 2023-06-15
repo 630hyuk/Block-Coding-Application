@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.work.Data;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -66,10 +67,14 @@ public class User {
                     obj = obj.getJSONObject("body");
                     progress = obj.getString("progress");
                     nickname = obj.getString("nickname");
-                    totalStars = obj.getInt("stars");
-
+                    try {
+                        totalStars = obj.getInt("stars");
+                    }
+                    catch(JSONException e) {
+                        totalStars = 0;
+                    }
                 }
-                catch (Exception e) { Log.e(e.toString(), "in getuserdata"); }
+                catch (Exception e) { Log.e("in getuserdata", e.toString()); }
 
                 return null;
             }
