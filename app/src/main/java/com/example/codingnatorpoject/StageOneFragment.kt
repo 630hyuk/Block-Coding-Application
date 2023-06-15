@@ -76,8 +76,9 @@ class StageOneFragment : Fragment() {
 
         //우선 1챕터를 제외해서 9챕터까지 클릭못하게 막기
         for (i: ImageView? in imageIslandList) {
-            i?.isEnabled = false;
+            i?.isEnabled = false
         }
+        imageIslandList[1]?.isEnabled = true
 
         for (chapter: Int in 1..9) {
             val star = User.getStarAt(1, chapter)

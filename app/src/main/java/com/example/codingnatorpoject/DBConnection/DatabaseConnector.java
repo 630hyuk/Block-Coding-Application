@@ -23,6 +23,7 @@ import com.amplifyframework.core.model.temporal.Temporal;
  * 2023.04.23 : Currently can be only connected to UserData
  * 2023.05.16 : removed methods : createUserData, login
  * 2023.05.20 : using AsyncTask, which is Deprecated, but doesn't matter
+ * 2023.06.16 : 이 곳에는 13시간 연속코딩을 한 자의 온기가 남아있다네
  */
 public class DatabaseConnector {
     Context context;
