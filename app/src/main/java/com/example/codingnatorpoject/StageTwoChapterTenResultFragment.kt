@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import com.example.codingnatorpoject.DBConnection.User
 import com.example.codingnatorpoject.databinding.FragmentStageTwoChapterTenResultBinding
 
 class StageTwoChapterTenResultFragment : Fragment() {
@@ -56,45 +57,27 @@ class StageTwoChapterTenResultFragment : Fragment() {
             binding?.txtExplainChapterTen?.setText(spannable, TextView.BufferType.SPANNABLE)
             //binding?.txtExplainChapterTen?.text = reason
             binding?.txtExplainChapterTen?.movementMethod = ScrollingMovementMethod.getInstance()
-            binding?.btnNextChapterTen?.setOnClickListener {
-                order = order!! + 1  //즉, 여기서 order를 하나씩 올려준다.
-                bundle.putInt("order", order!!)
-
-                if(order!! < 5){  //챕터10의 ox가 두 문제 뿐이니, 이렇게 만들어줬습니다.
-                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
-                    findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizOXFragment, bundle)
-                }
-                else if (order == 11){  //챕터10이 다 끝났다면...
-                    bundle.putInt("order", order!!)  //이 order를 통해 lastResult에서 판단한다.
-                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
-                    findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_lastResultTwoFragment, bundle)
-                }
-                else{
-                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
-                    findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizFourFragment, bundle)
-                }
-            }
         }
         else{  //정답일경우
             binding?.txtCorrectChapterTen?.text = "정답!"
             binding?.txtExplainChapterTen?.text = "다음문제로 이동하세요"
-            binding?.btnNextChapterTen?.setOnClickListener {
-                order = order!! + 1  //즉, 여기서 order를 하나씩 올려준다.
-                bundle.putInt("order", order!!)
+        }
 
-                if(order!! < 5){  //챕터10의 ox가 두 문제 뿐이니, 이렇게 만들어줬습니다.
-                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
-                    findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizOXFragment, bundle)
-                }
-                else if (order == 11){  //챕터10이 다 끝났다면...
-                    bundle.putInt("order", order!!)  //이 order를 통해 lastResult에서 판단한다.
-                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
-                    findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_lastResultTwoFragment, bundle)
-                }
-                else{
-                    bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
-                    findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizFourFragment, bundle)
-                }
+        binding?.btnNextChapterTen?.setOnClickListener {
+            order = order!! + 1  //즉, 여기서 order를 하나씩 올려준다.
+            bundle.putInt("order", order!!)
+            bundle.putInt("totalCorrect", totalCorrect!!)  //맞은 개수를 번들에 넣어서 보내준다.
+
+            if (order!! < 5) {
+                findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizOXFragment, bundle)
+            }
+            else if (order == 11){  //챕터10이 다 끝났다면...
+                User.updateStarAt(2, 10, totalCorrect!!.toByte())   // 유저 데이터 업데이트
+                bundle.putInt("chapterNumber", 10)  // LastResultFragment의 원활한 데이터 처리를 위해 10챕터라는 데이터를 전송
+                findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_lastResultTwoFragment, bundle)
+            }
+            else{
+                findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizFourFragment, bundle)
             }
         }
     }

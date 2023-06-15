@@ -34,7 +34,9 @@ class StageThreeFragment : Fragment() {
 
         var imageIslandList: Array<ImageView?>
         var imageStarList: Array<Array<ImageView?>>
+        var resIdList: Array<Int>
 
+        // Array들의 초기화
         with (binding!!) {
             imageIslandList = arrayOf(
                 null,
@@ -57,11 +59,32 @@ class StageThreeFragment : Fragment() {
                 arrayOf(imgStarThree91, imgStarThree92, imgStarThree93),
                 arrayOf(imgStarThree101, imgStarThree102, imgStarThree103)
             )
+
+            resIdList = arrayOf(
+                0,
+                R.drawable.island3_1,
+                R.drawable.island3_2,
+                R.drawable.island3_3,
+                R.drawable.island3_4,
+                R.drawable.island3_5,
+                R.drawable.island3_6,
+                R.drawable.island3_7,
+                R.drawable.island3_8,
+                R.drawable.island3_9,
+                R.drawable.island3_10
+            )
         }
 
         //우선 1챕터를 제외해서 9챕터까지 클릭못하게 막기
         for (i: ImageView? in imageIslandList) {
             i?.isEnabled = false;
+        }
+
+        // 2-10의 별 갯수를 확인한 후에 1챕터 활성화
+        val previousChapterTenStar = User.getStarAt(2,10)
+        if (previousChapterTenStar > 0) {
+            imageIslandList[1]?.isEnabled = true
+            imageIslandList[1]?.setImageResource(resIdList[1])
         }
 
         for (chapter: Int in 1..9) {
@@ -70,9 +93,15 @@ class StageThreeFragment : Fragment() {
             if (star < 1) break     // 이후의 챕터 모두 플레이 한 적 없음이 자명함
 
             imageIslandList[chapter+1]?.isEnabled = true
+            imageIslandList[chapter+1]?.setImageResource(resIdList[chapter+1])
             for (st: Int in 0 until star) {
                 imageStarList[chapter][st]?.setImageResource(android.R.drawable.btn_star_big_on)
             }
+        }
+
+        // 10챕터의 별 표시
+        for (st: Int in 0 until User.getStarAt(3, 10)) {
+            imageStarList[10][st]?.setImageResource(android.R.drawable.btn_star_big_on)
         }
 
         val bundle = Bundle()  //몇 챕터를 선택할지 이 번들에 넣어서 알려줍니다.

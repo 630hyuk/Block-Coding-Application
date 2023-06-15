@@ -216,9 +216,19 @@ public class User {
     // update the data of stars[][] and totalStars
     public static void updateStarAt(int stage, int chapter, byte newStar) {
         byte tmp = stars[stage-1][chapter-1];
-        if (tmp < newStar) {
-            stars[stage-1][chapter-1] = newStar;
-            totalStars += (newStar - tmp);
+        byte resultStar = newStar;
+
+        if (chapter == 10) {
+            resultStar = (byte)(
+                    (newStar < 3) ? 0 :
+                    (newStar < 7) ? 1 :
+                    (newStar < 10) ? 2 : 3
+            );
+        }
+
+        if (tmp < resultStar) {
+            stars[stage-1][chapter-1] = resultStar;
+            totalStars += (resultStar - tmp);
         }
         encodeProgress();
         db.updateProgress(email, progress, totalStars);

@@ -36,7 +36,8 @@ class MainFragment : Fragment() {
 
         binding?.btnLogout?.setOnClickListener {  //로그아웃 버튼을 눌렀을 때
             User.logout(true)
-            activity?.finish()  //아마 이 곳에서 aws와의 연동이 또 필요할 것으로 보임
+            activity?.finish()  // 아마 이 곳에서 aws와의 연동이 또 필요할 것으로 보임
+                                // 연동 해드렸습니다 ^^
         }
 
         binding?.btnRanking?.setOnClickListener {  //랭킹을 눌렀을 때

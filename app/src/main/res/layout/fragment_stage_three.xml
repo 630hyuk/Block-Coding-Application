@@ -47,7 +47,7 @@
                     android:layout_height="150dp"
                     android:layout_marginStart="150dp"
                     android:layout_marginTop="100dp"
-                    android:src="@drawable/island3_1"
+                    android:src="@drawable/island3_1_block"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -680,7 +680,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_three_10_2"
@@ -688,14 +688,14 @@
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
 
                     <ImageView
                         android:id="@+id/img_star_three_10_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
-                        android:src="@android:drawable/btn_star_big_on" />
+                        android:src="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
 
             </LinearLayout>

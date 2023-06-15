@@ -1,6 +1,7 @@
 package com.example.codingnatorpoject
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +37,10 @@ class LastResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        User.updateStarAt(1, chapterNumber!!, totalCorrect!!.toByte())
+        // 10스테이지의 경우, ChapterTenResultFragment에서 적절한 처리 후 유저 데이터를 이미 업데이트한 상태임
+        Log.i("LastResultFrag", "Called by Chapter" + chapterNumber!!)
+        if (chapterNumber!! != 10)
+            User.updateStarAt(1, chapterNumber!!, totalCorrect!!.toByte())
 
         binding?.btnRestart?.setOnClickListener {
             val restart = "restart"
