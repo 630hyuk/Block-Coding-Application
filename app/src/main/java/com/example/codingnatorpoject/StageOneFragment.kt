@@ -1,6 +1,5 @@
 package com.example.codingnatorpoject
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,7 +40,7 @@ class StageOneFragment : Fragment() {
         binding?.btnChapter7?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
         binding?.btnChapter8?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
         binding?.btnChapter9?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
-        //binding?.btnChapter10?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
+        binding?.btnChapter10?.isEnabled = false  //다음 챕터를 선택할 수 없게 만들어줍니다.
 
 
         if (User.getStarAt(1,1) > 0) {

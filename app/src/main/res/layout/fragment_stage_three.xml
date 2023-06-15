@@ -676,12 +676,14 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/img_star_three_10_1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:src="@android:drawable/btn_star_big_on" />
 
                     <ImageView
+                        android:id="@+id/img_star_three_10_2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
@@ -689,6 +691,7 @@
                         android:src="@android:drawable/btn_star_big_on" />
 
                     <ImageView
+                        android:id="@+id/img_star_three_10_3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
