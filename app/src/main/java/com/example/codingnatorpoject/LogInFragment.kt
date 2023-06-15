@@ -1,21 +1,18 @@
 package com.example.codingnatorpoject
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.Cognito
 import com.example.codingnatorpoject.databinding.FragmentLogInBinding
-import com.google.android.material.snackbar.Snackbar
 
 class LogInFragment : Fragment() {
 
@@ -76,8 +73,16 @@ class LogInFragment : Fragment() {
         binding.btnLogIn.setOnClickListener {
             Log.i("Cognito", "Trying login...")
             val authentication = Cognito(activity?.applicationContext)
+
             if (authentication.userLogin(email, pw)) startActivity(mainIntent)
-            else (Toast.makeText(activity?.applicationContext, "이메일 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT))
+            else
+                Toast.makeText(
+                    activity?.applicationContext,
+                    "이메일 또는 비밀번호가 일치하지 않습니다.",
+                    Toast.LENGTH_SHORT
+                )
+                .show()
+
         }
     }
 }

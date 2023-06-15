@@ -99,8 +99,17 @@ public class DatabaseConnector {
 
     }
 
-
     public void updateProgress(String userId, String progress) {
+        int stars = 0;
+        for (int i = 0, z = progress.length(); i < z; i++) {
+            char c = progress.charAt(i);
+            stars += c - '0';
+        }
+
+        updateProgress(userId, progress, stars);
+    }
+
+    public void updateProgress(String userId, String progress, int stars) {
         class Updater extends AsyncTask<String, Void, String> {
             String msg = "";
             @Override
@@ -140,14 +149,66 @@ public class DatabaseConnector {
                 "\"expected\": \"%s\"}";
 
         new Updater().execute(String.format(jsonFormat, userId, progress));
+
+        jsonFormat = "{ \"table_name\": \"UserData-764tmacrt5dobnsevpovqnmw4u-staging\", " +
+                "\"id\": \"%s\", " +
+                "\"field\": \"stars\", " +
+                "\"expected\": \"%s\"}";
+
+        new Updater().execute(String.format(jsonFormat, userId, stars));
+    }
+
+    public void updateData(String id, String field, String expected) {
+        class Updater extends AsyncTask<String, Void, String> {
+            String msg = "";
+            @Override
+            protected String doInBackground(String... strings) {
+
+                try {
+                    URL reqUrl = new URL( defaultUrl + "updatedata");
+                    HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
+
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json; utf-8");
+                    //conn.setRequestProperty("Accept", "*/*");
+
+                    conn.setDoOutput(true);
+
+                    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+                    bw.write(strings[0]);
+                    bw.flush();
+                    bw.close();
+
+                    //conn.connect();
+
+                    String msg = conn.getResponseMessage();
+
+                    Log.e("updateData_Response", msg);
+                }
+                catch (Exception e) { Log.e(e.toString(), "in updateData"); }
+
+                return msg;
+            }
+        }
+
+        String jsonFormat = "{ \"table_name\": \"UserData-764tmacrt5dobnsevpovqnmw4u-staging\", " +
+                "\"id\": \"%s\", " +
+                "\"field\": \"%s\", " +
+                "\"expected\": \"%s\"}";
+
+        new Updater().execute(String.format(jsonFormat, id, field, expected));
     }
 
     /* << easily use current timestamp in type: Temporal.Datetime >>
      * Calls Local*DateTime.now().toString()
      * and then changes the format which is appropriate to Temporal.DateTime
      */
-    private static Temporal.DateTime now() {
+    public static Temporal.DateTime now() {
         return new Temporal.DateTime(LocalDateTime.now().toString().substring(0,23) + "Z");
+    }
+
+    public static String timeStamp() {
+        return LocalDateTime.now().toString().substring(0,23) + "Z";
     }
 
 }

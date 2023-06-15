@@ -4,13 +4,20 @@ package com.example.codingnatorpoject.DBConnection;
 // https://cryptiot.de/programming/adding-aws-cognito-sign-in-and-sign-up-to-android-app/
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
+import android.util.Pair;
 import android.widget.Toast;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.*;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.*;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.*;
 import com.amazonaws.regions.Regions;
 import static  android.content.ContentValues.TAG;
+
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class Cognito {
     // ############################################################# Information about Cognito Pool
@@ -24,7 +31,10 @@ public class Cognito {
     private CognitoUserAttributes userAttributes;       // Used for adding attributes to the user
     private Context appContext;
     public static String userId;
+    public static String email;
+    public static String nickname;
     private String userPassword;                        // Used for Login
+
     public Cognito(Context context){
         appContext = context;
         userPool = new CognitoUserPool(context, this.poolID, this.clientID, this.clientSecret, this.awsRegion);
@@ -61,6 +71,7 @@ public class Cognito {
     public void confirmUser(String userId, String code){
         CognitoUser cognitoUser =  userPool.getUser(userId);
         cognitoUser.confirmSignUpInBackground(code,false, confirmationCallback);
+
         //cognitoUser.confirmSignUp(code,false, confirmationCallback);
     }
     // Callback handler for confirmSignUp API
@@ -70,7 +81,45 @@ public class Cognito {
         public void onSuccess() {
             // User was successfully confirmed
             Toast.makeText(appContext,"User Confirmed", Toast.LENGTH_LONG).show();
+            User.users.add(new Pair<>(email, new Pair<>(nickname, 0)));
+            /*
+            class userCreator extends AsyncTask<String, Void, String> {
+                String msg = "";
+                @Override
+                protected String doInBackground(String... strings) {
 
+                    try {
+                        URL reqUrl = new URL( "https://71cyxe4ifa.execute-api.ap-northeast-2.amazonaws.com/default/createuserdata");
+                        HttpURLConnection conn = (HttpURLConnection) reqUrl.openConnection();
+
+                        conn.setRequestMethod("POST");
+                        conn.setRequestProperty("Content-Type", "application/json; utf-8");
+                        //conn.setRequestProperty("Accept", "*//*");
+
+                        conn.setDoOutput(true);
+
+                        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+                        bw.write(strings[0]);
+                        bw.flush();
+                        bw.close();
+
+                        //conn.connect();
+
+                        String msg = conn.getResponseMessage();
+
+                        Log.e("createUser_Response", msg);
+                    }
+                    catch (Exception e) { Log.e(e.toString(), "in createUser"); }
+
+                    return msg;
+                }
+            }
+
+            new userCreator().execute(
+                    "{ \"id\": \"" + userId + "\", " +
+                    "\"nickname\": \"" + nickname + "\"}"
+            );
+            */
         }
 
         @Override
@@ -78,6 +127,7 @@ public class Cognito {
             // User confirmation failed. Check exception for the cause.
 
         }
+
     };
     public void addAttribute(String key, String value){
         userAttributes.addAttribute(key, value);
@@ -88,7 +138,18 @@ public class Cognito {
         CognitoUser cognitoUser =  userPool.getUser(userId);
         this.userPassword = password;
         cognitoUser.getSessionInBackground(authenticationHandler);
-        return User.setUser(userId);
+
+        for (int i = 0, z = User.users.size(); i < z; i++) {
+            Log.i("userLogin", "Comparing " + User.users.get(i).first);
+            if (User.users.get(i).first.equals(userId)) {
+                new DatabaseConnector(appContext).updateData(userId, "lastLoginStamp", DatabaseConnector.timeStamp());
+                User.setUser(userId);
+                return true;
+            }
+        }
+
+        User.logout();
+        return false;
     }
     // Callback handler for the sign-in process
     AuthenticationHandler authenticationHandler = new AuthenticationHandler() {

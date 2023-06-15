@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.DBConnection.Cognito
@@ -101,12 +102,14 @@ class SignUpFragment : Fragment() {
             btnVerificate.setOnClickListener {
                 Log.i("Cognito", "Let's verificate...")
                 if (pw == pw_confirm) {
-                    auth.addAttribute("email", email);
-                    auth.addAttribute("name", nickname);
-                    auth.signUpInBackground(nickname, pw);
+                    auth.addAttribute("email", email)
+                    Cognito.email = email;
+                    auth.addAttribute("name", nickname)
+                    Cognito.nickname = nickname;
+                    auth.signUpInBackground(nickname, pw)
                 } else {
-                    Snackbar
-                        .make(view, "확인 비밀번호 불일치", Snackbar.LENGTH_SHORT)
+                    Toast
+                        .makeText(context, "확인 비밀번호 불일치", Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -114,6 +117,7 @@ class SignUpFragment : Fragment() {
             btnSignUp.setOnClickListener {
                 Log.i("Cognito", "Signing up...")
                 auth.confirmUser(nickname, verification_code)
+
                 findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
             }
 

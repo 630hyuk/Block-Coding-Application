@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentMainBinding
+import com.example.codingnatorpoject.DBConnection.User
 
 class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +34,8 @@ class MainFragment : Fragment() {
             startActivity(selectStageIntent)
         }
 
-        binding?.btnSetting?.setOnClickListener {  //로그아웃 버튼을 눌렀을 때
+        binding?.btnLogout?.setOnClickListener {  //로그아웃 버튼을 눌렀을 때
+            User.logout(true)
             activity?.finish()  //아마 이 곳에서 aws와의 연동이 또 필요할 것으로 보임
         }
 

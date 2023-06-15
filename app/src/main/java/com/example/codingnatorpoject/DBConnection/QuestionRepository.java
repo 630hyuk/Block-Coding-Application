@@ -35,6 +35,7 @@ public class QuestionRepository {
             @Override
             protected String doInBackground(Integer... params) {
                 String json;
+                isDownloaded = false;
                 try {
                     int stage = params[0], chapter = params[1], pn = params[2];
                     URL reqUrl = new URL(
@@ -91,6 +92,7 @@ public class QuestionRepository {
                     Log.e("in QuestionRepository()",e.toString()); e.printStackTrace();
                 }
 
+                isDownloaded = true;
                 return null;
             }
 
@@ -100,6 +102,7 @@ public class QuestionRepository {
             // strings[0] : key "1-1-1"
             @Override
             protected Bitmap doInBackground(String... strings) {
+                isDownloaded = false;
                 try {
                     String key = strings[0];
                     //Log.i("asdf", questions.get(key).toString());
@@ -115,6 +118,7 @@ public class QuestionRepository {
                     e.printStackTrace();
                     Log.e("ImageAccessor", e.getMessage());
                 }
+                isDownloaded = true;
                 return null;
             }
 
@@ -166,9 +170,10 @@ public class QuestionRepository {
 
             } // end of for(i) - stage
 
-            try {Thread.sleep(6000);
+            while (!isDownloaded) {
+                try {Thread.sleep(100);}
+                catch (Exception e) { e.printStackTrace();}
             }
-            catch (Exception e) { e.printStackTrace();}
 
             for (int i = 1; i <= 3; i++) {
                 // chapter 1~9
@@ -185,10 +190,13 @@ public class QuestionRepository {
                 }
             }
 
+            while (!isDownloaded) {
+                try {Thread.sleep(100);}
+                catch (Exception e) { e.printStackTrace();}
+            }
         }
 
 
-        isDownloaded = true;
     }
 
     // stage, chapter, pn을 전달하면 문제 데이터를 HashMap 타입으로 반환
