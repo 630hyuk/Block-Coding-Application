@@ -38,6 +38,11 @@ public class ImageAccessor {
                 "/" + pn + ".png";
     }
 
+    public String getIntroduceUrl(int stage, int chapter) {
+        return "https://codingnator-image-storage05625-staging.s3.ap-northeast-2.amazonaws.com/public/stage" + stage +
+                "/introduce/" + chapter + ".png";
+    }
+
     public static Bitmap getBitmap(String url) {
         final Bitmap[] res = {null};
         class ImageDownloader extends AsyncTask<String, Void, Bitmap> {

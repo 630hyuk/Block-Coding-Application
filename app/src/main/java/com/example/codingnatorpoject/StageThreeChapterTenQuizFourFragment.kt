@@ -147,11 +147,11 @@ class StageThreeChapterTenQuizFourFragment : Fragment() {
 
         question = problem["content"].toString()  //즉, question to 머시기를 String으로 바꿔 question에 넣어줍니다.
         answer = problem["answer"].toString()
-        example1 = problem["example1"].toString()
-        example2 = problem["example2"].toString()
-        example3 = problem["example3"].toString()
-        example4 = problem["example4"].toString()
-        reason = problem["reason"].toString()  //틀린 이유를 알려줘야 하므로
+        example1 = problem["cand1"].toString()
+        example2 = problem["cand2"].toString()
+        example3 = problem["cand3"].toString()
+        example4 = problem["cand4"].toString()
+        reason = problem["explanation"].toString()  //틀린 이유를 알려줘야 하므로
 
         binding?.txtChapter10FourQuestion?.text = question  //위에서 만들어준 녀석들을 binding을 통해 화면에 뿌려줍니다.
         binding?.btnChapter10Ex1?.text = example1
