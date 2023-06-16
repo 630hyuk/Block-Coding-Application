@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentStageOneBinding
-import com.example.codingnatorpoject.DBConnection.User
+import com.example.codingnatorpoject.DBConnection.UserManager
 
 class StageOneFragment : Fragment() {
     private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때
@@ -81,7 +81,7 @@ class StageOneFragment : Fragment() {
         imageIslandList[1]?.isEnabled = true
 
         for (chapter: Int in 1..9) {
-            val star = User.getStarAt(1, chapter)
+            val star = UserManager.getStarAt(1, chapter)
 
             if (star < 1) break     // 이후의 챕터 모두 플레이 한 적 없음이 자명함
 
@@ -93,7 +93,7 @@ class StageOneFragment : Fragment() {
         }
 
         // 10챕터의 별 표시
-        for (st: Int in 0 until User.getStarAt(1, 10)) {
+        for (st: Int in 0 until UserManager.getStarAt(1, 10)) {
             imageStarList[10][st]?.setImageResource(android.R.drawable.btn_star_big_on)
         }
 

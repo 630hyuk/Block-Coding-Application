@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.codingnatorpoject.databinding.FragmentLastResultBinding
-import com.example.codingnatorpoject.DBConnection.User
+import com.example.codingnatorpoject.DBConnection.UserManager
 
 class LastResultFragment : Fragment() {
     private var totalCorrect: Int? = null  //번들로 받아온 전체 맞은개수를 세기위한 것
@@ -40,7 +40,7 @@ class LastResultFragment : Fragment() {
         // 10스테이지의 경우, ChapterTenResultFragment에서 적절한 처리 후 유저 데이터를 이미 업데이트한 상태임
         Log.i("LastResultFrag", "Called by Chapter" + chapterNumber!!)
         if (chapterNumber!! != 10)
-            User.updateStarAt(1, chapterNumber!!, totalCorrect!!.toByte())
+            UserManager.updateStarAt(1, chapterNumber!!, totalCorrect!!.toByte())
 
         binding?.btnRestart?.setOnClickListener {
             val restart = "restart"

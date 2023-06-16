@@ -4,7 +4,6 @@ package com.example.codingnatorpoject.DBConnection;
 // https://cryptiot.de/programming/adding-aws-cognito-sign-in-and-sign-up-to-android-app/
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
@@ -14,10 +13,6 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.*;
 import com.amazonaws.regions.Regions;
 import static  android.content.ContentValues.TAG;
 
-import java.io.BufferedWriter;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Objects;
 
 public class Cognito {
@@ -86,7 +81,7 @@ public class Cognito {
             // User was successfully confirmed
             Toast.makeText(appContext,"User Confirmed", Toast.LENGTH_LONG).show();
             recentConfirmation = true; waitingResponse = true;
-            User.users.add(new Pair<>(email, new Pair<>(nickname, new Pair<>(pw, 0))));
+            UserManager.users.add(new Pair<>(email, new Pair<>(nickname, new Pair<>(pw, 0))));
             /*
             class userCreator extends AsyncTask<String, Void, String> {
                 String msg = "";
@@ -149,8 +144,8 @@ public class Cognito {
 
         cognitoUser.getSessionInBackground(authenticationHandler);
 
-        for (int i = 0, z = User.users.size(); i < z; i++) {
-            Pair<String, Pair<String, Pair<String, Integer>>> tmp = User.users.get(i);
+        for (int i = 0, z = UserManager.users.size(); i < z; i++) {
+            Pair<String, Pair<String, Pair<String, Integer>>> tmp = UserManager.users.get(i);
             Log.i("userLogin", "Comparing " + tmp.first);
 
             // if id matched
@@ -159,12 +154,12 @@ public class Cognito {
                 if (!Objects.equals(tmp.second.second.first, this.userPassword)) return false;
 
                 new DatabaseConnector(appContext).updateData(userId, "lastLoginStamp", DatabaseConnector.timeStamp());
-                User.setUser(userId);
+                UserManager.setUser(userId);
                 return true;
             }
         }
 
-        User.logout();
+        UserManager.logout();
         return false;
     }
     // Callback handler for the sign-in process

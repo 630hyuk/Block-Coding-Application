@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import com.example.codingnatorpoject.DBConnection.User
+import com.example.codingnatorpoject.DBConnection.UserManager
 import com.example.codingnatorpoject.databinding.FragmentStageTwoChapterTenResultBinding
 
 class StageTwoChapterTenResultFragment : Fragment() {
@@ -72,7 +72,7 @@ class StageTwoChapterTenResultFragment : Fragment() {
                 findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_stageTwoChapterTenQuizOXFragment, bundle)
             }
             else if (order == 11){  //챕터10이 다 끝났다면...
-                User.updateStarAt(2, 10, totalCorrect!!.toByte())   // 유저 데이터 업데이트
+                UserManager.updateStarAt(2, 10, totalCorrect!!.toByte())   // 유저 데이터 업데이트
                 bundle.putInt("chapterNumber", 10)  // LastResultFragment의 원활한 데이터 처리를 위해 10챕터라는 데이터를 전송
                 findNavController().navigate(R.id.action_stageTwoChapterTenResultFragment_to_lastResultTwoFragment, bundle)
             }

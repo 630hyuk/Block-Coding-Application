@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
-import com.example.codingnatorpoject.DBConnection.User
+import com.example.codingnatorpoject.DBConnection.UserManager
 import com.example.codingnatorpoject.databinding.FragmentStageThreeBinding
 
 class StageThreeFragment : Fragment() {
@@ -81,14 +81,14 @@ class StageThreeFragment : Fragment() {
         }
 
         // 2-10의 별 갯수를 확인한 후에 1챕터 활성화
-        val previousChapterTenStar = User.getStarAt(2,10)
+        val previousChapterTenStar = UserManager.getStarAt(2,10)
         if (previousChapterTenStar > 0) {
             imageIslandList[1]?.isEnabled = true
             imageIslandList[1]?.setImageResource(resIdList[1])
         }
 
         for (chapter: Int in 1..9) {
-            val star = User.getStarAt(3, chapter)
+            val star = UserManager.getStarAt(3, chapter)
 
             if (star < 1) break     // 이후의 챕터 모두 플레이 한 적 없음이 자명함
 
@@ -100,7 +100,7 @@ class StageThreeFragment : Fragment() {
         }
 
         // 10챕터의 별 표시
-        for (st: Int in 0 until User.getStarAt(3, 10)) {
+        for (st: Int in 0 until UserManager.getStarAt(3, 10)) {
             imageStarList[10][st]?.setImageResource(android.R.drawable.btn_star_big_on)
         }
 

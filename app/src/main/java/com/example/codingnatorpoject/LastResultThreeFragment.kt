@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.codingnatorpoject.DBConnection.User
+import com.example.codingnatorpoject.DBConnection.UserManager
 import com.example.codingnatorpoject.databinding.FragmentLastResultThreeBinding
 
 class LastResultThreeFragment : Fragment() {
@@ -36,7 +36,7 @@ class LastResultThreeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        User.updateStarAt(3, chapterNumber!!, totalCorrect!!.toByte())
+        UserManager.updateStarAt(3, chapterNumber!!, totalCorrect!!.toByte())
 
         binding?.btnRestart?.setOnClickListener {
             val restart = "restart"
