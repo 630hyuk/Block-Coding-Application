@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Pair;
 
+import com.example.codingnatorpoject.User;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +25,7 @@ public class UserManager {
 
     // I know, quite complicated...
     // Pair < Id(email), nickname, pw, stars >
-    public static ArrayList<Pair<String, Pair<String, Pair<String, Integer>>>> users;
+    public static ArrayList<User> users;
     private static String json;
     private static DatabaseConnector db = new DatabaseConnector();
     private static boolean isDownloaded = false;
@@ -89,7 +91,7 @@ public class UserManager {
                         }
                         catch (JSONException e) { stars = 0; }
 
-                        users.add(new Pair<>(id, new Pair<>(nickname, new Pair<>(pw, stars))));
+                        users.add(new User(id, nickname, pw, stars));
                     }
 
                     try {

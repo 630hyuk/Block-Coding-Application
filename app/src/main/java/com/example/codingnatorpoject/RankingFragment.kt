@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.codingnatorpoject.DBConnection.UserManager
 import com.example.codingnatorpoject.databinding.FragmentRankingBinding
 
 class RankingFragment : Fragment() {
@@ -31,9 +32,11 @@ class RankingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        UserManager.getUserList(true)
 
-        userList = ArrayList()
-        adapter = UserAdapter(requireContext(), userList)  //adapter는 사람 한명한명을 보관하는 장소
+        //userList = ArrayList()
+        UserManager.users.sortWith(Comparator.reverseOrder())
+        adapter = UserAdapter(requireContext(), UserManager.users)  //adapter는 사람 한명한명을 보관하는 장소
 
         binding?.recUsers?.layoutManager = LinearLayoutManager(requireContext())
         binding?.recUsers?.adapter = adapter

@@ -11,6 +11,8 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.*;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.*;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.*;
 import com.amazonaws.regions.Regions;
+import com.example.codingnatorpoject.User;
+
 import static  android.content.ContentValues.TAG;
 
 import java.util.Objects;
@@ -81,7 +83,7 @@ public class Cognito {
             // User was successfully confirmed
             Toast.makeText(appContext,"User Confirmed", Toast.LENGTH_LONG).show();
             recentConfirmation = true; waitingResponse = true;
-            UserManager.users.add(new Pair<>(email, new Pair<>(nickname, new Pair<>(pw, 0))));
+            UserManager.users.add(new User(email, nickname, pw, 0));
             /*
             class userCreator extends AsyncTask<String, Void, String> {
                 String msg = "";
@@ -145,13 +147,13 @@ public class Cognito {
         cognitoUser.getSessionInBackground(authenticationHandler);
 
         for (int i = 0, z = UserManager.users.size(); i < z; i++) {
-            Pair<String, Pair<String, Pair<String, Integer>>> tmp = UserManager.users.get(i);
-            Log.i("userLogin", "Comparing " + tmp.first);
+            User tmp = UserManager.users.get(i);
+            Log.i("userLogin", "Comparing " + tmp.getEmail());
 
             // if id matched
-            if (tmp.first.equals(userId)) {
+            if (tmp.getEmail().equals(userId)) {
                 // if password is wrong
-                if (!Objects.equals(tmp.second.second.first, this.userPassword)) return false;
+                if (!Objects.equals(tmp.getPw(), this.userPassword)) return false;
 
                 new DatabaseConnector(appContext).updateData(userId, "lastLoginStamp", DatabaseConnector.timeStamp());
                 UserManager.setUser(userId);

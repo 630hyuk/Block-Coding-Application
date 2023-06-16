@@ -24,8 +24,8 @@ class UserAdapter(val context: Context, private val userList: ArrayList<User>)
     class Holder(private val binding: ListUsersBinding) : RecyclerView.ViewHolder(binding.root){  //한칸을 어떻게 묘사할지에 대한 코드입니다.
         fun bind(user : User){
             binding.txtRanking.text = "${position + 1}등"
-            binding.txtEmail.text = user.email
-            binding.txtPoint.text = "${user.myPoint}p"
+            binding.txtEmail.text = user.nickname
+            binding.txtPoint.text = "${user.stars}p"
         }
     }
 }
