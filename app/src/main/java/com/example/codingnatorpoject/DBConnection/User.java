@@ -26,7 +26,9 @@ public class User {
     static byte[][] stars = null;
     static int totalStars = 0;
 
-    public static ArrayList<Pair<String, Pair<String, Integer>>> users;
+    // I know, quite complicated...
+    // Pair < Id(email), nickname, pw, stars >
+    public static ArrayList<Pair<String, Pair<String, Pair<String, Integer>>>> users;
     private static String json;
     private static DatabaseConnector db = new DatabaseConnector();
     private static boolean isDownloaded = false;
@@ -78,14 +80,21 @@ public class User {
 
                         String id = tmpObj.getString("id");
                         String nickname = tmpObj.getString("nickname");
-                        int stars;
+                        String pw = "**:1450575459";
 
+                        // if doesnt' have password yet, set default "123456"
+                        try { pw = tmpObj.getString("pw"); }
+                        catch (JSONException e) {
+                            new DatabaseConnector().updateData(id, "pw", "**:1450575459");
+                        }
+
+                        int stars;
                         try {
                             stars = tmpObj.getInt("stars");
                         }
-                        catch (JSONException e) {stars = 0;}
+                        catch (JSONException e) { stars = 0; }
 
-                        users.add(new Pair<>(id, new Pair<>(nickname, stars)));
+                        users.add(new Pair<>(id, new Pair<>(nickname, new Pair<>(pw, stars))));
                     }
 
                     try {

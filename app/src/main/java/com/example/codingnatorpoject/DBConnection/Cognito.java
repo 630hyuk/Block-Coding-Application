@@ -18,6 +18,7 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 public class Cognito {
     // ############################################################# Information about Cognito Pool
@@ -33,7 +34,10 @@ public class Cognito {
     public static String userId;
     public static String email;
     public static String nickname;
+    public static String pw;
     private String userPassword;                        // Used for Login
+    public static boolean recentConfirmation = false;
+    public static boolean waitingResponse = false;
 
     public Cognito(Context context){
         appContext = context;
@@ -69,9 +73,9 @@ public class Cognito {
         }
     };
     public void confirmUser(String userId, String code){
+        recentConfirmation = false; waitingResponse = false;
         CognitoUser cognitoUser =  userPool.getUser(userId);
         cognitoUser.confirmSignUpInBackground(code,false, confirmationCallback);
-
         //cognitoUser.confirmSignUp(code,false, confirmationCallback);
     }
     // Callback handler for confirmSignUp API
@@ -81,7 +85,8 @@ public class Cognito {
         public void onSuccess() {
             // User was successfully confirmed
             Toast.makeText(appContext,"User Confirmed", Toast.LENGTH_LONG).show();
-            User.users.add(new Pair<>(email, new Pair<>(nickname, 0)));
+            recentConfirmation = true; waitingResponse = true;
+            User.users.add(new Pair<>(email, new Pair<>(nickname, new Pair<>(pw, 0))));
             /*
             class userCreator extends AsyncTask<String, Void, String> {
                 String msg = "";
@@ -94,7 +99,7 @@ public class Cognito {
 
                         conn.setRequestMethod("POST");
                         conn.setRequestProperty("Content-Type", "application/json; utf-8");
-                        //conn.setRequestProperty("Accept", "*//*");
+                        //conn.setRequestProperty("Accept", "**");
 
                         conn.setDoOutput(true);
 
@@ -124,8 +129,9 @@ public class Cognito {
 
         @Override
         public void onFailure(Exception exception) {
+            waitingResponse = true;
             // User confirmation failed. Check exception for the cause.
-
+            exception.printStackTrace();
         }
 
     };
@@ -133,15 +139,25 @@ public class Cognito {
         userAttributes.addAttribute(key, value);
     }
 
-    // this method also will take 0.5 seconds.
     public boolean userLogin(String userId, String password){
         CognitoUser cognitoUser =  userPool.getUser(userId);
-        this.userPassword = password;
+        try {
+            this.userPassword = PasswordManager.encrypt(password);
+        } catch (PasswordManager.InvalidPasswordException e) {
+            return false;
+        }
+
         cognitoUser.getSessionInBackground(authenticationHandler);
 
         for (int i = 0, z = User.users.size(); i < z; i++) {
-            Log.i("userLogin", "Comparing " + User.users.get(i).first);
-            if (User.users.get(i).first.equals(userId)) {
+            Pair<String, Pair<String, Pair<String, Integer>>> tmp = User.users.get(i);
+            Log.i("userLogin", "Comparing " + tmp.first);
+
+            // if id matched
+            if (tmp.first.equals(userId)) {
+                // if password is wrong
+                if (!Objects.equals(tmp.second.second.first, this.userPassword)) return false;
+
                 new DatabaseConnector(appContext).updateData(userId, "lastLoginStamp", DatabaseConnector.timeStamp());
                 User.setUser(userId);
                 return true;
