@@ -1,6 +1,7 @@
 package com.example.codingnatorpoject
 
 import android.graphics.Color
+import android.media.SoundPool
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -11,6 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import aws.smithy.kotlin.runtime.http.operation.HttpOperationContext.Companion.build
+import aws.smithy.kotlin.runtime.http.operation.SdkHttpOperation.Companion.build
+import aws.smithy.kotlin.runtime.operation.ExecutionContext.Companion.build
 import com.example.codingnatorpoject.databinding.FragmentResultBinding
 
 class ResultFragment : Fragment() {
@@ -49,7 +53,9 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val color = Color.rgb(231, 137, 137)
         val bundle = Bundle()  //몇 챕터를 선택할지 이 번들에 넣어서 알려줍니다.
-
+        val soundPool = SoundPool.Builder().build()
+        val soundID1 = soundPool.load(activity, R.raw.correctanswer,1)
+        val soundID2 = soundPool.load(activity, R.raw.wronganswer,1)
         if(myAnswer != null){  //answer만 넘어오면
             val str1 = "\"$myquestion\"은(는) "
             val str2 = "<$myAnswer>"
@@ -58,7 +64,7 @@ class ResultFragment : Fragment() {
             spannable.setSpan(ForegroundColorSpan(color), str1.length, str1.length + str2.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
             binding?.correctTxt?.text = "정답!"
             binding?.explainTxt?.setText(spannable, TextView.BufferType.SPANNABLE)
-
+            soundPool.play(soundID1,1.0f,1.0f,0,0,1.0f)
             binding?.btnNext?.setOnClickListener {
 
                 bundle.putInt("chapterNumber", chapterNumber!!)
@@ -100,7 +106,7 @@ class ResultFragment : Fragment() {
             binding?.correctTxt?.setBackgroundColor(Color.rgb(231, 137,137))  //이렇게 rgb를 이용해 background의 색을 바꿉니다
             binding?.correctTxt?.text = "오답!"
             binding?.explainTxt?.setText(spannable, TextView.BufferType.SPANNABLE)
-
+            soundPool.play(soundID2,1.0f,1.0f,0,0,1.0f)
             binding?.btnNext?.setOnClickListener {
                 bundle.putInt("chapterNumber", chapterNumber!!)
 
