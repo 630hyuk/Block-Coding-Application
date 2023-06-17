@@ -263,6 +263,13 @@ class FourChooseQuizTwoFragment : Fragment() {
         binding?.btnEx4?.text = example4
 
         binding?.imgQuestionFour?.setImageBitmap(repo.getImage(stage, chapter, pn))
+
+        if(chapter == 6){
+            binding?.btnEx1?.textSize = 17F
+            binding?.btnEx2?.textSize = 17F
+            binding?.btnEx3?.textSize = 17F
+            binding?.btnEx4?.textSize = 17F
+        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

@@ -262,6 +262,28 @@ class FourChooseQuizThreeFragment : Fragment() {
 
         binding?.imgQuestionFour?.setImageBitmap(repo.getImage(stage, chapter, pn))
 
+        if(chapter == 3 && pn == 2){
+            binding?.btnEx1?.textSize = 20F
+            binding?.btnEx2?.textSize = 20F
+            binding?.btnEx3?.textSize = 20F
+            binding?.btnEx4?.textSize = 20F
+        }
+
+        if(chapter == 5){
+            if(pn == 2){
+                binding?.btnEx1?.textSize = 14F
+                binding?.btnEx2?.textSize = 14F
+                binding?.btnEx3?.textSize = 14F
+                binding?.btnEx4?.textSize = 14F
+            }
+
+            if(pn == 3){
+                binding?.btnEx1?.textSize = 17F
+                binding?.btnEx2?.textSize = 17F
+                binding?.btnEx3?.textSize = 17F
+                binding?.btnEx4?.textSize = 17F
+            }
+        }
     }
 
     fun selectExample(example: String, question: String) {  //이 함수는 버튼을 클릭했을 때, 사용하는 함수입니다.

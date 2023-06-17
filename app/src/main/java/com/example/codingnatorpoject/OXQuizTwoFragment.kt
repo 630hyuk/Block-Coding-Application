@@ -144,6 +144,11 @@ class OXQuizTwoFragment : Fragment() {
 
         binding?.imgQuestionOX?.setImageBitmap(repo.getImage(stage, chapter, pn))
 
+        if(chapter == 1){
+            binding?.btnO?.textSize = 25F
+            binding?.btnX?.textSize = 25F
+        }
+
         if(pn == 4 || pn ==8){
             binding?.btnO?.textSize = 40F
             binding?.btnX?.textSize = 40F
